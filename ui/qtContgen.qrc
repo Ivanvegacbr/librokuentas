@@ -1,0 +1,50 @@
+<!DOCTYPE RCC><RCC version="1.0"> 
+<qresource>
+    <file>images/refresh.svg</file>
+    <file>images/wizard.svg</file>
+    <file>images/view-fullscreen.svg</file>
+    <file>images/view-restore.svg</file>
+    <file>images/diferenta.svg</file>
+    <file>images/wait.svg</file>
+    <file>images/day.svg</file>
+    <file>images/week.svg</file>
+    <file>images/month.svg</file>
+    <file>images/year.svg</file>
+    <file>images/procent.svg</file>
+    <file>images/formule.svg</file>
+    <file>images/card.svg</file>
+    <file>images/detalii.svg</file>
+    <file>images/account.svg</file>
+    <file>images/address.svg</file>
+    <file>images/add.svg</file>
+    <file>images/add1.svg</file>
+    <file>images/back.svg</file>
+    <file>images/calc.svg</file>
+    <file>images/card.svg</file>
+    <file>images/config.svg</file>
+    <file>images/contgen.ico</file>
+    <file>images/contgen.png</file>
+    <file>images/date.svg</file>
+    <file>images/debit-credit.svg</file>
+    <file>images/delete.svg</file>
+    <file>images/edit.svg</file>
+    <file>images/exit.svg</file>
+    <file>images/font.svg</file>
+    <file>images/formule.svg</file>
+    <file>images/gear.svg</file>
+    <file>images/home.svg</file>
+    <file>images/journal.svg</file>
+    <file>images/cancel.svg</file>
+    <file>images/list.svg</file>
+    <file>images/morewin.svg</file>
+    <file>images/ok.svg</file>
+    <file>images/pdf.svg</file>
+    <file>images/people.svg</file>
+    <file>images/preview.svg</file>
+    <file>images/printer.svg</file>
+    <file>images/print-preview.svg</file>
+    <file>images/quit.svg</file>
+    <file>images/search.svg</file>
+</qresource>
+</RCC>
+

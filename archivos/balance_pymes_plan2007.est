@@ -1,0 +1,53 @@
+BALANCE PYMES PLAN 2007	BALANCE DE PYMES AL CIERRE DEL EJERCICIO	ACTIVO	PATRIMONIO NETO Y PASIVO			2000-01-01			APERTURA SIN_ASIGNAR REGULARIZACION	false	0.00	0.00	false	true	Nota	
+BALANCE PYMES PLAN 2007	A) ACTIVO NO CORRIENTE	true	A	A	{A.1(1)}+{A.2(1)}+{A.3(1)}+{A.4(1)}+{A.5(1)}+{A.6(1)}	0	0	false	
+BALANCE PYMES PLAN 2007	I. Inmovilizado intangible	true	1	A.1	[20]+[280]+[290]	0	0	false	
+BALANCE PYMES PLAN 2007	II. Inmovilizado material	true	2	A.2	[21]+[281]+[291]+[23]	0	0	false	
+BALANCE PYMES PLAN 2007	III. Inversiones inmobiliarias	true	3	A.3	[22]+[282]+[292]	0	0	false	
+BALANCE PYMES PLAN 2007	IV. Inversiones en empresas del grupo y asociadas a largo plazo	true	4	A.4	[2403]+[2404]+[2413]+[2414]+[2423]+[2424]+[2493]+[2494]+[2933]+[2934]+[2943]+[2944] + [2953] + [2954]	0	0	false	
+BALANCE PYMES PLAN 2007	V. Inversiones financieras a largo plazo	true	5	A.5	[2405]+[2415]+[2425]+ [2495]  +[250]+[251]+[252]+[253]+[254] +[255]+[258]+[259]+[26]+[2935]+[2945]+ [2955]+ [296]+ [297]+ [298]	0	0	false	
+BALANCE PYMES PLAN 2007	VI. Activos por impuesto diferido	true	6	A.6	[474]	0	0	false	
+BALANCE PYMES PLAN 2007	B) ACTIVO CORRIENTE	true	B	B	{B.1(1)}+{B.2(1)}+{B.3(1)}+{B.4(1)}+{B.5(1)}+{B.6(1)}	0	0	false	
+BALANCE PYMES PLAN 2007	I. Existencias	true	1	B.1	[30]+[31]+[32]+[33]+[34]+[35]+[36]+[39]+[407]	0	0	false	
+BALANCE PYMES PLAN 2007	II. Deudores comerciales y otras cuentas a cobrar	true	2	B.2	{B.2.1(1)}+{B.2.2(1)}+{B.2.3(1)}	0	0	false	
+BALANCE PYMES PLAN 2007	1. Clientes por ventas y Prestaciones de servicios	true	1	B.2.1	[430]+[431]+[432]+[433]+[434]+[435]+[436]+[437]+[490]+[493]	0	0	false	
+BALANCE PYMES PLAN 2007	2. Accionistas (socios) por desembolsos exigidos	true	2	B.2.2	[5580]	0	0	false	
+BALANCE PYMES PLAN 2007	3. Otros deudores	true	3	B.2.3	[44]+[460]+[470]+[471]+[472]+[544]	0	0	false	
+BALANCE PYMES PLAN 2007	III. Inversiones en empresas del grupo y asociadas a corto  plazo	true	3	B.3	[5303]+[5304]+[5313]+[5314]+[5323]+[5324]+[5333]+[5334]+[5343]+[5344]+[5353]+[5354]+[5393]+[5394]+[5523]+ [5524]+ [5933]+[5934]+ [5943]+[5944]+[5953]+[5954]	0	0	false	
+BALANCE PYMES PLAN 2007	IV. Inversiones financieras a corto plazo	true	4	B.4	[5305]+[5315]+[5325]+[5335]+[5345]+[5355]+[5395]+[540]+[541]+[542]+[543]+[545]+[546]+[547]+[548]+[549]+[551+] +[5525+] +[5590]+[565]+[566]+[5935]+[5945]+[5955]+[596]+[597]+[598]	0	0	false	
+BALANCE PYMES PLAN 2007	V. Periodificaciones a corto plazo	true	5	B.5	[480]+[567]	0	0	false	
+BALANCE PYMES PLAN 2007	VI. Efectivo y otros activos líquidos equivalentes	true	6	B.6	[57]	0	0	false	
+BALANCE PYMES PLAN 2007	TOTAL ACTIVO (A+B)	true	TOTAL	TOTAL	{A(1)}+{B(1)}	0	0	false	
+BALANCE PYMES PLAN 2007	A) PATRIMONIO NETO	false	A	A	{A.1(2)}+{A.2(2)}	0	0	false	
+BALANCE PYMES PLAN 2007	A-1) Fondos propios	false	1	A.1	{A.1.1(2)}+{A.1.2(2)}+{A.1.3(2)}+{A.1.4(2)}+{A.1.5(2)}+{A.1.6(2)}+{A.1.7(2)}+{A.1.8(2)}	0	0	false	
+BALANCE PYMES PLAN 2007	I. Capital	false	1	A.1.1	{A.1.1.1(2)}+{A.1.1.2(2)}	0	0	false	
+BALANCE PYMES PLAN 2007	1. Capital escriturado	false	1	A.1.1.1	-[100]-[101]-[102]	0	0	false	
+BALANCE PYMES PLAN 2007	2. Capital no exigido	false	2	A.1.1.2	-[1030]-[1040]	0	0	false	
+BALANCE PYMES PLAN 2007	II. Prima de emisión	false	2	A.1.2	-[110]	0	0	false	
+BALANCE PYMES PLAN 2007	III. Reservas	false	3	A.1.3	-[112]-[113]-[114]-[119]	0	0	false	
+BALANCE PYMES PLAN 2007	IV. Acciones y participaciones en patrimonio propias	false	4	A.1.4	-[108]-[109]	0	0	false	
+BALANCE PYMES PLAN 2007	V. Resultados de ejercicios anteriores	false	5	A.1.5	-[120]-[121]	0	0	false	
+BALANCE PYMES PLAN 2007	VI. Otras aportaciones de socios	false	6	A.1.6	-[118]	0	0	false	
+BALANCE PYMES PLAN 2007	VII. Resultado del ejercicio	false	7	A.1.7	-[129]	0	0	false	
+BALANCE PYMES PLAN 2007	VIII. Dividendo a cuenta	false	8	A.1.8	-[557]	0	0	false	
+BALANCE PYMES PLAN 2007	A-2) Subvenciones, donaciones y legados recibidos	false	2	A.2	-[130]-[131]-[132]	0	0	false	
+BALANCE PYMES PLAN 2007	B) PASIVO NO CORRIENTE	false	B	B	{B.1(2)}+{B.2(2)}+{B.3(2)}+{B.4(2)}+{B.5(2)}	0	0	false	
+BALANCE PYMES PLAN 2007	I. Provisiones a largo plazo	false	1	B.1	-[14]	0	0	false	
+BALANCE PYMES PLAN 2007	II. Deudas a largo plazo	false	2	B.2	{B.2.1(2)}+{B.2.2(2)}+{B.2.3(2)}	0	0	false	
+BALANCE PYMES PLAN 2007	1. Deudas con entidades de crédito	false	1	B.2.1	-[1605]-[170]	0	0	false	
+BALANCE PYMES PLAN 2007	2. Acreedores por arrendamiento financiero	false	2	B.2.2	-[1625]-[174]	0	0	false	
+BALANCE PYMES PLAN 2007	3. Otras deudas a largo plazo	false	3	B.2.3	-[1615]-[1635]-[171]-[172]-[173]-[175]-[176]-[177]-[179]-[180]-[185]	0	0	false	
+BALANCE PYMES PLAN 2007	III. Deudas con empresas del grupo y asociadas a largo plazo	false	3	B.3	-[1603]-[1604]-[1613]-[1614]-[1623]-[1624]-[1633]-[1634]	0	0	false	
+BALANCE PYMES PLAN 2007	IV. Pasivos por impuesto diferido	false	4	B.4	-[479]	0	0	false	
+BALANCE PYMES PLAN 2007	V. Periodificaciones a largo plazo	false	5	B.5	-[181]	0	0	false	
+BALANCE PYMES PLAN 2007	C) PASIVO CORRIENTE	false	C	C	{C.1(2)}+{C.2(2)}+{C.3(2)}+{C.4(2)}+{C.5(2)}	0	0	false	
+BALANCE PYMES PLAN 2007	I. Provisiones a corto plazo	false	1	C.1	-[499]-[529]	0	0	false	
+BALANCE PYMES PLAN 2007	II. Deudas a corto plazo	false	2	C.2	{C.2.1(2)}+{C.2.2(2)}+{C.2.3(2)}	0	0	false	
+BALANCE PYMES PLAN 2007	1. Deudas con entidades de crédito	false	1	C.2.1	-[5105]-[520]-[527]	0	0	false	
+BALANCE PYMES PLAN 2007	2. Acreedores por arrendamiento financiero	false	2	C.2.2	-[5125]-[524]	0	0	false	
+BALANCE PYMES PLAN 2007	3. Otras deudas a corto plazo	false	3	C.2.3	-[1034]-[1044]-[190]-[192]-[194]-[500]-[505]-[506]-[509]-[5115]-[5135]-[5145]-[521]-[522]-[523]-[525]-[526]-[528]-[551-]-[5525-]- [555]- [5565] -[5566]-[5595]-[560]-[561]	0	0	false	
+BALANCE PYMES PLAN 2007	III. Deudas con empresas del grupo y asociadas a corto plazo	false	3	C.3	-[5103]-[5104]-[5113]-[5114]-[5123]-[5124]-[5133]-[5134]-[5143]-[5144]-[5523]-[5524]-[5563]-[5564]	0	0	false	
+BALANCE PYMES PLAN 2007	IV. Acreedores comerciales y otras cuentas a pagar	false	4	C.4	{C.4.1(2)}+{C.4.2(2)}	0	0	false	
+BALANCE PYMES PLAN 2007	1. Proveedores	false	1	C.4.1	-[400]-[401]-[403]-[404]-[405]-[406]	0	0	false	
+BALANCE PYMES PLAN 2007	2. Otros acreedores	false	2	C.4.2	-[41]-[438]-[465]-[475]-[476]-[477]	0	0	false	
+BALANCE PYMES PLAN 2007	V. Periodificaciones	false	5	C.5	-[485]-[568]	0	0	false	
+BALANCE PYMES PLAN 2007	TOTAL PATRIMONIO NETO Y PASIVO (A + B + C)	false	TOTAL	TOTAL	{A(2)}+{B(2)}+{C(2)}	0	0	false	

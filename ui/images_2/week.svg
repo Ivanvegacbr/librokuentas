@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="128"
+   height="128"
+   id="svg1371"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docbase="/tmp"
+   sodipodi:docname="week1.svg"
+   inkscape:export-filename="/home/silvestre/Gion/PNGs/text-x-generic.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0">
+  <defs
+     id="defs1373">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 24 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="48 : 24 : 1"
+       inkscape:persp3d-origin="24 : 16 : 1"
+       id="perspective34043" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4137">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop4139" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop4141" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2198">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop2200" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop2202" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2198"
+       id="linearGradient2204"
+       x1="5.2010446"
+       y1="70.319626"
+       x2="5.2010446"
+       y2="54.050976"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4137"
+       id="linearGradient4143"
+       x1="22.884989"
+       y1="29.59911"
+       x2="22.884989"
+       y2="46.639858"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="4.5078125"
+     inkscape:cx="25.844021"
+     inkscape:cy="64"
+     inkscape:current-layer="layer4"
+     showgrid="false"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     inkscape:window-width="1440"
+     inkscape:window-height="805"
+     inkscape:window-x="0"
+     inkscape:window-y="49"
+     inkscape:showpageshadow="false"
+     showborder="true" />
+  <metadata
+     id="metadata1376">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Text Generic</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Silvestre Herrera</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/GPL/2.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/GPL/2.0/">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/Notice" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/ShareAlike" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/SourceCode" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="contents" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="lights" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="info">
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#006400;fill-opacity:1;stroke:#287231;stroke-width:1.00767267000000005;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path2193"
+       sodipodi:cx="31"
+       sodipodi:cy="37"
+       sodipodi:rx="11.588235"
+       sodipodi:ry="11.588235"
+       d="M 42.588235,37 A 11.588235,11.588235 0 1 1 19.411765,37 A 11.588235,11.588235 0 1 1 42.588235,37 z"
+       transform="matrix(5.2780521,0,0,5.2780521,-99.539622,-131.58686)" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#008000;fill-opacity:1;stroke:url(#linearGradient4143);stroke-width:1.10364151000000010;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.44725736999999999"
+       id="path3166"
+       sodipodi:cx="31"
+       sodipodi:cy="37"
+       sodipodi:rx="11.588235"
+       sodipodi:ry="11.588235"
+       d="M 42.588235,37 A 11.588235,11.588235 0 1 1 19.411765,37 A 11.588235,11.588235 0 1 1 42.588235,37 z"
+       transform="matrix(4.6416039,0,0,4.6416039,-79.809732,-108.03828)" />
+    <path
+       style="opacity:0.50000000000000000;fill:#005800;fill-opacity:1;stroke:none;stroke-width:1.10364151000000010;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:0.44725736999999999"
+       d="M 110.18398,50.894395 C 110.18398,72.102234 89.529388,79.06906 64.079982,79.06906 C 38.630578,79.06906 17.97599,72.102234 17.97599,50.894395 C 17.97599,29.686555 38.630578,12.474399 64.079982,12.474399 C 89.529388,12.474399 110.18398,29.686555 110.18398,50.894395 z"
+       id="path4145"
+       sodipodi:nodetypes="csssc" />
+    <path
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Palladio L;-inkscape-font-specification:URW Palladio L"
+       d="M 48.038743,78.641756 L 41.105629,46.259035 C 40.936528,45.498083 40.851978,44.737129 40.851978,44.06073 C 40.851978,43.046128 42.03568,42.031525 43.388484,41.946975 L 46.939592,41.693325 L 46.939592,38.564968 C 36.624479,38.818619 36.624466,38.818619 35.609866,38.818619 C 35.609866,38.818619 22.420037,38.564968 22.420037,38.564968 L 22.420037,41.693325 L 25.125643,41.946975 C 26.732094,42.116076 27.662148,43.130679 28.253999,45.498083 L 40.006476,96.397296 L 45.924989,96.397296 C 48.461492,89.379636 49.137896,87.688625 49.898849,85.828522 L 63.004127,55.813206 L 75.602104,87.519526 C 76.193956,89.125978 76.701257,90.309685 77.377659,92.338887 C 78.138608,94.452639 78.138611,94.621742 78.815012,96.397296 L 84.987181,96.397296 C 86.678181,88.703236 87.185481,86.504923 87.777331,84.30662 L 98.092456,47.780938 C 99.191606,43.891632 100.29077,42.116076 101.72812,41.946975 L 104.51827,41.693325 L 104.51827,38.564968 C 96.063255,38.818619 96.063244,38.818619 95.217744,38.818619 C 94.372243,38.818619 92.934893,38.818619 90.736593,38.734068 C 90.144743,38.649517 88.284631,38.649517 86.255431,38.564968 L 86.255431,41.693325 L 90.144743,41.946975 C 92.089393,42.031525 93.103994,42.707928 93.103994,43.89163 C 93.103994,44.737129 93.019443,45.498083 92.765793,46.428135 L 84.56443,78.388106 L 72.981049,49.387392 C 71.628246,46.089937 70.613642,43.215222 68.838089,38.142217 L 65.033332,38.142217 L 63.173227,42.623377 C 62.327725,44.652579 61.566772,46.681788 60.721272,48.62644 L 48.038743,78.641756"
+       id="text3459" />
+  </g>
+</svg>

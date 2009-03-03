@@ -1,0 +1,1141 @@
+<ui version="4.0" >
+ <author>José Manuel Díez Botella</author>
+ <class>Mrconta</class>
+ <widget class="QMainWindow" name="Mrconta" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>708</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>LibroKuentas</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="keme.qrc" >
+    <normaloff>:/graf/keme.png</normaloff>:/graf/keme.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget" >
+   <layout class="QVBoxLayout" >
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <property name="margin" >
+     <number>9</number>
+    </property>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuEmpresa" >
+    <property name="title" >
+     <string>&amp;Empresa</string>
+    </property>
+    <addaction name="actionConexi_n" />
+    <addaction name="actionEjercicios_contables" />
+    <addaction name="actionNuevaempresa" />
+    <addaction name="actionConfiguraci_n" />
+    <addaction name="actionSalir" />
+   </widget>
+   <widget class="QMenu" name="menuPlan" >
+    <property name="title" >
+     <string>&amp;Plan</string>
+    </property>
+    <addaction name="actionCuentas" />
+    <addaction name="actionSubcuentas" />
+    <addaction name="actionBusca_subcuenta" />
+    <addaction name="separator" />
+    <addaction name="actionExportar_plan" />
+    <addaction name="actionExportar_plan_con_subcuentas" />
+    <addaction name="actionImportar_plan" />
+   </widget>
+   <widget class="QMenu" name="menuDiario" >
+    <property name="title" >
+     <string>&amp;Diario</string>
+    </property>
+    <widget class="QMenu" name="menuAsientos_autom_ticos" >
+     <property name="title" >
+      <string>Semanas au&amp;tomáticas</string>
+     </property>
+     <addaction name="actionNuevo_asiento_autom" />
+     <addaction name="actionImportar_asiento" />
+    </widget>
+    <widget class="QMenu" name="menuFin_de_ejercicio" >
+     <property name="enabled" >
+      <bool>true</bool>
+     </property>
+     <property name="title" >
+      <string>Fin de e&amp;jercicio</string>
+     </property>
+     <addaction name="actionRegularizacion" />
+     <addaction name="actionMarcar_como_cerrado_ejercicio" />
+     <addaction name="actionCierre_de_ejercicio" />
+     <addaction name="actionDeshacer_cierre" />
+     <addaction name="actionAsiento_de_apertura" />
+    </widget>
+    <widget class="QMenu" name="menuOrdenar_por" >
+     <property name="title" >
+      <string>Ordenar por...</string>
+     </property>
+     <addaction name="actionOrden_numero" />
+     <addaction name="actionNumero_cuenta" />
+    </widget>
+    <addaction name="actionNuevo_asiento" />
+    <addaction name="actionEditar_asiento" />
+    <addaction name="actionEditar_asiento_num" />
+    <addaction name="actionBorra_asiento" />
+    <addaction name="actionFiltrar_diario" />
+    <addaction name="actionCopiar" />
+    <addaction name="actionPegar" />
+    <addaction name="actionCortar" />
+    <addaction name="actionRefrescar" />
+    <addaction name="actionCargar_asiento_en_espera" />
+    <addaction name="actionImprimir_diario" />
+    <addaction name="actionDiario_resumen" />
+    <addaction name="actionConceptos" />
+    <addaction name="actionBusca_concepto" />
+    <addaction name="menuAsientos_autom_ticos" />
+    <addaction name="menuFin_de_ejercicio" />
+    <addaction name="actionTipos_diario" />
+    <addaction name="menuOrdenar_por" />
+   </widget>
+   <widget class="QMenu" name="menuConsultas" >
+    <property name="title" >
+     <string>&amp;Consultas</string>
+    </property>
+    <addaction name="actionConsultas_de_mayor" />
+    <addaction name="actionImprime_mayor" />
+    <addaction name="actionBalance_de_sumas_y_saldos" />
+    <addaction name="actionAcumulados_mes" />
+    <addaction name="actionConsulta_plan" />
+    <addaction name="actionOperaciones" />
+   </widget>
+   <widget class="QMenu" name="menuVencimientos" >
+    <property name="title" >
+     <string>&amp;Vencimientos</string>
+    </property>
+    <addaction name="actionVencimientos_a_partir_diario" />
+    <addaction name="actionProcesar_vencimientos" />
+    <addaction name="actionVencimientosSemana" />
+   </widget>
+   <widget class="QMenu" name="menuIva" >
+    <property name="enabled" >
+     <bool>true</bool>
+    </property>
+    <property name="title" >
+     <string>&amp;Iva</string>
+    </property>
+    <addaction name="actionNuevo_registro_de_IVA_soportado" />
+    <addaction name="actionNuevo_registro_de_IVA_repercutido" />
+    <addaction name="actionAdquisici_n_intracomunitaria_de_bienes" />
+    <addaction name="actionEntrega_intracomunitaria_de_bienes" />
+    <addaction name="actionTipos_de_IVA" />
+    <addaction name="actionLibro_de_Facturas_Recibidas" />
+    <addaction name="actionLibro_de_Facturas_Emitidas" />
+    <addaction name="actionLibro_IVA_soportado_por_AIB" />
+    <addaction name="actionLibro_IVA_repercutido_por_AIB" />
+    <addaction name="actionLibro_de_entregas_intracomunitarias" />
+    <addaction name="actionLiquidaci_n_de_IVA" />
+    <addaction name="actionRelopiva" />
+   </widget>
+   <widget class="QMenu" name="menuUtilidades" >
+    <property name="title" >
+     <string>&amp;Utilidades</string>
+    </property>
+    <widget class="QMenu" name="menuImportar" >
+     <property name="title" >
+      <string>&amp;Importar</string>
+     </property>
+     <addaction name="actionImportar_asientos" />
+     <addaction name="actionEditar_equivalencias" />
+    </widget>
+    <widget class="QMenu" name="menuLibros_contables" >
+     <property name="title" >
+      <string>&amp;Libros contables</string>
+     </property>
+     <addaction name="actionAgrupar_TEX" />
+     <addaction name="actionConsulta_TEX" />
+     <addaction name="actionGenerar_PDF" />
+    </widget>
+    <widget class="QMenu" name="menuConversi_n_Plan_Contable" >
+     <property name="enabled" >
+      <bool>false</bool>
+     </property>
+     <property name="title" >
+      <string>Conver&amp;sión Plan Contable</string>
+     </property>
+     <addaction name="actionCargar_plan_nuevo" />
+     <addaction name="actionEditar_plan_nuevo" />
+     <addaction name="actionMover_subcuentas_en_plan_nuevo" />
+     <addaction name="actionBorrar_plan_nuevo" />
+    </widget>
+    <addaction name="actionPreferencias" />
+    <addaction name="menuImportar" />
+    <addaction name="actionAsignar_diario" />
+    <addaction name="actionIntercambiar_numeros" />
+    <addaction name="menuLibros_contables" />
+    <addaction name="actionBorrar_intervalo" />
+    <addaction name="actionIntercambiar_cuenta" />
+    <addaction name="actionCambiar_cuenta" />
+    <addaction name="actionEdita_pase" />
+    <addaction name="actionEditar_concepto_y_documento" />
+    <addaction name="actionCopia_seguridad" />
+    <addaction name="actionRectificar_saldos" />
+    <addaction name="menuConversi_n_Plan_Contable" />
+   </widget>
+   <widget class="QMenu" name="menuAyuda" >
+    <property name="title" >
+     <string>A&amp;yuda</string>
+    </property>
+    <addaction name="actionContenido" />
+    <addaction name="actionInformacion_conexion" />
+    <addaction name="actionAcerca_de" />
+    <addaction name="actionAcuerdo_de_licencia" />
+    <addaction name="actionAcuerdo_de_licencia_esp" />
+   </widget>
+   <addaction name="menuEmpresa" />
+   <addaction name="menuPlan" />
+   <addaction name="menuDiario" />
+   <addaction name="menuConsultas" />
+   <addaction name="menuVencimientos" />
+   <addaction name="menuIva" />
+   <addaction name="menuUtilidades" />
+   <addaction name="menuAyuda" />
+  </widget>
+  <widget class="QStatusBar" name="statusbar" />
+  <widget class="QToolBar" name="toolBar" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="orientation" >
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="iconSize" >
+    <size>
+     <width>31</width>
+     <height>31</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea" >
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak" >
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionSalir" />
+   <addaction name="separator" />
+   <addaction name="actionBalance_de_sumas_y_saldos" />
+   <addaction name="actionConsultas_de_mayor" />
+   <addaction name="separator" />
+   <addaction name="actionSubcuentas" />
+   <addaction name="actionConceptos" />
+   <addaction name="separator" />
+   <addaction name="actionNuevo_asiento" />
+   <addaction name="actionEditar_asiento" />
+   <addaction name="actionRefrescar" />
+   <addaction name="actionCargar_asiento_en_espera" />
+   <addaction name="separator" />
+   <addaction name="actionNuevo_registro_de_IVA_soportado" />
+   <addaction name="actionNuevo_registro_de_IVA_repercutido" />
+   <addaction name="separator" />
+   <addaction name="actionCopiar" />
+   <addaction name="actionCortar" />
+   <addaction name="actionPegar" />
+   <addaction name="separator" />
+   <addaction name="actionFiltrar_diario" />
+   <addaction name="actionImprimir_diario" />
+   <addaction name="separator" />
+   <addaction name="actionVencimientos_a_partir_diario" />
+   <addaction name="actionVencimientosSemana" />
+   <addaction name="actionProcesar_vencimientos" />
+   <addaction name="separator" />
+   <addaction name="actionNuevo_asiento_autom" />
+  </widget>
+  <action name="actionNuevaempresa" >
+   <property name="text" >
+    <string>&amp;Nueva empresa</string>
+   </property>
+   <property name="iconText" >
+    <string>nueva empresa</string>
+   </property>
+   <property name="toolTip" >
+    <string>nueva empresa</string>
+   </property>
+  </action>
+  <action name="actionConexi_n" >
+   <property name="text" >
+    <string>&amp;Conexión</string>
+   </property>
+  </action>
+  <action name="actionSalir" >
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/Door.png</normaloff>:/graf/Door.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Salir</string>
+   </property>
+  </action>
+  <action name="actionPreferencias" >
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/images/librok-18.png</normaloff>:/images/librok-18.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Preferencias</string>
+   </property>
+  </action>
+  <action name="actionFiltrar_diario" >
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/images/librok-29.png</normaloff>:/images/librok-29.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Filtrar diario</string>
+   </property>
+  </action>
+  <action name="actionCopiar" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/Copy.png</normaloff>:/graf/Copy.png</iconset>
+   </property>
+   <property name="text" >
+    <string>C&amp;opiar</string>
+   </property>
+  </action>
+  <action name="actionConfiguraci_n" >
+   <property name="text" >
+    <string>C&amp;onfiguración</string>
+   </property>
+  </action>
+  <action name="actionImportar_asientos" >
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/images/librok-1.png</normaloff>:/images/librok-1.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Importar semanas</string>
+   </property>
+  </action>
+  <action name="actionPegar" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/Paste.png</normaloff>:/graf/Paste.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Pegar</string>
+   </property>
+  </action>
+  <action name="actionRefrescar" >
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/images/librok-54.png</normaloff>:/images/librok-54.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Refrescar</string>
+   </property>
+  </action>
+  <action name="actionCortar" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/tijeras.png</normaloff>:/graf/tijeras.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Cortar</string>
+   </property>
+  </action>
+  <action name="actionCuentas" >
+   <property name="text" >
+    <string>&amp;Cuentas</string>
+   </property>
+  </action>
+  <action name="actionSubcuentas" >
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/subcuenta.png</normaloff>:/graf/subcuenta.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Subcuentas</string>
+   </property>
+  </action>
+  <action name="actionBusca_subcuenta" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Busca subcuenta</string>
+   </property>
+  </action>
+  <action name="actionNuevo_asiento" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/File.png</normaloff>:/graf/File.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Nueva semana</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionConceptos" >
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/concepto.png</normaloff>:/graf/concepto.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Co&amp;nceptos</string>
+   </property>
+  </action>
+  <action name="actionBusca_concepto" >
+   <property name="text" >
+    <string>B&amp;usca concepto</string>
+   </property>
+  </action>
+  <action name="actionNuevo_registro_de_IVA_soportado" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/soportado.png</normaloff>:/graf/soportado.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Nuevo registro de IVA &amp;soportado</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionNuevo_registro_de_IVA_repercutido" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/repercutido.png</normaloff>:/graf/repercutido.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Nuevo registro de IVA &amp;repercutido</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionAdquisici_n_intracomunitaria_de_bienes" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Adquisición intracomunitaria de bienes</string>
+   </property>
+  </action>
+  <action name="actionEntrega_intracomunitaria_de_bienes" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Entrega intracomunitaria de bienes</string>
+   </property>
+  </action>
+  <action name="actionC_digos_imputaci_n_primer_nivel" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>Códigos imputación &amp;primer nivel</string>
+   </property>
+  </action>
+  <action name="actionC_digos_imputaci_n_segundo_nivel" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>Códigos imputación &amp;segundo nivel</string>
+   </property>
+  </action>
+  <action name="actionC_digos_imputaci_n_tercer_nivel" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>Códigos imputación &amp;tercer nivel</string>
+   </property>
+  </action>
+  <action name="actionPrueba" >
+   <property name="text" >
+    <string>prueba</string>
+   </property>
+  </action>
+  <action name="actionConsultas_de_mayor" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/mayorg.xpm</normaloff>:/graf/mayorg.xpm</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Consultas de mayor</string>
+   </property>
+   <property name="shortcut" >
+    <string comment="Consultas|Mayor" >Ctrl+M</string>
+   </property>
+  </action>
+  <action name="actionEditar_asiento" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/images/journal.png</normaloff>:/images/journal.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Editar semana</string>
+   </property>
+  </action>
+  <action name="actionImprime_mayor" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Imprime mayor</string>
+   </property>
+  </action>
+  <action name="actionBalance_de_sumas_y_saldos" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/bss.png</normaloff>:/graf/bss.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Balance de sumas y saldos</string>
+   </property>
+  </action>
+  <action name="actionConsulta_imputaciones" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Consulta imputaciones</string>
+   </property>
+  </action>
+  <action name="actionNuevo_asiento_autom" >
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/images/librok-34.png</normaloff>:/images/librok-34.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Nueva semana automática</string>
+   </property>
+  </action>
+  <action name="actionEdicion_asiento_autom" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Edición asiento automático</string>
+   </property>
+  </action>
+  <action name="actionEjecutar_asiento_autom" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset>
+     <normaloff>:/graf/pad.png</normaloff>:/graf/pad.png</iconset>
+   </property>
+   <property name="text" >
+    <string>E&amp;jecutar asiento automático</string>
+   </property>
+  </action>
+  <action name="actionPlan_de_amortizaciones" >
+   <property name="text" >
+    <string>&amp;Plan de amortizaciones</string>
+   </property>
+  </action>
+  <action name="actionAsiento_de_amortizaciones" >
+   <property name="text" >
+    <string>&amp;Asiento de amortizaciones</string>
+   </property>
+  </action>
+  <action name="actionDiferencias_base_imponible" >
+   <property name="text" >
+    <string>&amp;Diferencias en base imponible I.S.</string>
+   </property>
+  </action>
+  <action name="actionHcodif" >
+   <property name="text" >
+    <string>&amp;Histórico de diferencias en amortizaciones</string>
+   </property>
+  </action>
+  <action name="actionInmovilizado_neto" >
+   <property name="text" >
+    <string>&amp;Inmovilizado neto</string>
+   </property>
+  </action>
+  <action name="actionEjercicios_contables" >
+   <property name="text" >
+    <string>&amp;Ejercicios contables</string>
+   </property>
+  </action>
+  <action name="actionVencimientos_a_partir_diario" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/images/librok-14.png</normaloff>:/images/librok-14.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Vencimientos a partir diario</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionProcesar_vencimientos" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/money.png</normaloff>:/graf/money.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Procesar vencimientos</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionExportar_plan" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Exportar plan</string>
+   </property>
+  </action>
+  <action name="actionExportar_plan_con_subcuentas" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>E&amp;xportar plan con subcuentas</string>
+   </property>
+  </action>
+  <action name="actionEditar_asiento_num" >
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/images/contgen2.png</normaloff>:/images/contgen2.png</iconset>
+   </property>
+   <property name="text" >
+    <string>E&amp;ditar semana número ...</string>
+   </property>
+  </action>
+  <action name="actionBorra_asiento" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/borrar.png</normaloff>:/graf/borrar.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Borra semana</string>
+   </property>
+   <property name="visible" >
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionImprimir_diario" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/Print.png</normaloff>:/graf/Print.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Imprimir diario</string>
+   </property>
+  </action>
+  <action name="actionDiario_resumen" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Diario resumen</string>
+   </property>
+  </action>
+  <action name="actionCargar_asiento_en_espera" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/clock.png</normaloff>:/graf/clock.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Ca&amp;rgar asiento en espera</string>
+   </property>
+  </action>
+  <action name="actionEjecutar_ult_autom" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>Ejec&amp;utar último asiento automático</string>
+   </property>
+  </action>
+  <action name="actionBorrar_asiento_autom" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Borrar asiento automático</string>
+   </property>
+  </action>
+  <action name="actionRegularizacion" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Regularización</string>
+   </property>
+  </action>
+  <action name="actionCierre_de_ejercicio" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Cierre de ejercicio</string>
+   </property>
+  </action>
+  <action name="actionDeshacer_cierre" >
+   <property name="text" >
+    <string>&amp;Deshacer cierre</string>
+   </property>
+  </action>
+  <action name="actionAsiento_de_apertura" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Asiento de apertura</string>
+   </property>
+  </action>
+  <action name="actionAcumulados_mes" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Acumulados mes</string>
+   </property>
+  </action>
+  <action name="actionConsulta_plan" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>C&amp;onsulta plan</string>
+   </property>
+  </action>
+  <action name="actionOperaciones" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/images/librok-20.png</normaloff>:/images/librok-20.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Volumen de operaciones</string>
+   </property>
+  </action>
+  <action name="actionVencimientosSemana" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/pago.png</normaloff>:/graf/pago.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Vencimientos de la &amp;Semana</string>
+   </property>
+  </action>
+  <action name="actionAsignar_vencimientos_cuentas_a_cobrar" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/cobro.png</normaloff>:/graf/cobro.png</iconset>
+   </property>
+   <property name="text" >
+    <string>A&amp;signar vencimientos, cuentas a cobrar</string>
+   </property>
+  </action>
+  <action name="actionVencimientos_anulados" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>V&amp;encimientos anulados</string>
+   </property>
+  </action>
+  <action name="actionTipos_de_IVA" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Tipos de IVA</string>
+   </property>
+  </action>
+  <action name="actionLibro_de_Facturas_Recibidas" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Libro de Facturas Recibidas</string>
+   </property>
+  </action>
+  <action name="actionLibro_de_Facturas_Emitidas" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>L&amp;ibro de Facturas Emitidas</string>
+   </property>
+  </action>
+  <action name="actionLibro_IVA_soportado_por_AIB" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>Li&amp;bro IVA soportado por AIB</string>
+   </property>
+  </action>
+  <action name="actionLibro_IVA_repercutido_por_AIB" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>Libr&amp;o IVA repercutido por AIB</string>
+   </property>
+  </action>
+  <action name="actionLibro_de_entregas_intracomunitarias" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>Libro &amp;de entregas intracomunitarias</string>
+   </property>
+  </action>
+  <action name="actionLiquidaci_n_de_IVA" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>Li&amp;quidación de IVA</string>
+   </property>
+  </action>
+  <action name="actionRelopiva" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>Rela&amp;ción de operaciones según libros IVA</string>
+   </property>
+  </action>
+  <action name="actionBorrar_estado_contable" >
+   <property name="text" >
+    <string>&amp;Borrar estado contable</string>
+   </property>
+  </action>
+  <action name="actionExportar_estado_contable" >
+   <property name="text" >
+    <string>E&amp;xportar estado contable</string>
+   </property>
+  </action>
+  <action name="actionImportar_estado_contable" >
+   <property name="text" >
+    <string>&amp;Importar estado contable</string>
+   </property>
+  </action>
+  <action name="actionLibera_calculo" >
+   <property name="text" >
+    <string>&amp;Libera cálculo saldos medios</string>
+   </property>
+  </action>
+  <action name="actionRenumerar_asientos" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Renumerar asientos</string>
+   </property>
+  </action>
+  <action name="actionIntercambiar_numeros" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>I&amp;ntercambiar números de asiento</string>
+   </property>
+  </action>
+  <action name="actionAsignar_diario" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Asignar diario</string>
+   </property>
+  </action>
+  <action name="actionMarcar_como_cerrado_ejercicio" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Marcar como cerrado ejercicio</string>
+   </property>
+  </action>
+  <action name="actionAgrupar_TEX" >
+   <property name="text" >
+    <string>&amp;Agrupar ficheros TEX en libro</string>
+   </property>
+  </action>
+  <action name="actionConsulta_TEX" >
+   <property name="text" >
+    <string>&amp;Consulta ficheros TEX</string>
+   </property>
+  </action>
+  <action name="actionGenerar_PDF" >
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/images/librok-43.png</normaloff>:/images/librok-43.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Generar PDF</string>
+   </property>
+  </action>
+  <action name="actionImprimir_TEX" >
+   <property name="text" >
+    <string>Imprimir TEX</string>
+   </property>
+  </action>
+  <action name="actionBorrar_intervalo" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Borrar intervalo de asientos</string>
+   </property>
+  </action>
+  <action name="actionIntercambiar_cuenta" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>In&amp;tercambiar cuenta en diario</string>
+   </property>
+  </action>
+  <action name="actionCambiar_cuenta" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Cambiar cuenta a apunte</string>
+   </property>
+  </action>
+  <action name="actionEdita_pase" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Edita pase</string>
+   </property>
+  </action>
+  <action name="actionEditar_concepto_y_documento" >
+   <property name="text" >
+    <string>E&amp;ditar concepto y documento en pase</string>
+   </property>
+  </action>
+  <action name="actionCopia_seguridad" >
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/graf/gz.png</normaloff>:/graf/gz.png</iconset>
+   </property>
+   <property name="text" >
+    <string>C&amp;opia seguridad</string>
+   </property>
+  </action>
+  <action name="actionRectificar_saldos" >
+   <property name="text" >
+    <string>Recti&amp;ficar saldos</string>
+   </property>
+  </action>
+  <action name="actionContenido" >
+   <property name="text" >
+    <string>&amp;Contenido</string>
+   </property>
+  </action>
+  <action name="actionInformacion_conexion" >
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/images/librok-33.png</normaloff>:/images/librok-33.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Información de la conexión</string>
+   </property>
+  </action>
+  <action name="actionAcerca_de" >
+   <property name="text" >
+    <string>&amp;Acerca de</string>
+   </property>
+  </action>
+  <action name="actionAcuerdo_de_licencia" >
+   <property name="text" >
+    <string>Ac&amp;uerdo de licencia</string>
+   </property>
+  </action>
+  <action name="actionAcuerdo_de_licencia_esp" >
+   <property name="text" >
+    <string>Acuerdo de licencia en &amp;español</string>
+   </property>
+  </action>
+  <action name="actionCargar_plan_nuevo" >
+   <property name="text" >
+    <string>&amp;Cargar plan nuevo</string>
+   </property>
+  </action>
+  <action name="actionEditar_plan_nuevo" >
+   <property name="text" >
+    <string>&amp;Editar plan nuevo</string>
+   </property>
+  </action>
+  <action name="actionEditar_equivalencias" >
+   <property name="text" >
+    <string>E&amp;ditar equivalencias</string>
+   </property>
+  </action>
+  <action name="actionConvertir" >
+   <property name="text" >
+    <string>Convertir</string>
+   </property>
+  </action>
+  <action name="actionMover_subcuentas_en_plan_nuevo" >
+   <property name="text" >
+    <string>&amp;Sustituir subcuentas </string>
+   </property>
+  </action>
+  <action name="actionBorrar_plan_nuevo" >
+   <property name="text" >
+    <string>&amp;Borrar plan nuevo</string>
+   </property>
+  </action>
+  <action name="actionOrden_numero" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Orden por nú&amp;mero de asiento</string>
+   </property>
+  </action>
+  <action name="actionExportar_asiento" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>E&amp;xportar asiento automático</string>
+   </property>
+  </action>
+  <action name="actionImportar_asiento" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="keme.qrc" >
+     <normaloff>:/lacaixa.png</normaloff>:/lacaixa.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Importar asiento automático</string>
+   </property>
+  </action>
+  <action name="actionTipos_diario" >
+   <property name="text" >
+    <string>&amp;Tipos de diario</string>
+   </property>
+  </action>
+  <action name="actionEditar_presupuesto" >
+   <property name="text" >
+    <string>Editar presupuesto, &amp;subcuentas</string>
+   </property>
+  </action>
+  <action name="actionPeriodos" >
+   <property name="text" >
+    <string>Períodos ejercicio</string>
+   </property>
+  </action>
+  <action name="actionEditar_pres_cuentas" >
+   <property name="text" >
+    <string>Editar presupuesto, c&amp;uentas</string>
+   </property>
+  </action>
+  <action name="actionPrevisiones_realizaciones_subcuentas" >
+   <property name="text" >
+    <string>&amp;Previsiones-realizaciones subcuentas</string>
+   </property>
+  </action>
+  <action name="actionPrevisiones_realizaciones_cuentas" >
+   <property name="text" >
+    <string>P&amp;revisiones-realizaciones cuentas</string>
+   </property>
+  </action>
+  <action name="actionImportar_plan" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Importar plan</string>
+   </property>
+  </action>
+  <action name="actionNumero_cuenta" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Ordenar por subcuenta</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="keme.qrc" />
+ </resources>
+ <connections/>
+</ui>

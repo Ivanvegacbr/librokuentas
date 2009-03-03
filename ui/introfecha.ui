@@ -1,0 +1,137 @@
+<ui version="4.0" >
+ <author>José Manuel Díez Botella</author>
+ <class>introfecha</class>
+ <widget class="QDialog" name="introfecha" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>280</width>
+    <height>248</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Fecha operación</string>
+  </property>
+  <layout class="QGridLayout" >
+   <item row="0" column="0" >
+    <widget class="QCalendarWidget" name="calendario" >
+     <property name="firstDayOfWeek" >
+      <enum>Qt::Monday</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" >
+    <widget class="Line" name="line_2" >
+     <property name="lineWidth" >
+      <number>2</number>
+     </property>
+     <property name="midLineWidth" >
+      <number>0</number>
+     </property>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" >
+    <layout class="QHBoxLayout" >
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="acpetarpushButton" >
+       <property name="text" >
+        <string>&amp;Aceptar</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="libroK.qrc" >
+         <normaloff>:/images/librok-42.png</normaloff>:/images/librok-42.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cancelarpushButton" >
+       <property name="text" >
+        <string>&amp;Cancelar</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="libroK.qrc" >
+         <normaloff>:/images/librok-7.png</normaloff>:/images/librok-7.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="libroK.qrc" />
+ </resources>
+ <connections>
+  <connection>
+   <sender>acpetarpushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>introfecha</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>216</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>86</x>
+     <y>91</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancelarpushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>introfecha</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>297</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>260</x>
+     <y>57</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>calendario</sender>
+   <signal>clicked(QDate)</signal>
+   <receiver>introfecha</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>134</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>9</x>
+     <y>63</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

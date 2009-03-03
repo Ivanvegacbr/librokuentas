@@ -1,0 +1,150 @@
+<ui version="4.0" >
+ <author>José Manuel Díez Botella</author>
+ <class>imprimediario</class>
+ <widget class="QDialog" name="imprimediario" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>373</width>
+    <height>123</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Imprimir diario</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <property name="margin" >
+    <number>9</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" >
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QCheckBox" name="confiltrocheckBox" >
+       <property name="text" >
+        <string>Imprimir filtro</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="fechaactualcheckBox" >
+       <property name="text" >
+        <string>Imprimir fecha actual</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QProgressBar" name="progressBar" >
+     <property name="value" >
+      <number>0</number>
+     </property>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType" >
+        <enum>QSizePolicy::Expanding</enum>
+       </property>
+       <property name="sizeHint" stdset="0" >
+        <size>
+         <width>51</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="imprimepushButton" >
+       <property name="text" >
+        <string>&amp;Imprimir</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="libroK.qrc" >
+         <normaloff>:/graf/Print.png</normaloff>:/graf/Print.png</iconset>
+       </property>
+       <property name="shortcut" >
+        <string>Alt+I</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="visualizarpushButton" >
+       <property name="text" >
+        <string>&amp;Visualizar</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="libroK.qrc" >
+         <normaloff>:/images/librok-36.png</normaloff>:/images/librok-36.png</iconset>
+       </property>
+       <property name="shortcut" >
+        <string>Alt+V</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="salirpushButton" >
+       <property name="text" >
+        <string>&amp;Salir</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="libroK.qrc" >
+         <normaloff>:/images/librok-52.png</normaloff>:/images/librok-52.png</iconset>
+       </property>
+       <property name="shortcut" >
+        <string>Alt+S</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <includes/>
+ <resources>
+  <include location="libroK.qrc" />
+ </resources>
+ <connections>
+  <connection>
+   <sender>salirpushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>imprimediario</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,914 @@
+1	DISPONIBILIDADES
+11	Caixa:
+111	Caixa A.
+112	Caixa B.
+119	Transferências de caixa.
+12	Depósitos à ordem:
+121	Banco X
+122	Banco Y
+123	Banco Z
+13	Depósitos a prazo:
+131	Banco X
+14	Outros depósitos bancários:
+141	Banco X
+15	Títulos negociáveis:
+151	Acções:
+1511	Empresas do grupo.
+1512	Empresas associadas.
+1513	Outras empresas.
+152	Obrigações e títulos de participação:
+1521	Empresas do grupo.
+1522	Empresas associadas.
+1523	Outras empresas.
+153	Títulos da dívida pública.
+158	Instrumentos derivados
+1581	Margens em contratos de futuro
+15811	Em moeda nacional
+15812	Em moeda estrangeira
+15813	Em títulos
+15818	xxx 
+159	Outros títulos.
+18	Outras aplicações de tesouraria:
+19	Ajustamentos de aplicações de tesouraria:
+195	Títulos negociáveis:
+1951	Acções.
+1952	Obrigações e títulos de participação.
+1953	Títulos da dívida pública.
+1958	Instrumentos derivados
+19581	Margens em contrato de futuros )
+1959	Outros títulos.
+198	Outras aplicações de tesouraria.
+2	TERCEIROS
+21	Clientes:
+211	Clientes, c/c.
+2111	A curto prazo
+2112	A médio e longo prazo
+212	Clientes - Títulos a receber.
+2121	A curto prazo
+2122	A médio e longo prazo
+218	Clientes de cobrança duvidosa.
+219	Adiantamentos de clientes.
+2191	A curto prazo
+2192	A médio e longo prazo
+22	Fornecedores:
+221	Fornecedores, c/c.
+222	Fornecedores - Títulos a pagar.
+2221	A curto prazo
+2222	A médio e longo prazo
+228	Fornecedores - Facturas em recepção e conferência.
+229	Adiantamentos a fornecedores.
+23	Empréstimos obtidos:
+231	Empréstimos bancários.
+2311	A curto prazo
+2312	A médio e longo prazo
+232	Empréstimos por obrigações:
+2321	Convertíveis.
+23211	A curto prazo
+23212	A médio e longo prazo
+2322	Não convertíveis.
+23221	A curto prazo
+23222	A médio e longo prazo
+233	Empréstimos por títulos de participação.
+2331	A curto prazo
+2332	A médio e longo prazo
+239	Outros empréstimos obtidos.
+2391	A curto prazo
+2392	A médio e longo prazo
+24	Estado e outros entes públicos:
+241	Imposto sobre o rendimento.
+2411	Imposto corrente
+24111	Pagamentos por conta
+241111	Pagamento especial por conta
+241112	Pagamento por conta
+2412	Retenções na fonte efect. p/ terceiros
+24121	S/ rendimentos de capitais
+24122	S/ rendimentos prediais
+24123	S/ remuner. órgãos estatutários
+24129	S/ outros rendimentos
+242	Retenção de impostos sobre rendimentos.
+2421	Trabalho dependente.
+2422	Trabalho independente.
+2423	Capitais.
+2424	Prediais.
+2429	Sobre outros rendimentos.
+243	Imposto sobre o valor acrescentado (IVA):
+2431	IVA - Suportado:
+24311	Existências.
+243111	Aquisições em território nacional
+2431111	Continente
+24311111	Taxa Normal
+24311112	Taxa Intermédia
+24311113	Taxa Reduzida
+2431112	Região Autónoma da Madeira
+24311121	Taxa Normal
+24311122	Taxa Intermédia
+24311123	Taxa Reduzida
+2431113	Região Autónoma dos Açores
+24311131	Taxa Normal
+24311132	Taxa Intermédia
+24311133	Taxa Reduzida
+243112	Aquisições em países comunitários
+2431121	Taxa Normal
+2431122	Taxa Intermédia
+2431123	Taxa Reduzida
+243113	Aquisições em países terceiros
+2431131	Taxa Normal
+2431132	Taxa Intermédia
+2431133	Taxa Reduzida
+24312	Imobilizado.
+243121	Aquisições em território nacional
+2431211	Continente
+24312111	Taxa Normal
+24312112	Taxa Intermédia
+24312113	Taxa Reduzida
+2431212	Região Autónoma da Madeira
+24312121	Taxa Normal
+24312122	Taxa Intermédia
+24312123	Taxa Reduzida
+2431213	Região Autónoma dos Açores
+24312131	Taxa Normal
+24312132	Taxa Intermédia
+24312133	Taxa Reduzida
+243122	Aquisições em países comunitários
+2431221	Taxa Normal
+2431222	Taxa Intermédia
+2431223	Taxa Reduzida
+243123	Aquisições em países terceiros
+2431231	Taxa Normal
+2431232	Taxa Intermédia
+2431233	Taxa Reduzida
+24313	Outros bens e serviços.
+243131	Aquisições em território nacional
+2431311	Continente
+24313111	Taxa Normal
+24313112	Taxa Intermédia
+24313113	Taxa Reduzida
+2431312	Região Autónoma da Madeira
+24313121	Taxa Normal
+24313122	Taxa Intermédia
+24313123	Taxa Reduzida
+2431313	Região Autónoma dos Açores
+24313131	Taxa Normal
+24313132	Taxa Intermédia
+24313133	Taxa Reduzida
+243132	Aquisições em países comunitários
+2431321	Taxa Normal
+2431322	Taxa Intermédia
+2431323	Taxa Reduzida
+243133	Aquisições em países terceiros
+2431331	Taxa Normal
+2431332	Taxa Intermédia
+2431333	Taxa Reduzida
+2432	IVA - Dedutível:
+24321	Existências.
+243211	Aquisições em território nacional
+2432111	Continente
+24321111	Taxa Normal
+24321112	Taxa Intermédia
+24321113	Taxa Reduzida
+2432112	Região Autónoma da Madeira
+24321121	Taxa Normal
+24321122	Taxa Intermédia
+24321123	Taxa Reduzida
+2432113	Região Autónoma dos Açores
+24321131	Taxa Normal
+24321132	Taxa Intermédia
+24321133	Taxa Reduzida
+243212	Aquisições em países comunitários
+2432121	Taxa Normal
+2432122	Taxa Intermédia
+2432123	Taxa Reduzida
+243213	Aquisições em países terceiros
+2432131	Taxa Normal
+2432132	Taxa Intermédia
+2432133	Taxa Reduzida
+24322	Imobilizado.
+243221	Aquisições em território nacional
+2432211	Continente
+24322111	Taxa Normal
+24322112	Taxa Intermédia
+24322113	Taxa Reduzida
+2432212	Região Autónoma da Madeira
+24322121	Taxa Normal
+24322122	Taxa Intermédia
+24322123	Taxa Reduzida
+2432213	Região Autónoma dos Açores
+24322131	Taxa Normal
+24322132	Taxa Intermédia
+24322133	Taxa Reduzida
+243222	Aquisições em países comunitários
+2432221	Taxa Normal
+2432222	Taxa Intermédia
+2432223	Taxa Reduzida
+243223	Aquisições em países terceiros
+2432231	Taxa Normal
+2432232	Taxa Intermédia
+2432233	Taxa Reduzida
+24323	Outros bens e serviços.
+243231	Aquisições em território nacional
+2432311	Continente
+24323111	Taxa Normal
+24323112	Taxa Intermédia
+24323113	Taxa Reduzida
+24323114	Taxa Normal - Gásoleo
+2432312	Região Autónoma da Madeira
+24323121	Taxa Normal
+24323122	Taxa Intermédia
+24323123	Taxa Reduzida
+24323124	Taxa Normal - Gásoleo
+2432313	Região Autónoma dos Açores
+24323131	Taxa Normal
+24323132	Taxa Intermédia
+24323133	Taxa Reduzida
+24323134	Taxa Normal - Gásoleo
+243232	Aquisições em países comunitários
+2432321	Taxa Normal
+2432322	Taxa Intermédia
+2432323	Taxa Reduzida
+2432324	Taxa Normal - Gásoleo
+243233	Aquisições em países terceiros
+2432331	Taxa Normal
+2432332	Taxa Intermédia
+2432333	Taxa Reduzida
+2433	IVA - Liquidado
+24331	Operações gerais.
+243311	Transacções internas de bens e serviços
+2433111	Taxa Normal
+2433112	Taxa Intermédia
+2433113	Taxa Reduzida
+243312	Aquisições intracomunitárias de bens
+2433121	Taxa Normal
+2433122	Taxa Intermédia
+2433123	Taxa Reduzida
+243313	Aquisições de serviços
+24332	Autoconsumos e operações gratuitas.
+2434	IVA - Regularizações:
+24341	Mensais (ou trimestrais) a favor da empresa.
+24342	Mensais (ou trimestrais) a favor do Estado.
+24343	Anuais por cálculo do pro rata definitivo.
+24344	Anuais por variações dos pro rata definitivos.
+24345	Outras regularizações anuais.
+2435	IVA - Apuramento.
+2436	IVA - A pagar.
+2437	IVA - A recuperar.
+2438	IVA - Reembolsos pedidos.
+2439	IVA - Liquidações oficiosas.
+244	Restantes impostos.
+245	Contribuições para a Segurança Social.
+246	Tributos das autarquias locais.
+249	Outras tributações.
+25	Accionistas (sócios):
+251	Estado e outros entes públicos:
+2511	Empréstimos.
+2512	Adiantamentos por conta de lucros.
+2513	Resultados atribuídos.
+2514	Lucros disponíveis.
+2519	Outras operações.
+252	Empresas do grupo:
+2521	Empréstimos.
+25211	A curto prazo
+25212	A médio e longo prazo
+2522	Adiantamentos por conta de lucros
+25221	A curto prazo
+25222	A médio e longo prazo
+2523	Resultados atribuídos.
+25231	A curto prazo
+25232	A médio e longo prazo
+2524	Lucros disponíveis.
+25241	A curto prazo
+25242	A médio e longo prazo
+2529	Outras operações.
+25291	A curto prazo
+25292	A médio e longo prazo
+253	Empresas associadas:
+2531	Empréstimos.
+2532	Adiantamentos por conta de lucros.
+2533	Resultados atribuídos.
+2534	Lucros disponíveis.
+2539	Outras operações.
+254	Outras empresas participantes e participadas:
+2541	Empréstimos.
+2542	Adiantamentos por conta de lucros.
+2543	Resultados atribuídos.
+2544	Lucros disponíveis.
+2549	Outras operações.
+255	(Restantes) accionistas (sócios):
+2551	Empréstimos.
+2552	Adiantamentos por conta de lucros.
+2553	Resultados atribuídos.
+2554	Lucros disponíveis.
+2559	Outras operações.
+26	Outros devedores e credores:
+261	Fornecedores de imobilizado:
+2611	Fornecedores de imobilizado, c/c.
+26111	A curto prazo
+261111	Fornecedores nacionais
+26112	A médio e longo prazo
+261121	Fornecedores nacionais
+2612	Fornecedores de imobilizado - Títulos a pagar.
+26121	A curto prazo
+261211	Fornecedores nacionais
+26122	A médio e longo prazo
+261221	Fornecedores nacionais
+2613	Fornecedores de imobilizado - Contratos de leasing
+26131	A curto prazo
+261311	Fornecedores nacionais
+26132	A médio e longo prazo
+261321	Fornecedores nacionais
+2619	Adiantamentos a fornecedores de imobilizado.
+262	Pessoal:
+2621	Remunerações - a pagar aos órgãos sociais.
+2622	Remunerações - a pagar ao pessoal.
+2623	Adiantamentos aos órgãos sociais.
+2624	Adiantamentos ao pessoal.
+2625	Cauções dos órgãos sociais.
+2626	Cauções do pessoal.
+2628	Outras operações com os órgãos sociais.
+2629	Outras operações com o pessoal.
+263	Sindicatos.
+264	Subscritores de capital:
+2641	Entidades públicas.
+2642	Entidades privadas.
+2649	Outras entidades.
+265	Credores por subscrições não liberadas.
+266	Obrigacionistas.
+267	Consultores, assessores e intermediários.
+268	Devedores e credores diversos.
+269	Adiantamentos por conta de vendas.
+27	Acréscimos e diferimentos:
+271	Acréscimos de proveitos.
+2711	Juros a receber.
+2719	Outros acréscimos de proveitos.
+272	Custos diferidos:
+2725	Custos de benefícios de reforma a amortizar
+2726	Descontos de emissão de obrigações.
+2727	Descontos de emissão de títulos de participação.
+2728	Diferenças de câmbio desfavoráveis:
+27281	Relacionadas com o financiamento do imobilizado em curso.
+27282	Outras.
+2729	Outros custos diferidos.
+273	Acréscimos de custos:
+2731	Seguros a liquidar.
+2732	Remunerações a liquidar.
+2733	Juros a liquidar.
+2738	Benefícios de reforma a liquidar.
+2739	Outros acréscimos de custos.
+274	Proveitos diferidos:
+2745	Subsídios para investimentos.
+2746	Prémios de emissão de obrigações.
+2747	Prémios de emissão de títulos de participação.
+2748	Diferenças de câmbio favoráveis:
+27481	Relacionadas com o financiamento do imobilizado em curso.
+27482	Outras.
+2749	Outros proveitos diferidos.
+275	Ajustes diários diferidos em contratos de futuros
+276	Activos e passivos por impostos diferidos sobre o rendimento
+2761	Activos por impostos diferidos
+2762	Passivos por impostos diferidos
+28	Ajustamentos de dívidas a receber:
+281	Dívidas de clientes.
+288	Outras dívidas de terceiros.
+29	Provisões.
+291	Pensões.
+292	Impostos.
+293	Processos judiciais em curso.
+294	Acidentes no trabalho e doenças profissionais.
+295	Garantias a clientes.
+298	Outras provisões
+3	EXISTÊNCIAS
+31	Compras:
+312	Mercadorias.
+316	Matérias-primas, subsidiárias e de consumo:
+3161	Matérias-primas.
+3162	Matérias subsidiárias.
+3163	Materiais diversos.
+3164	Embalagens de consumo.
+317	Devoluções de compras.
+318	Descontos e abatimentos em compras.
+319	xxx
+32	Mercadorias:
+321	Mercadorias.
+324	Embalagens.
+325	Mercadorias em trânsito.
+326	Mercadorias em poder de terceiros.
+329	xxx
+33	Produtos acabados e intermédios:
+336	Produtos em poder de terceiros.
+339	xxx
+34	Subprodutos, desperdícios. resíduos e refugos:
+341	Subprodutos.
+348	Desperdícios, resíduos e refugos.
+349	xxx
+35	Produtos e trabalhos em curso:
+36	Matérias-primas, subsidiárias e de consumo:
+361	Matérias-primas.
+362	Matérias subsidiárias.
+363	Materiais diversos.
+364	Embalagens de consumo.
+365	Matérias e materiais em trânsito.
+369	xxx
+37	Adiantamentos por conta de compras.
+372	Mercadorias.
+376	Matérias-primas, subsidiárias e de consumo.
+38	Regularização de existências:
+382	Mercadorias.
+383	Produtos acabados e intermédios.
+384	Subprodutos, desperdícios, resíduos e refugos.
+386	Matérias-primas, subsidiárias e de consumo.
+39	Ajustamentos de existências:
+392	Mercadorias.
+393	Produtos acabados e intermédios.
+394	Subprodutos, desperdícios, resíduos e refugos.
+395	Produtos e trabalhos em curso.
+396	Matérias-primas, subsidiárias e de consumo.
+4	IMOBILIZAÇÕES
+41	Investimentos financeiros:
+411	Partes de capital:
+4111	Empresas do grupo.
+4112	Empresas associadas.
+4113	Outras empresas.
+412	Obrigações e títulos de participação:
+4121	Empresas do grupo.
+4122	Empresas associadas.
+4123	Outras empresas.
+413	Empréstimos de financiamento:
+4131	Empresas do grupo.
+4132	Empresas associadas.
+4133	Outras empresas.
+414	Investimentos em imóveis:
+4141	Terrenos e recursos naturais.
+4142	Edifícios e outras construções.
+415	Outras aplicações financeiras:
+4151	Depósitos bancários.
+4152	Títulos da dívida pública.
+4153	Outros títulos.
+4154	Fundos.
+42	Imobilizações corpóreas:
+421	Terrenos e recursos naturais.
+422	Edifícios e outras construções.
+423	Equipamento básico.
+424	Equipamento de transporte.
+425	Ferramentas e utensílios.
+426	Equipamento administrativo.
+427	Taras e vasilhame:
+4271	Embalagens retornáveis.
+4279	Outras taras e outro vasilhame.
+429	Outras imobilizações corpóreas.
+43	Imobilizações incorpóreas:
+431	Despesas de instalação.
+432	Despesas de investigação e de desenvolvimento.
+433	Propriedade industrial e outros direitos.
+434	Trespasses.
+44	Imobilizações em curso:
+441	Obras em curso A.
+442	Obras em curso B.
+447	Adiantamentos por conta de investimentos financeiros.
+448	Adiantamentos por conta de imobilizações corpóreas.
+449	Adiantamentos por conta de imobilizações incorpóreas.
+48	Amortizações acumuladas:
+481	De investimentos em imóveis:
+4811	Terrenos e recursos naturais.
+4812	Edifícios e outras construções,
+482	De imobilizações corpóreas:
+4821	Terrenos e recursos naturais.
+4822	Edifícios e outras construções.
+4823	Equipamento básico.
+4824	Equipamento de transporte.
+4825	Ferramentas e utensílios.
+4826	Equipamento administrativo.
+4827	Taras e vasilhame.
+4829	Outras imobilizações corpóreas.
+483	De imobilizações incorpóreas:
+4831	Despesas de instalação.
+4832	Despesas de investigação e de desenvolvimento
+4833	Propriedade industrial e outros direitos.
+4834	Trespasses.
+49	Ajustamentos de investimentos financeiros:
+491	Partes de capital.
+492	Obrigações e títulos de participação.
+493	Empréstimos de financiamento.
+495	Outras aplicações financeiras.
+5	CAPITAL, RESERVAS E RESULTADOS TRANSITADOS
+51	Capital:
+52	Acções (quotas) próprias:
+521	Valor nominal
+522	Descontos e prémios
+53	Prestações suplementares:
+54	Prémios de emissão de acções (quotas):
+55	Ajustamentos de partes de capital em filiais e associadas:
+551	Ajustamentos de transição.
+552	Lucros não atribuídos
+553	Outras variações nos capitais próprios.
+554	Depreciações.
+56	Reservas de reavaliação:
+561	Decreto-Lei nº...
+5611	Reserva de reavaliação antes de impostos
+5612	Impostos diferidos relativos à reavaliação
+562	Decreto-Lei nº...
+5621	Reserva de reavaliação antes de impostos
+5622	Impostos diferidos relativos à reavaliação
+569	Outras.
+5691	Reserva de reavaliação antes de impostos
+5692	Impostos diferidos relativos à reavaliação
+57	Reservas:
+571	Reservas legais.
+572	Reservas estatutárias.
+573	Reservas contratuais.
+574	Reservas livres.
+575	Subsídios.
+576	Doações.
+59	Resultados transitados:
+6	CUSTOS E PERDAS
+61	Custo das mercadorias vendidas e das matérias consumadas:
+612	Mercadorias.
+616	Matérias-primas, subsidiárias e de consumo:
+6161	Matérias-primas.
+6162	Matérias subsidiárias.
+6163	Materiais diversos.
+6164	Embalagens de consumo.
+619	xxx
+62	Fornecimentos e serviços externos:
+621	Subcontratos.
+622	Fornecimentos e serviços:
+62211	Electricidade.
+62212	Combustíveis.
+622121	Sujeit. tribut. autónoma - art. 81.º - CIRC
+6221211	Gasolina
+62212111	 Base tributável
+62212112	IVA não dedutível (100%)
+6221212	Gasóleo/GPL (50% IVA dedutível)
+62212121	Base tributável
+62212122	IVA não dedutível (50%)
+622122	Não sujeitos a tributação autónoma
+6221221	Gasolina
+62212211	Base tributável
+62212212	IVA não dedutível (100%)
+6221222	Gasóleo/GPL (50% IVA dedutível)
+62212221	Base tributável
+62212222	IVA não dedutível(50%)
+622123	Para pesados de mercadorias
+6221231	Gasóleo(total IVA dedut.) - tx. Normal
+622129	P/ veículos não pertencentes empresa
+6221291	Gasolina
+62212911	Base tributável
+62212912	IVA não dedutível (100%)
+6221292	Gasóleo
+62212921	Base tributável
+62212922	IVA não dedutível (100%)
+62213	Água.
+62214	Outros fluidos.
+62215	Ferramentas e utensílios de desgaste rápido.
+62216	Livros e documentação técnica
+62217	Material de escritório.
+62218	Artigos para oferta.
+62219	Rendas e alugueres.
+622191	Viat. lig. passageiros e mistas (T.A.)
+6221911	Base tributável
+62219111	Base tributável - aceite como custo
+62219112	Base tributável - não aceite custo
+6221912	IVA não dedut. - art. 21.º n.º 1 a) - CIVA
+62221	Despesas de representação.
+622211	Base tributável
+622212	IVA não dedutiv. - art. 21.º - 1 - d) -CIVA
+62222	Comunicação.
+62223	Seguros.
+622231	Ramo: Automóvel - Ligeiros de passageiros (TA)
+622232	Ramo: Automóvel - Outras viaturas
+622233	Ramo: Incêndio
+622234	Ramo: Mercadorias
+622235	Ramo: xxx
+622236	Ramo: Equipamento informático
+622239	Não aceit. c/ cust. fiscal (art. 23.º- 4)
+62224	Royalties.
+62225	Transportes de mercadorias.
+62226	Transportes de pessoal.
+62227	Deslocações e estadas.
+622271	Órgão de Gestão
+6222713	Compens. util. viat. própria - Kms. Pagos
+62227131	Facturadas a clientes
+62227132	Não facturados a clientes - c/ mapa
+622271321	Com mapa próprio - T.A.
+62227133	Não facturadas a clientes - s/ mapa
+622271331	Com lucro - Não custo
+622271332	Sem lucro - Não custo - T.A.
+622272	Pessoal
+6222723	Compens. util. viat. própria - Kms. Pagos
+62227231	Facturadas a clientes
+62227232	Não facturadas a clientes - c/ mapa
+622272321	Com mapa próprio - T.A.
+62227233	Não facturadas a clientes - s/ mapa
+622272331	Com lucro - Não custo
+622272332	Sem lucro - Não custo - T.A.
+622273	Portagens, estacionamento e análogos
+6222731	Veículos sujeitos a tribut. autónoma
+62227311	Base tributável
+62227312	IVA não dedut. – art. 21.º - 1- c) –CIVA
+62228	Comissões.
+62229	Honorários.
+622292	Sujeitos a tributação autónoma
+6222921	Com IVA dedutível - taxa normal
+6222922	Regime isenção – art. 53.º - CIVA
+62231	Contencioso e notariado.
+622312	Sujeitos a tributação autónoma
+6223121	Com IVA dedutível - taxa normal
+6223122	Excluído IVA – notar./trib./conserv.
+62232	Conservação e reparação.
+622321	Sujeit. tributação autónoma - viaturas
+6223211	Base tributável
+6223212	IVA não dedutível
+6223213	Regime isenção ou pequeno retalhista
+62233	Publicidade e propaganda.
+62234	Limpeza, higiene e conforto.
+62235	Vigilância e segurança.
+62236	Trabalhos especializados.
+62298	Outros fornecimentos e serviços.
+622989	Desp. - Docs. c/ NIF inexi. ou inválido
+629	xxx
+63	Impostos:
+631	Impostos indirectos:
+6311	Direitos aduaneiros.
+6312	Imposto sobre o valor acrescentado.
+6313	Imposto do selo.
+63131	Imposto do Selo – suportado
+6313123	Verba 23 – TGIS - títulos credit. / letras
+63131231	N/ saques
+63131232	N/ aceites
+6314	Impostos sobre transportes rodoviários.
+6317	Taxas.
+6318	Outros impostos indirectos.
+6391	Imposto Municipal s/ Veículos
+63911	S/ viaturas ligeiras passageiros (TA)
+632	Impostos directos
+639	xxx
+64	Custos com o pessoal :
+641	Remunerações dos órgãos sociais.
+6411	Vencimento Base
+6418	Ajudas custo – gerência
+64181	Facturadas a clientes
+64182	Não facturadas a clientes - c/ mapa
+641821	Com mapa próprio T.A.
+64183	Não facturadas a clientes - s/ mapa
+641831	Com lucro - não custo
+641832	Sem lucro - não custo - T.A.
+642	Remunerações do pessoal,
+6421	Ordenado
+64224	Ajudas de custo – pessoal
+642241	Facturadas a clientes
+642242	Não facturadas a clientes - c/ mapa
+6422421	Com mapa próprio - T.A.
+642243	Não facturadas a clientes - s/ mapa
+6422431	Com lucro - não custo
+6422432	Sem lucro - não custo - T.A.
+643	Pensões.
+644	Prémios para pensões.
+645	Encargos sobre remunerações.
+646	Seguros de acidentes no trabalho e doenças profissionais.
+647	Custos de acção social.
+648	Outros custos com o pessoal.
+649	
+65	Outros custos e perdas operacionais:
+651	Despesas com propriedade industrial.
+652	Quotizações.
+653	Despesas confidenciais.
+6531	Despesas de caracter confidencial
+6532	Encargos não devidamente documentados
+654	Ofertas e amostras de existências.
+659	xxx
+66	Amortizações e ajustamentos do exercício:
+662	Amortizações de imobilizações corpóreas:
+6621	Terrenos e recursos naturais.
+6622	Edifícios e outras construções.
+6623	Equipamento básico.
+6624	Equipamento de transporte.
+6625	Ferramentas e utensílios.
+6626	Equipamento administrativo.
+6627	Taras e vasilhame:
+66271	Embalagens retornáveis.
+66272	Outras taras e outro vasilhame.
+6628	Outras imobilizações corpóreas.
+663	Amortizações de imobilizações incorpóreas:
+6631	Despesas de instalação.
+6632	Despesas de investigação e de desenvolvimento.
+6633	Propriedade industrial e outros direitos.
+6634	Trespasses.
+6639	xxx
+666	Ajustamentos de dívidas a receber:
+6661	Dívidas de clientes.
+6662	Outras dívidas de terceiros.
+667	Ajustamentos de existências
+6671	xxx
+6672	Mercadorias.
+6673	Produtos acabados e intermédios.
+6674	Subprodutos, desperdícios, resíduos e refugos.
+6675	Produtos e trabalhos em curso.
+6676	Matérias-primas, subsidiárias e de consumo.
+6679	xxx
+669	xxx
+67	Provisões do exercício:
+672	Provisões:
+6721	Pensões.
+6722	Impostos.
+6723	Processos judiciais em curso.
+6724	Acidentes de trabalho e doenças profissionais.
+6725	Garantias a clientes.
+6728	Outras provisões
+6729	xxx
+673	xxx
+679	xxx
+68	Custos e perdas financeiros:
+681	Juros suportados:
+6811	Empréstimos bancários.
+6812	Empréstimos por obrigações e por títulos de participação.
+6813	Outros empréstimos obtidos.
+68131	Juros de suprimentos
+681311	Juros não excedentes do limite
+681312	Excesso - art. 42.º 1 - j) CIRC
+6814	Descontos de títulos.
+6815	Juros de mora e compensatórios.
+68151	Juros de mora
+68152	Juros compensatórios - não custo fiscal
+6816	Juros de acordos.
+6818	Outros juros.
+68181	Sujeitos a tributação autónoma
+681811	Contratos leasing – IVA – taxa normal
+681812	Contratos ALD – IVA – taxa normal
+682	Perdas em empresas do grupo e associadas.
+683	Amortizações de investimentos em imóveis:
+6831	Terrenos e recursos naturais.
+6832	Edifícios e outras construções.
+684	Ajustamentos de aplicações financeiras:
+6841	Títulos negociáveis.
+6842	Outras aplicações de tesouraria.
+6843	Partes de capital.
+6844	Obrigações e títulos de participação.
+6845	Empréstimos de financiamento.
+6848	Outras aplicações financeiras.
+685	Diferenças de câmbio desfavoráveis.
+686	Descontos de pronto pagamento concedidos
+687	Perdas na alienação de aplicações de tesouraria.
+688	Outros custos e perdas financeiros:
+6881	Serviços bancários.
+6888	Outros não especificados.
+689	xxx
+69	Custos e perdas extraordinários:
+691	Donativos.
+6911	Considerados como custos fiscais
+69111	Mecenato – art. 1.º do Estatuto
+691111	Fins exclusiv. sociais - Majoraç.140%
+691112	Fins exclusi. cultural, etc. - Maj.120%
+691113	Abrigo contract. plurianual - Maj.130%
+69112	Mecenato – art. 2.º do Estatuto
+691121	Instituiç. entidades diver. - Maj.130%
+691122	Apoio esp., promoç. iniciat. - Maj.140%
+69113	Mecenato – art. 3.º do Estatuto
+691131	Entidades diversas - Majoração 120%
+691132	Entid. diver. contract. plurianual - 130%
+69114	Mecenato - art. 3.º-A, do Estatuto
+691141	Sociedade informação - Majoração 130%
+691142	Soc. inform. - contr. plurianual - Maj.140%
+69115	Mecenato – art. 4.º do Estatuto
+691151	Donativos a organismos associativos
+69116	Legislação específica
+691161	xxx
+6912	Não considerados como custo fiscal
+692	Dívidas incobráveis.
+693	Perdas em existências:
+6931	Sinistros.
+6932	Quebras.
+6938	Outras.
+694	Perdas em imobilizações:
+6941	Alienação de investimentos financeiros.
+6942	Alienação de imobilizações corpóreas.
+69421	Com IVA liquidado
+694211	Valor rec. p/ alienaçao – IVA - Tx. Normal
+694212	Valor liq. imobil. (aquisiç. - reinteg.)
+69422	Sem liquidação de IVA
+694221	Valor receb. p/ alienação - viat. Turismo
+694222	Valor recebido p/ alienação - imóveis
+694223	Valor liq. imobil. (aquisição – reinteg.)
+6943	Alienação de imobilizações incorpóreas.
+6944	Sinistros.
+6945	Abates.
+6948	Outros.
+695	Multas e penalidades:
+6951	Não aceites como custo fiscal
+6958	Outras penalidades.
+696	Aumentos de amortizações
+697	Correcções relativas a exercícios anteriores.
+698	Outros custos e perdas extraordinários:
+6981	Insuficiência da estimativa para impostos.
+6982	Diferenças de câmbio extraordinárias.
+6988	Outros não especificados.
+699	xxx
+7	PROVEITOS E GANHOS
+71	Vendas:
+711	Mercadorias.
+712	Produtos acabados e intermédios.
+713	Subprodutos, desperdícios, resíduos e refugos.
+716	IVA das vendas com imposto incluído.
+717	Devolução de vendas.
+718	Descontos e abatimentos em vendas.
+719	xxx
+72	Prestações de serviços:
+721	Serviço A.
+722	Serviço B.
+725	Serviços secundários.
+726	IVA dos serviços com imposto incluído.
+727	xxx
+728	Descontos e abatimentos.
+729	xxx
+73	Proveitos suplementares:
+731	Serviços sociais.
+732	Aluguer de equipamento.
+733	Venda de energia.
+734	Estudos, projectos e assistência tecnológica.
+735	Royalties.
+736	Desempenho de cargos sociais noutras empresas.
+738	Não especificados inerentes ao valor acrescentado.
+739	xxx
+74	Subsídios à exploração:
+741	Do Estado e outros entes públicos.
+748	De outras entidades.
+749	xxx
+75	Trabalhos para a própria empresa:
+751	Investimentos financeiros.
+752	Imobilizações corpóreas.
+753	Imobilizações incorpóreas.
+754	Imobilizações em curso.
+755	Custos diferidos.
+759	xxx
+76	Outros proveitos e ganhos operacionais:
+761	Direitos de propriedade industrial.
+768	Não especificados alheios ao valor acrescentado.
+769	xxx
+77	Reversões de amortizações e ajustamentos
+771	Reversões de amortizações
+7711	xxx
+7712	Imobilizações corpóreas
+7713	Imobilizações incorpóreas
+772	Reversões de ajustamentos
+7721	xxx
+7722	De dívidas de terceiros
+7723	De existências
+78	Proveitos e ganhos financeiros:
+781	Juros obtidos:
+7811	Depósitos bancários.
+7812	Obrigações e títulos de participação.
+7813	Empréstimos correntes.
+7814	Empréstimos de financiamento.
+7815	Outras aplicações de tesouraria.
+7816	Outros investimentos financeiros.
+7818	Outros juros.
+782	Ganhos em empresas do grupo e associadas.
+783	Rendimentos de imóveis.
+784	Rendimentos de participações de capital.
+785	Diferenças de câmbio favoráveis.
+786	Descontos de pronto pagamento obtidos.
+787	Ganhos na alienação de aplicações de tesouraria.
+788	Reversões e outros proveitos e ganhos financeiros
+7881	Reversões de ajustamentos de aplicações de tesouraria
+7882	Reversões de ajustamentos de investimentos financeiros
+7883	xxx
+7888	Outros proveitos e ganhos financeiros
+789	xxx
+79	Proveitos e ganhos extraórdinários:
+791	Restituição de impostos.
+792	Recuperação de dívidas.
+793	Ganhos em existências:
+7931	Sinistros.
+7932	Sobras.
+7938	Outros.
+794	Ganhos em imobilizações:
+7941	Alienação de investimentos financeiros.
+7942	Alienação de imobilizações corpóreas.
+7942	Alienação de imob. corpóreas
+79421	Com IVA liquidado
+794211	Val. receb. p/ alienação – IVA - Tx. normal
+794212	Val. liq. imobil. (aquis. - reinteg.)
+79422	Sem liquidação de IVA
+794221	Valor receb. p/ alienação - viat. turismo
+794222	Valor recebido p/ alienação - imóveis
+794223	Valor liq. imobil. (aquisição - reintegração)
+7943	Alienação de imobilizações incorpóreas.
+7944	Sinistros.
+7948	Outros
+795	Benefícios de penalidades contratuais.
+796	Reduções de provisões
+797	Correcções relativas a exercícios anteriores.
+798	Outros proveitos e ganhos extraordinários:
+7981	Excesso da estimativa para impostos.
+7982	Diferenças de câmbio extraordinárias.
+7983	Em subsídios para investimentos.
+7988	Outros não especificados.
+799	xxx
+8	RESULTADOS
+81	Resultados operacionais.
+82	Resultados financeiros.
+83	Resultados correntes.
+84	Resultados extraordinários.
+85	Resultados antes de impostos.
+86	Imposto sobre o rendimento do exercício.
+861	Imposto corrente
+862	Imposto diferido
+88	Resultado líquido do exercício.
+89	Dividendos antecipados.

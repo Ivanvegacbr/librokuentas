@@ -1,0 +1,67 @@
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	DEBE	HABER			2000-01-01	2007	2006	APERTURA SIN_ASIGNAR	false	0.00	0.00	false	false		
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	12. Gastos extraordinarios	true	9C	A.9C	[678]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	1. Consumos de la explotación	true	1	A.1	[60]+[61]+[71]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	a) Sueldos, salarios y asimilados	true	a	A.2.a	[640]+[641]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	b) Cargas sociales	true	b	A.2.b	[642]+[643]+[649]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	3. Dotaciones para amortizaciones de inmovilizado	true	3	A.3	[68]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	4. Variación de las provisiones de tráfico y pérdidas de créditos incobrables	true	4	A.4	[650]+[693]+[694]+[695]+[793]+[794]+[795]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	5. Otros gastos de explotación	true	5	A.5	[62]+[631]+[634]+[636]+[639]+[651]+[659]+[690]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	true	50-LINEA	A.50-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	true	55-LINEA	A.55-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	a) Por deudas con empresas del grupo	true	a	A.6.a	[6610]+[6615]+[6620]+[6630]+[6640]+[6650]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	b) Por deudas con empresas asociadas	true	b	A.6.b	[6611]+[6616]+[6621]+[6631]+[6641]+[6651]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	c) Por otras deudas	true	c	A.6.c	[6613]+[6618]+[6622]+[6623]+[6632]+[6633]+[6643]+[6653]+[669]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	d) Pérdidas de inversiones financieras	true	d	A.6.d	[666]+[667]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	7. Variación de las provisiones de inversiones financieras	true	7	A.7	[6963]+[6965]+[6966]+[697]+[698]+[699]+[7963]+[7965]+[7966]+[797]+[798]+[799]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	8. Diferencias negativas de cambio	true	8	A.8	[668]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	true	80-LINEA	A.80-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	true	8A-LINEA	A.8A-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	true	8B-LINEA	A.8B-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	9. Variación de las provisiones de inmovilizado inmaterial, material y cartera de control	true	9	A.9	[691]+[692]+[6960]+[6961]+[791]+[792]+[7960]+[7961]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	10. Pérdidas procedentes del inmovilizado inmaterial, material y cartera de control	true	9A	A.9A	[670]+[671]+[672]+[673]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	11. Pérdidas por operaciones con acciones y obligaciones propias	true	9B	A.9B	[674]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	13. Gastos y pérdidas de otros ejercicios	true	9D	A.9D	[679]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	true	9DA-LINEA	A.9DA-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	true	9DB-LINEA	A.9DB-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	true	9DC-LINEA	A.9DC-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	14. Impuesto sobre sociedades	true	9E	A.9E	[630]+[633]+[638]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	15. Otros impuestos	true	9F	A.9F		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	true	9F0-LINEA	A.9F0-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	a) Importe neto de la cifra de negocios	false	a	B.1.a	-[70]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	b) Otros ingresos de explotación	false	b	B.1.b	-[73]-[74]-[75]-[790]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	false	20-LINEA	B.20-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	false	2B-LINEA	B.2B-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	a) En empresas del grupo	false	a	B.2C.a	-[7600]-[7610]-[7620]-[7630]-[7650]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	b) En empresas asociadas	false	b	B.2C.b	-[7601]-[7611]-[7621]-[7631]-[7651]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	c) Otros	false	c	B.2C.c	-[7603]-[7613]-[7623]-[7633]-[7653]-[769]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	d) Beneficios en inversiones financieras	false	d	B.2C.d	-[766]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	3. Diferencias positivas de cambio	false	3	B.3	-[768]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	false	30-LINEA	B.30-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	false	32-LINEA	B.32-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	false	33-LINEA	B.33-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	4. Beneficios en enajenación de inmovilizado inmaterial, material y cartera de control	false	4	B.4	-[770]-[771]-[772]-[773]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	5. Beneficios por operaciones con acciones y obligaciones propias	false	5	B.5	-[774]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	6. Subvenciones de capital transferidas al ejercicio	false	6	B.6	-[775]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	7. Ingresos extraordinarios	false	7	B.7	-[778]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	8. Ingresos y beneficios de otros ejercicios	false	8	B.8	-[779]	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	false	8A-LINEA	B.8A-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	false	8C-LINEA	B.8C-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	-------------------------	false	8D-LINEA	B.8D-LINEA		0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	A) GASTOS	true	A	A	{A.1(1)}+{A.2(1)}+{A.3(1)}+{A.4(1)}+{A.5(1)}+{A.6(1)}+{A.7(1)}+{A.8(1)} + {A.9(1)} + {A.9A(1)} +   {A.9B(1)}+{A.9C(1)}+{A.9D(1)}+{A.9E(1)}+{A.9F(1)}	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	2. Gastos de personal	true	2	A.2	{A.2.a(1)}+{A.2.b(1)}	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	I. BENEFICIOS DE EXPLOTACIÓN (B1-A1-A2-A3-A4-A5)	true	55	A.55	{B.1(2)}-{A.1(1)}-{A.2(1)}-{A.3(1)}-{A.4(1)}-{A.5(1)};POSITIVO	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	6. Gastos financieros y gastos asimilados	true	6	A.6	{A.6.a(1)}+{A.6.b(1)}+{A.6.c(1)}+{A.6.d(1)}	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	II. RESULTADOS FINANCIEROS POSITIVOS (B2+B3-A6-A7-A8)	true	8A	A.8A	{B.2C(2)}+{B.3(2)}-{A.6(1)}-{A.7(1)}-{A.8(1)};POSITIVO	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	III. BENEFICIOS DE LAS ACTIVIDADES ORDINARIAS (AI+AII-BI-BII)	true	8B	A.8B	{A.55(1)}+{A.8A(1)}-{B.2A(2)}-{B.32(2)};POSITIVO	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	IV. RESULTADOS EXTRAORDINARIOS POSITIVOS (B4+B5+B6+B7+B8-A9-A10-A11-A12-A13)	true	9DB	A.9DB	{B.4(2)}+{B.5(2)}+{B.6(2)}+{B.7(2)}+{B.8(2)}-{A.9(1)}-{A.9A(1)}-{A.9B(1)}-{A.9C(1)}-{A.9D(1)};POSITIVO	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	V. BENEFICIOS ANTES DE IMPUESTOS (AIII+AIV-BIII-BIV)	true	9DC	A.9DC	{A.8B(1)}+{A.9DB(1)}-{B.33(2)}-{B.8B(2)};POSITIVO	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	VI. RESULTADO DEL EJERCICIO (BENEFICIOS) (AV-A14-A15)	true	9FA	A.9FA	{A.9DC(1)}-{A.9E(1)}-{A.9F(1)};POSITIVO	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	B) INGRESOS	false	B	B	{B.1(2)}+{B.2C(2)}+{B.3(2)}+{B.4(2)}+{B.5(2)}+{B.6(2)}+{B.7(2)}+{B.8(2)}	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	1. Ingresos de explotación	false	1	B.1	{B.1.a(2)}+{B.1.b(2)}	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	I. PÉRDIDAS DE EXPLOTACIÓN (A1+A2+A3+A4+A5-B1)	false	2A	B.2A	{A.1(1)}+{A.2(1)}+{A.3(1)}+{A.4(1)}+{A.5(1)}-{B.1(2)};POSITIVO	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	2. Ingresos financieros	false	2C	B.2C	{B.2C.a(2)}+{B.2C.b(2)}+{B.2C.c(2)}+{B.2C.d(2)}	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	II. RESULTADOS FINANCIEROS NEGATIVOS (A6+A7+A8-B2-B3)	false	32	B.32	{A.6(1)}+{A.7(1)}+{A.8(1)}-{B.2C(2)}-{B.3(2)};POSITIVO	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	III. PÉRDIDAS DE LAS ACTIVIDADES ORDINARIAS (BI+BII-AI-AIII)	false	33	B.33	{B.2A(2)}+{B.32(2)}-{A.55(1)}-{A.8B(1)};POSITIVO	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	IV. RESULTADOS EXTRAORDINARIOS NEGATIVOS (A9+A10+A11+A12+A13-B4-B5-B6-B7-B8)	false	8B	B.8B	{A.9(1)}+{A.9A(1)}+{A.9B(1)}+{A.9C(1)}+{A.9D(1)}-{B.4(2)}-{B.5(2)}-{B.6(2)}-{B.7(2)}-{B.8(2)};POSITIVO	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	V. PÉRDIDAS ANTES DE IMPUESTOS (BIII+BIV-AIII-AIV)	false	8D	B.8D	{B.33(2)}+{B.8B(2)}-{A.8B(1)}-{A.9DB(1)};POSITIVO	0	0	false	
+CUENTA DE PÉRDIDAS Y GANANCIAS ABREVIADA	VI. RESULTADO DEL EJERCICIO (PÉRDIDAS) (BV+A14+A15)	false	E	B.E	{B.33(2)}+{B.8B(2)}-{A.8B(1)}-{A.9DB(1)}+{A.9E(1)}+{A.9F(1)};POSITIVO	0	0	false	

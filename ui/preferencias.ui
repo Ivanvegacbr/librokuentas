@@ -1,0 +1,421 @@
+<ui version="4.0" >
+ <author>José Manuel Díez Botella</author>
+ <class>preferencias</class>
+ <widget class="QDialog" name="preferencias" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>661</width>
+    <height>418</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Preferencias</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <item>
+    <layout class="QGridLayout" >
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item row="0" column="1" >
+      <widget class="QLineEdit" name="directoriolineEdit" />
+     </item>
+     <item row="1" column="0" >
+      <widget class="QLabel" name="label_2" >
+       <property name="text" >
+        <string>Visor ficheros DVI:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1" >
+      <widget class="QLineEdit" name="navegadorlineEdit" />
+     </item>
+     <item row="2" column="0" >
+      <widget class="QLabel" name="label_3" >
+       <property name="text" >
+        <string>Aplicación para imprimir:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" >
+      <widget class="QLabel" name="label_4" >
+       <property name="text" >
+        <string>Navegador</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1" >
+      <widget class="QLineEdit" name="imprimirlineEdit" />
+     </item>
+     <item row="0" column="0" >
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>Directorio de trabajo:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" >
+      <widget class="QLineEdit" name="visorlineEdit" />
+     </item>
+     <item row="0" column="2" >
+      <widget class="QPushButton" name="dirButton" >
+       <property name="text" >
+        <string/>
+       </property>
+       <property name="icon" >
+        <iconset resource="libroK.qrc" >
+         <normaloff>:/images/librok-55.png</normaloff>:/images/librok-55.png</iconset>
+       </property>
+       <property name="iconSize" >
+        <size>
+         <width>16</width>
+         <height>16</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2" >
+      <widget class="QPushButton" name="visorButton" >
+       <property name="text" >
+        <string/>
+       </property>
+       <property name="icon" >
+        <iconset resource="libroK.qrc" >
+         <normaloff>:/images/librok-55.png</normaloff>:/images/librok-55.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2" >
+      <widget class="QPushButton" name="imprimirButton" >
+       <property name="text" >
+        <string/>
+       </property>
+       <property name="icon" >
+        <iconset resource="libroK.qrc" >
+         <normaloff>:/images/librok-55.png</normaloff>:/images/librok-55.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2" >
+      <widget class="QPushButton" name="navegadorButton" >
+       <property name="text" >
+        <string/>
+       </property>
+       <property name="icon" >
+        <iconset resource="libroK.qrc" >
+         <normaloff>:/images/librok-55.png</normaloff>:/images/librok-55.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <item>
+      <widget class="QGroupBox" name="filtrargroupBox" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="title" >
+        <string>Filtrar diario por:</string>
+       </property>
+       <property name="checkable" >
+        <bool>true</bool>
+       </property>
+       <property name="checked" >
+        <bool>false</bool>
+       </property>
+       <layout class="QVBoxLayout" >
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <item>
+         <widget class="QRadioButton" name="ejercicioradioButton" >
+          <property name="text" >
+           <string>Ejercicio actual</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="u30diasradioButton" >
+          <property name="text" >
+           <string>Últimos 30 días</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="u30asientosradioButton" >
+          <property name="text" >
+           <string>Últimos 30 asientos</string>
+          </property>
+          <property name="checked" >
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox_2" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="title" >
+        <string>Ordenar diario por:</string>
+       </property>
+       <layout class="QVBoxLayout" >
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <item>
+         <widget class="QRadioButton" name="fecharadioButton" >
+          <property name="text" >
+           <string>Fecha</string>
+          </property>
+          <property name="checked" >
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="numradioButton" >
+          <property name="text" >
+           <string>Núm. asiento</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox_3" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="title" >
+        <string>Estilo numérico</string>
+       </property>
+       <layout class="QVBoxLayout" >
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <item>
+         <widget class="QCheckBox" name="sindecimalescheckBox" >
+          <property name="text" >
+           <string>Sin decimales</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="comaradioButton" >
+          <property name="text" >
+           <string>9.999,99</string>
+          </property>
+          <property name="checked" >
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="puntoradioButton" >
+          <property name="text" >
+           <string>9,999.99</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="idiomagroupBox" >
+       <property name="title" >
+        <string>Idioma</string>
+       </property>
+       <layout class="QVBoxLayout" >
+        <item>
+         <widget class="QRadioButton" name="espradioButton" >
+          <property name="text" >
+           <string>&amp;Español</string>
+          </property>
+          <property name="checked" >
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="ingradioButton" >
+          <property name="text" >
+           <string>Inglés (en progreso)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="catradioButton" >
+          <property name="text" >
+           <string>Catalán (en progreso)</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="personalizadogroupBox" >
+     <property name="title" >
+      <string>Filtro diario inicial personalizado</string>
+     </property>
+     <property name="checkable" >
+      <bool>true</bool>
+     </property>
+     <property name="checked" >
+      <bool>false</bool>
+     </property>
+     <layout class="QVBoxLayout" >
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <item>
+       <widget class="QLineEdit" name="personalizadolineEdit" />
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="filtratexcheckBox" >
+     <property name="text" >
+      <string>Filtrar ficheros TEX antes de conversión a DVI</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0" >
+        <size>
+         <width>131</width>
+         <height>31</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="okButton" >
+       <property name="text" >
+        <string>&amp;Aceptar</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="libroK.qrc" >
+         <normaloff>:/images/librok-42.png</normaloff>:/images/librok-42.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cancelButton" >
+       <property name="text" >
+        <string>&amp;Cancelar</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="libroK.qrc" >
+         <normaloff>:/images/librok-7.png</normaloff>:/images/librok-7.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>directoriolineEdit</tabstop>
+  <tabstop>visorlineEdit</tabstop>
+  <tabstop>imprimirlineEdit</tabstop>
+  <tabstop>navegadorlineEdit</tabstop>
+  <tabstop>ejercicioradioButton</tabstop>
+  <tabstop>u30diasradioButton</tabstop>
+  <tabstop>u30asientosradioButton</tabstop>
+  <tabstop>fecharadioButton</tabstop>
+  <tabstop>numradioButton</tabstop>
+  <tabstop>sindecimalescheckBox</tabstop>
+  <tabstop>comaradioButton</tabstop>
+  <tabstop>puntoradioButton</tabstop>
+  <tabstop>personalizadolineEdit</tabstop>
+  <tabstop>filtratexcheckBox</tabstop>
+  <tabstop>okButton</tabstop>
+  <tabstop>cancelButton</tabstop>
+ </tabstops>
+ <resources>
+  <include location="libroK.qrc" />
+ </resources>
+ <connections>
+  <connection>
+   <sender>okButton</sender>
+   <signal>clicked()</signal>
+   <receiver>preferencias</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>562</x>
+     <y>409</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>96</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>preferencias</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>655</x>
+     <y>409</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>179</x>
+     <y>282</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
