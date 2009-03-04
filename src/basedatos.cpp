@@ -1343,10 +1343,10 @@ double deudaCuentaenDiario(QString cuenta, QDate fecha)
     cadena += fecha.toString("yyyy/MM/dd");
     cadena += "' and cuenta='";
     cadena += cuenta;
-    cadena += "' and (STR_TO_DATE(ci,'%Y-%m-%d')>='";
+    cadena += "' and (STR_TO_DATE(ci,'%Y-%m-%d')>'";
     cadena += fecha.toString("yyyy/MM/dd");
     cadena += "' OR char_length(ci)=0);";
-
+//qDebug() << "deuda en Diario:" << cadena;
     QSqlQuery query = ejecutarSQL(cadena);
     if ( (query.isActive()) && (query.first()) )
     {

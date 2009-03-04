@@ -102,6 +102,7 @@ Mrconta::Mrconta(){
         navegador=windirprogram();
         navegador+="\\Internet Explorer\\iexplore";
        }
+       
      filtrarpor=NADA;
      ordendiario=FECHA;
      estilonumerico=COMADECIMAL;

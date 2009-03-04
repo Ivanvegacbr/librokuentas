@@ -235,26 +235,29 @@ void consmayor::cargadatos()
     }
   // calculamos acumulado de saldo inicial
     // primero observamos si el ejercicio anterior está cerrado
-    QString ejercicio=ui.fechas->ejercicio();
-    QDate fechainiejercicio=inicioejercicio(ejercicio);
-    QDate fechaejercicioanterior=fechainiejercicio.addDays(-1);
-    QString ejercicioanterior=ejerciciodelafecha(fechaejercicioanterior);
-    if (ejerciciocerrado(ejercicioanterior) || escuentadegasto(ui.subcuentalineEdit->text()) || 
-	   escuentadeingreso(ui.subcuentalineEdit->text()))		
-       {
-        query = selectSumasDiario(fechainiejercicio, fIni, condicion);
-       }
-       else
-       	query = selectSumasDiarioHasta(fechainiejercicio,condicion);
     double saldoin=0;
     double sumadebe=0;
     double sumahaber=0;
-    if ( (query.isActive()) && (query.first()) )
-      {
-        saldoin=query.value(0).toDouble()-query.value(1).toDouble();
-        sumadebe=query.value(0).toDouble();
-        sumahaber=query.value(1).toDouble();
-      }
+    
+    QString ejercicio=ui.fechas->ejercicio();
+    if (ejercicio != noejercicio()){
+	    QDate fechainiejercicio=inicioejercicio(ejercicio);
+	    QDate fechaejercicioanterior=fechainiejercicio.addDays(-1);
+	    QString ejercicioanterior=ejerciciodelafecha(fechaejercicioanterior);
+	    if (ejerciciocerrado(ejercicioanterior) && (escuentadegasto(ui.subcuentalineEdit->text()) || 
+		   escuentadeingreso(ui.subcuentalineEdit->text())))		
+	       {
+	        query = selectSumasDiario(fechainiejercicio, fIni, condicion);
+	       }
+	       else
+	       	query = selectSumasDiarioHasta(fechainiejercicio,condicion);
+	    if ( (query.isActive()) && (query.first()) )
+	      {
+	        saldoin=query.value(0).toDouble()-query.value(1).toDouble();
+	        sumadebe=query.value(0).toDouble();
+	        sumahaber=query.value(1).toDouble();
+	      }
+    }
     fila=0;
     while (fila<ui.mayortable->rowCount())
        {
@@ -767,7 +770,7 @@ QSqlQuery consmayor::selectSumasDiario (QDate fechainiejercicio, QDate final, QS
     if (fechainiejercicio.isValid() && final.isValid()){
 	    cadena += "fecha>='";
 		cadena += fechainiejercicio.toString("yyyy.MM.dd");
-	    cadena += "' and fecha<='";
+	    cadena += "' and fecha<'";
 	    cadena += final.toString("yyyy.MM.dd");
 	    cadena += "' and ";
     }
@@ -778,7 +781,7 @@ QSqlQuery consmayor::selectSumasDiario (QDate fechainiejercicio, QDate final, QS
 QSqlQuery consmayor::selectSumasDiarioHasta (QDate final, QString condicion) {
     QString cadena="select sum(debe),sum(haber) from diario where ";
     if (final.isValid()){
-	    cadena += "fecha<='";
+	    cadena += "fecha<'";
 	    cadena += final.toString("yyyy.MM.dd");
 	    cadena += "' and ";
     }

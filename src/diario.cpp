@@ -143,8 +143,7 @@ void diario::activaconfiltro(QString filtro,bool qcomadecimal, bool qsindecimale
         	cadena+=filtro;
 		}	 
         //else cadena+="WHERE p.codigo = d.cuenta";
-        //QMessageBox::warning(this, "Debug","QUERY: "+cadena);
-        qDebug() << cadena;
+        //qDebug() << "diario:" << cadena;
         model->setQuery(cadena);
         model->setHeaderData(0, Qt::Horizontal, tr("cuenta"));
         model->setHeaderData(1, Qt::Horizontal, tr("subcuenta"));
@@ -182,8 +181,7 @@ void diario::pasafiltro(QString filtro,bool qcomadecimal,bool qsindecimales)
  	cadena+=filtro;
  }	 
  //else cadena+="WHERE p.codigo = d.cuenta";
- //QMessageBox::warning(this, "Debug","QUERY: "+cadena);
- qDebug() << "diario:" << cadena;
+ //qDebug() << "diario:" << cadena;
  model->setQuery(cadena);
 
 }
