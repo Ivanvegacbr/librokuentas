@@ -17,8 +17,8 @@ interFechas::interFechas(QWidget *parent) : QWidget(parent)
   	ui.ejercicioComboBox->addItems(ej1);
   	ui.ejercicioComboBox->addItem(noejercicio());
   	//ejercicio=ui.ejercicioComboBox->currentText();
-    ui.groupBox->setCheckable(false);
-    ejercicioCambiado();
+        ui.groupBox->setCheckable(false);
+        ejercicioCambiado();
 
 	connect(ui.ejercicioComboBox,SIGNAL(activated(int)),this,SLOT(ejercicioCambiado()));
 	connect(ui.semanaComboBox,SIGNAL(activated(int)),this,SLOT(comboSemanaCambiado( int )));
@@ -138,6 +138,16 @@ QDate interFechas::fecha(Fecha index)
 void interFechas::setCheckable(bool chk)
 {
 	ui.groupBox->setCheckable(chk);
+}
+
+void interFechas::setFlat(bool chk)
+{
+    ui.groupBox->setFlat(chk);
+}
+
+void interFechas::setTitle(QString til)
+{
+    ui.groupBox->setTitle(til);
 }
 
 void interFechas::setFecha(Fecha index, QDate fecha)

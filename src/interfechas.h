@@ -25,7 +25,9 @@ public slots:
 	void setFecha(Fecha index, QDate fecha);
 	void setSemana(QString sem, QString qejercicio);
 	void setEjercicio(QString qejercicio);
-	void setCheckable(bool chk);
+        void setCheckable(bool chk);
+        void setFlat(bool chk);
+        void setTitle(QString til);
 
 private:
 	Ui::interFechas ui;

@@ -22,6 +22,7 @@
 #include "diario.h" 
 #include "basedatos.h"
 #include "funciones.h"
+#include "editarasiento.h"
 #include <QSqlField>
 
 
@@ -117,7 +118,7 @@ diario::diario() : QWidget() {
                         //objeto del que sale la señal
       connect(ui.latabladiario,SIGNAL(clicked(QModelIndex)),this,SLOT(infocuentapase(QModelIndex)));
       connect(ui.latabladiario,SIGNAL(activated(QModelIndex)),this,SLOT(infocuentapase(QModelIndex)));
-      //connect(ui.latabladiario,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(ordenarColumna(QModelIndex)));
+      connect(ui.latabladiario,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(editaAsiento()));
       
 }
 
@@ -416,6 +417,31 @@ void diario::copiar()
                              tr("El contenido de la selección se ha pasado al portapapeles"));
     }
 }
+
+void diario::editaAsiento()
+{
+    QString elasiento;
+    qlonglong numasiento=asientoactual();
+    if (numasiento!=0) elasiento.setNum(numasiento);
+    if (elasiento=="")
+       {
+         QMessageBox::warning( this, tr("EDICIÓN DE ASIENTOS"),
+         tr("Para editar asiento debe de seleccionar un pase del mismo en el diario"));
+         return;
+       }
+
+      QString ejercicio=ejerciciodelafecha(fechapaseactual());
+      if (ejerciciocerrado(ejercicio) || ejerciciocerrando(ejercicio))
+       {
+         QMessageBox::warning( this, tr("EDICIÓN DE ASIENTOS"),
+                               tr("ERROR: El pase seleccionado corresponde a un ejercicio cerrado"));
+         return;
+       }
+
+      funcEdAsiento(elasiento,ejercicio);
+      refresca();
+}
+
 
 diario::~diario()
 {

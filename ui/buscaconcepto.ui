@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
+<ui version="4.0" >
  <author>José Manuel Díez Botella y Iván González Millán</author>
  <class>buscaconcepto</class>
- <widget class="QDialog" name="buscaconcepto">
-  <property name="geometry">
+ <widget class="QDialog" name="buscaconcepto" >
+  <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
@@ -11,61 +10,43 @@
     <height>436</height>
    </rect>
   </property>
-  <property name="windowTitle">
+  <property name="windowTitle" >
    <string>Búsqueda de conceptos</string>
   </property>
-  <layout class="QGridLayout">
-   <item row="0" column="0">
-    <layout class="QHBoxLayout">
-     <property name="spacing">
+  <layout class="QGridLayout" >
+   <item row="0" column="0" >
+    <layout class="QHBoxLayout" >
+     <property name="spacing" >
       <number>6</number>
      </property>
-     <property name="leftMargin">
-      <number>0</number>
-     </property>
-     <property name="topMargin">
-      <number>0</number>
-     </property>
-     <property name="rightMargin">
-      <number>0</number>
-     </property>
-     <property name="bottomMargin">
+     <property name="margin" >
       <number>0</number>
      </property>
      <item>
-      <widget class="QGroupBox" name="groupBox">
-       <property name="title">
+      <widget class="QGroupBox" name="groupBox" >
+       <property name="title" >
         <string>Selección</string>
        </property>
-       <layout class="QVBoxLayout">
-        <property name="spacing">
+       <layout class="QVBoxLayout" >
+        <property name="spacing" >
          <number>6</number>
         </property>
-        <property name="leftMargin">
-         <number>9</number>
-        </property>
-        <property name="topMargin">
-         <number>9</number>
-        </property>
-        <property name="rightMargin">
-         <number>9</number>
-        </property>
-        <property name="bottomMargin">
+        <property name="margin" >
          <number>9</number>
         </property>
         <item>
-         <widget class="QRadioButton" name="ComienceRadioButton">
-          <property name="text">
+         <widget class="QRadioButton" name="ComienceRadioButton" >
+          <property name="text" >
            <string>Que comience por ...</string>
           </property>
-          <property name="checked">
+          <property name="checked" >
            <bool>true</bool>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="ContengaRadioButton">
-          <property name="text">
+         <widget class="QRadioButton" name="ContengaRadioButton" >
+          <property name="text" >
            <string>Que contenga ...</string>
           </property>
          </widget>
@@ -75,44 +56,35 @@
      </item>
     </layout>
    </item>
-   <item row="0" column="1">
-    <layout class="QVBoxLayout">
+   <item row="0" column="1" >
+    <layout class="QVBoxLayout" >
      <item>
-      <layout class="QVBoxLayout">
-       <property name="spacing">
+      <layout class="QVBoxLayout" >
+       <property name="spacing" >
         <number>6</number>
        </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
+       <property name="margin" >
         <number>0</number>
        </property>
        <item>
-        <widget class="QLabel" name="TextLabel1">
-         <property name="frameShape">
+        <widget class="QLabel" name="TextLabel1" >
+         <property name="frameShape" >
           <enum>QFrame::NoFrame</enum>
          </property>
-         <property name="frameShadow">
+         <property name="frameShadow" >
           <enum>QFrame::Plain</enum>
          </property>
-         <property name="text">
+         <property name="text" >
           <string>CLAVE:</string>
          </property>
-         <property name="wordWrap">
+         <property name="wordWrap" >
           <bool>false</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="claveLineEdit">
-         <property name="maximumSize">
+        <widget class="QLineEdit" name="claveLineEdit" >
+         <property name="maximumSize" >
           <size>
            <width>80</width>
            <height>32767</height>
@@ -123,56 +95,47 @@
       </layout>
      </item>
      <item>
-      <layout class="QVBoxLayout">
-       <property name="spacing">
+      <layout class="QVBoxLayout" >
+       <property name="spacing" >
         <number>6</number>
        </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
+       <property name="margin" >
         <number>0</number>
        </property>
        <item>
-        <widget class="QLabel" name="TextLabel2">
-         <property name="frameShape">
+        <widget class="QLabel" name="TextLabel2" >
+         <property name="frameShape" >
           <enum>QFrame::NoFrame</enum>
          </property>
-         <property name="frameShadow">
+         <property name="frameShadow" >
           <enum>QFrame::Plain</enum>
          </property>
-         <property name="text">
+         <property name="text" >
           <string>DESCRIPCIÓN:</string>
          </property>
-         <property name="wordWrap">
+         <property name="wordWrap" >
           <bool>false</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="descripcionLineEdit"/>
+        <widget class="QLineEdit" name="descripcionLineEdit" />
        </item>
       </layout>
      </item>
     </layout>
    </item>
-   <item row="1" column="0" colspan="2">
-    <widget class="QTableView" name="tableView"/>
+   <item row="1" column="0" colspan="2" >
+    <widget class="QTableView" name="tableView" />
    </item>
-   <item row="2" column="0" colspan="2">
-    <layout class="QHBoxLayout">
+   <item row="2" column="0" colspan="2" >
+    <layout class="QHBoxLayout" >
      <item>
       <spacer>
-       <property name="orientation">
+       <property name="orientation" >
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0">
+       <property name="sizeHint" stdset="0" >
         <size>
          <width>40</width>
          <height>20</height>
@@ -181,41 +144,41 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="AceptarBoton">
-       <property name="minimumSize">
+      <widget class="QPushButton" name="AceptarBoton" >
+       <property name="minimumSize" >
         <size>
          <width>120</width>
          <height>35</height>
         </size>
        </property>
-       <property name="text">
+       <property name="text" >
         <string>&amp;Aceptar</string>
        </property>
-       <property name="icon">
-        <iconset resource="libroK.qrc">
+       <property name="icon" >
+        <iconset resource="keme.qrc" >
          <normaloff>:/images/librok-42.png</normaloff>:/images/librok-42.png</iconset>
        </property>
-       <property name="shortcut">
+       <property name="shortcut" >
         <string>Alt+A</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="CancelarBoton">
-       <property name="minimumSize">
+      <widget class="QPushButton" name="CancelarBoton" >
+       <property name="minimumSize" >
         <size>
          <width>120</width>
          <height>35</height>
         </size>
        </property>
-       <property name="text">
+       <property name="text" >
         <string>&amp;Cancelar</string>
        </property>
-       <property name="icon">
-        <iconset resource="libroK.qrc">
+       <property name="icon" >
+        <iconset resource="keme.qrc" >
          <normaloff>:/images/librok-7.png</normaloff>:/images/librok-7.png</iconset>
        </property>
-       <property name="shortcut">
+       <property name="shortcut" >
         <string>Alt+C</string>
        </property>
       </widget>
@@ -224,7 +187,7 @@
    </item>
   </layout>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
+ <layoutdefault spacing="6" margin="11" />
  <tabstops>
   <tabstop>claveLineEdit</tabstop>
   <tabstop>descripcionLineEdit</tabstop>
@@ -235,7 +198,7 @@
   <tabstop>CancelarBoton</tabstop>
  </tabstops>
  <resources>
-  <include location="libroK.qrc"/>
+  <include location="keme.qrc" />
  </resources>
  <connections>
   <connection>
@@ -244,11 +207,11 @@
    <receiver>buscaconcepto</receiver>
    <slot>accept()</slot>
    <hints>
-    <hint type="sourcelabel">
+    <hint type="sourcelabel" >
      <x>368</x>
      <y>407</y>
     </hint>
-    <hint type="destinationlabel">
+    <hint type="destinationlabel" >
      <x>68</x>
      <y>406</y>
     </hint>
@@ -260,11 +223,11 @@
    <receiver>buscaconcepto</receiver>
    <slot>reject()</slot>
    <hints>
-    <hint type="sourcelabel">
+    <hint type="sourcelabel" >
      <x>502</x>
      <y>414</y>
     </hint>
-    <hint type="destinationlabel">
+    <hint type="destinationlabel" >
      <x>160</x>
      <y>395</y>
     </hint>

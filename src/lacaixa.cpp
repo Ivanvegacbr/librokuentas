@@ -169,12 +169,15 @@ void lacaixa::siguiente()
         ui.lineFound->setText(codigo);
         
         ui.linePatron->setText(codigo.left(codigo.length()*ui.sensibilidad->value()/ui.sensibilidad->maximum()));
-        fecha= QDate::fromString(linea.section('\t',4,4),"dd/MM/yyyy");
+        //qDebug() << linea.section('\t',2,2);
+        fecha= QDate::fromString(linea.section('\t',2,2).replace(" ",""),"dd/MM/yyyy");
         //descripcion=linea.section('\t',1,1);
         ui.dateEdit->setDate(fecha);
         ui.lineRemitente->setText(linea.section('\t',3,3));
-        valor = linea.section('\t',6,6).trimmed();
+        valor = linea.section('\t',4,4).trimmed();
         valor.replace(" ","");
+        //Parche para los miles
+        valor.remove(".");
         ui.lineImporte->setText(valor);
         ui.progressBar->setValue(pos);
         ui.siguienteButton->setToolTip(tr("Siguiente"));

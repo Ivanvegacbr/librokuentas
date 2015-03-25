@@ -1,58 +1,62 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <author>Iván González</author>
  <class>interFechas</class>
- <widget class="QWidget" name="interFechas" >
-  <property name="geometry" >
+ <widget class="QWidget" name="interFechas">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>174</width>
+    <width>177</width>
     <height>169</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>interFechas</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout" >
-   <property name="margin" >
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="margin">
     <number>0</number>
    </property>
-   <item row="0" column="0" >
-    <widget class="QGroupBox" name="groupBox" >
-     <property name="title" >
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
       <string>INTERVALO FECHAS</string>
      </property>
-     <property name="checkable" >
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+     <property name="checkable">
       <bool>true</bool>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout" >
+     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout" >
+       <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QLabel" name="textLabel1" >
-          <property name="sizePolicy" >
-           <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+         <widget class="QLabel" name="textLabel1">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
-          <property name="text" >
-           <string>&lt;b>Inicial:&lt;/b></string>
+          <property name="text">
+           <string>&lt;b&gt;Inicial:&lt;/b&gt;</string>
           </property>
-          <property name="wordWrap" >
+          <property name="wordWrap">
            <bool>false</bool>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QDateEdit" name="inicialdateEdit" >
-          <property name="sizePolicy" >
-           <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+         <widget class="QDateEdit" name="inicialdateEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
-          <property name="calendarPopup" >
+          <property name="calendarPopup">
            <bool>true</bool>
           </property>
          </widget>
@@ -60,32 +64,32 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" >
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QLabel" name="textLabel2" >
-          <property name="sizePolicy" >
-           <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+         <widget class="QLabel" name="textLabel2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
-          <property name="text" >
-           <string>&lt;b>Final:&lt;/b></string>
+          <property name="text">
+           <string>&lt;b&gt;Final:&lt;/b&gt;</string>
           </property>
-          <property name="wordWrap" >
+          <property name="wordWrap">
            <bool>false</bool>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QDateEdit" name="finaldateEdit" >
-          <property name="sizePolicy" >
-           <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+         <widget class="QDateEdit" name="finaldateEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
-          <property name="calendarPopup" >
+          <property name="calendarPopup">
            <bool>true</bool>
           </property>
          </widget>
@@ -93,31 +97,31 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3" >
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QLabel" name="label" >
-          <property name="sizePolicy" >
-           <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+         <widget class="QLabel" name="label">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
-          <property name="font" >
+          <property name="font">
            <font>
             <weight>75</weight>
             <bold>true</bold>
             <underline>false</underline>
            </font>
           </property>
-          <property name="text" >
+          <property name="text">
            <string>Semana:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="semanaComboBox" >
-          <property name="sizePolicy" >
-           <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+         <widget class="QComboBox" name="semanaComboBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -127,29 +131,29 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4" >
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <widget class="QLabel" name="label_2" >
-          <property name="sizePolicy" >
-           <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+         <widget class="QLabel" name="label_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
-          <property name="font" >
+          <property name="font">
            <font>
             <weight>75</weight>
             <bold>true</bold>
             <underline>false</underline>
            </font>
           </property>
-          <property name="text" >
+          <property name="text">
            <string>Ejercicio:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="ejercicioComboBox" />
+         <widget class="QComboBox" name="ejercicioComboBox"/>
         </item>
        </layout>
       </item>

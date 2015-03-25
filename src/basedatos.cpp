@@ -1146,7 +1146,8 @@ QDate fechaMaxAsiento(QString qasiento, QString ejercicio)
            return query.value(0).toDate();
            }
     }
-  return QDate::QDate();
+    QDate(dd);
+   return dd;
 }
 
 QDate fechaMinAsiento(QString qasiento, QString ejercicio)
@@ -1168,7 +1169,8 @@ QDate fechaMinAsiento(QString qasiento, QString ejercicio)
            return query.value(0).toDate();
            }
     }
-  return QDate::QDate();
+   QDate(dd);
+   return dd;
 }
 
 QString diariodeasiento(QString qasiento)
@@ -1548,11 +1550,11 @@ bool paseapertura(QString pase)
 
 }
 
-bool paseenlibroivaeib(QString pase)
+bool paseLibroiva(QString pase)
 {
   QString cadena="select pase from libroiva where pase=";
   cadena+=pase;
-  cadena+=" and eib";
+  //cadena+=" and eib";
   QSqlQuery query = ejecutarSQL(cadena);
    if ( query.isActive() )
     {

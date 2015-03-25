@@ -37,14 +37,15 @@ class editapaseconci : public QDialog {
                 void updateLibroivaFBCwP (QDate fecha, QString base, QString cuota, QString pase);
       private:
                 Ui::editapaseconci ui;
-                bool comadecimal;
-                QString pase,claveiva;
-                double civa,cre;
-                int recalcularIvas();
+                bool comadecimal, correcto;
+                QString pase, claveiva;
+                double base, civa, cre;
+
       private slots:
                 void debecambiado();
                 void habercambiado();
                 void botonaceptar();
+                int recalcularIvas();
 
 };
 

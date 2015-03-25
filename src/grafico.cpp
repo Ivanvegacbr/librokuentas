@@ -11,6 +11,7 @@
 #include <qwt_legend_item.h>
 #include <qwt_plot_marker.h>
 #include <qwt_symbol.h>
+
 //
 grafico::grafico(QString titulo, QString nombreX, QString nombreY, bool concomadecimal,
 					bool condecimales ) 

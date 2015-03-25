@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>pidenombre</class>
- <widget class="QDialog" name="pidenombre" >
-  <property name="geometry" >
+ <widget class="QDialog" name="pidenombre">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,59 +10,65 @@
     <height>120</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="maximumSize">
+   <size>
+    <width>320</width>
+    <height>120</height>
+   </size>
+  </property>
+  <property name="windowTitle">
    <string>Petición de información</string>
   </property>
-  <property name="windowIcon" >
-   <iconset resource="libroK.qrc" >
+  <property name="windowIcon">
+   <iconset resource="libroK.qrc">
     <normaloff>:/graf/keme.png</normaloff>:/graf/keme.png</iconset>
   </property>
-  <layout class="QVBoxLayout" >
-   <property name="spacing" >
+  <layout class="QVBoxLayout">
+   <property name="spacing">
     <number>6</number>
    </property>
-   <property name="margin" >
+   <property name="margin">
     <number>9</number>
    </property>
    <item>
-    <widget class="QLabel" name="textLabel" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+    <widget class="QLabel" name="textLabel">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="text" >
-      <string>&lt;b>Introduzca el dato:&lt;/b></string>
+     <property name="text">
+      <string>&lt;b&gt;Introduzca el dato:&lt;/b&gt;</string>
      </property>
-     <property name="alignment" >
+     <property name="alignment">
       <set>Qt::AlignVCenter</set>
      </property>
-     <property name="wordWrap" >
+     <property name="wordWrap">
       <bool>true</bool>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="lineEdit" />
+    <widget class="QLineEdit" name="lineEdit"/>
    </item>
    <item>
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>6</number>
      </property>
-     <property name="margin" >
+     <property name="margin">
       <number>0</number>
      </property>
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeType" >
+       <property name="sizeType">
         <enum>QSizePolicy::Expanding</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>81</width>
          <height>27</height>
@@ -70,32 +77,32 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="aceptarpushButton" >
-       <property name="text" >
+      <widget class="QPushButton" name="aceptarpushButton">
+       <property name="text">
         <string>&amp;Aceptar</string>
        </property>
-       <property name="icon" >
-        <iconset resource="libroK.qrc" >
+       <property name="icon">
+        <iconset resource="libroK.qrc">
          <normaloff>:/images/librok-42.png</normaloff>:/images/librok-42.png</iconset>
        </property>
-       <property name="shortcut" >
+       <property name="shortcut">
         <string>Alt+A</string>
        </property>
-       <property name="autoDefault" >
+       <property name="autoDefault">
         <bool>false</bool>
        </property>
-       <property name="default" >
+       <property name="default">
         <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="cancelarpushButton" >
-       <property name="text" >
+      <widget class="QPushButton" name="cancelarpushButton">
+       <property name="text">
         <string>&amp;Cancelar</string>
        </property>
-       <property name="icon" >
-        <iconset resource="libroK.qrc" >
+       <property name="icon">
+        <iconset resource="libroK.qrc">
          <normaloff>:/images/librok-7.png</normaloff>:/images/librok-7.png</iconset>
        </property>
       </widget>
@@ -104,9 +111,9 @@
    </item>
   </layout>
  </widget>
- <layoutdefault spacing="6" margin="11" />
+ <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="libroK.qrc" />
+  <include location="libroK.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -115,11 +122,11 @@
    <receiver>pidenombre</receiver>
    <slot>accept()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>252</x>
      <y>105</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>20</x>
      <y>20</y>
     </hint>
@@ -131,11 +138,11 @@
    <receiver>pidenombre</receiver>
    <slot>reject()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>174</x>
      <y>94</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>71</x>
      <y>108</y>
     </hint>

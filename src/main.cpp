@@ -37,7 +37,10 @@ int main(int argc, char *argv[])
   int idioma=idiomaconfig();
   QString fich_idioma;
   QTranslator translator;
-  
+  QString locale = QLocale::system().name();
+  locale.remove("\"");
+  qDebug() << locale;
+
   if (idioma>0 && idioma<3)
      {
       if (idioma==1) fich_idioma = fich_ingles();

@@ -107,7 +107,7 @@ listavenci::listavenci() : QDialog() {
      ui.latablavencipase->setSortingEnabled(TRUE);
 
      ui.latablavencipase->setModel(model);
-     ui.latablavencipase->setAlternatingRowColors ( true);
+     ui.latablavencipase->setAlternatingRowColors (true);
 
      ui.latablavencipase->setColumnHidden(0,true);
      ui.latablavencipase->setColumnHidden(1,true);
@@ -143,6 +143,8 @@ listavenci::listavenci() : QDialog() {
   connect(ui.anularpushButton,SIGNAL( clicked()),this,SLOT(anular()));
   
   connect(ui.imprimirButton,SIGNAL( clicked()),this,SLOT(imprimir()));
+
+  connect(ui.latablavencipase,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(editar()));
   
 }
 

@@ -47,6 +47,7 @@ class libroiva : public QDialog {
                 void generalatexrepercutido();
                 void generalatexsoportadoprorrata();
                 QString nombrefichero();
+                double totalProveedor(QString cuenta, QDate FIni, QDate FFin);
       private slots:
                 void consultatex();
                 void imprime();

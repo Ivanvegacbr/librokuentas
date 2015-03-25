@@ -465,8 +465,8 @@ if (columna==2 || columna==3)
    //ui.Tablaapuntes->disconnect(SIGNAL(cellChanged(int,int)));
    QString valores = convapunto(ui.Tablaapuntes->item(fila,columna)->text());
    valores.replace('-',"+-");
-   if (valores.contains('/') || valores.contains(':')){
-   	QString TextoAviso = tr("Las únicas operaciones permitidas son <+>, <-> y <*>");
+   if (valores.contains('/') || valores.contains(':') || valores.contains('(') || valores.contains(')')){
+        QString TextoAviso = tr("Las únicas operaciones permitidas son <+>, <-> y <*> sin paréntesis.");
    	 msgBox.removeButton(botonCancelar);
    	 msgBox.removeButton(aceptarButton);
      msgBox.addButton(tr("&Aceptar"), QMessageBox::ActionRole);
@@ -511,6 +511,8 @@ if (columna==2 || columna==3)
            ui.Tablaapuntes->item(fila,columna)->setText(
                                 QString( "%1" ).arg(
                                 valor, 0, 'f',ndecimales ) );
+
+       if (ui.checkAutoiva->isChecked()) comboIvaCambiado();
       }
     else
 	         ui.Tablaapuntes->item(fila,columna)->setText("");
@@ -518,7 +520,7 @@ if (columna==2 || columna==3)
 	ui.Tablaapuntes->item(fila,columna)->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
    //connect(ui.Tablaapuntes,SIGNAL( cellChanged ( int , int )),this,
    //	SLOT(contenidocambiado(int,int )));
-   
+
  }    
 
 
@@ -1389,6 +1391,7 @@ void tabla_asientos::comboIvaCambiado()
    			return;
   		}
 		iva->asignaetiqueta(tr("Cuota RE:"));
+                iva->setContenido(cadena.setNum(bi,'f',2));
 		resultado = iva->exec();
    		re = calculaValor( iva->contenido() );
    		if (!resultado==QDialog::Accepted) return;

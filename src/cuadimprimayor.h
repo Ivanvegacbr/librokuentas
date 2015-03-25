@@ -35,7 +35,7 @@ class cuadimprimayor : public QDialog {
                 cuadimprimayor(bool concomadecimal, bool condecimales);
                 void pasadatos( QString qsubcuenta, QDate qfecha );
                 void generalatexmayor( QString qsubcuentaini, QString qsubcuentafinal, QDate fechainicial, QDate fechafinal );
-                
+                QString generalatexfactura( QString qsubcuentaini, QString qsubcuentafinal, QDate fechainicial, QDate fechafinal );
                 QSqlQuery select5Diariofechascuentaorderfechapase (QDate inicial, QDate final, QString cuenta);
                 
         private:
@@ -48,11 +48,13 @@ class cuadimprimayor : public QDialog {
                 QDate selectAperturaejerciciosaperturacierre(QString ini, QString fin);
                 QDate selectCierreejerciciosaperturacierre(QString ini, QString fin);
                 consmayor *c;
+                QDate fechaactual;
                 
         private slots:
                 void finedicsubcuenta();
                 void botonsubcuentapulsado();
                 void botonimprimepulsado();
+                void botonGenFactura();
                 void botonprevisualizapulsado();
                 void ctainicialcambiada();
                 void botonctafinalpulsado();

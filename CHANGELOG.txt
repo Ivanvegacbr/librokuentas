@@ -1,0 +1,10 @@
+Versión 0.7.8
+- Rectificada la función de libro iva de facturas recibidas para que solo visualize las facturas de proveedores.
+- Añadida la opción en libro IVA para solo incluir cuentas anuales superiores a un valor fijado.
+- Reparada la función de importar pases de CAIXABANK desde un archivo de texto. Actualizado hasta primer trimestre 2015.
+
+Version 0.7.7.1
+- Modificado importación automática de pases de la Caixa para su nueva web (Julio 2011)
+
+Version 0.7.7
+- Añadido generacion de facturas a la función Imprime Mayor

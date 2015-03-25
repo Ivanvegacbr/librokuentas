@@ -38,7 +38,7 @@ class Mrconta : public QMainWindow {
       Q_OBJECT
 	  public:
                   Mrconta();
-		  void funcedasiento(QString elasiento, QString eje);
+                  //void funcedasiento(QString elasiento, QString eje);
                   bool cargapreferencias(bool *bdabierta);
                   QString condicionesfiltrodefecto(void);
                   QString ordenarpor(void);

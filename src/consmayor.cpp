@@ -21,19 +21,21 @@
 
 #include "consmayor.h"
 #include "basedatos.h"
-//#include "funciones.h"
-//#include "basedatos.h"
+#include "funciones.h"
 #include "buscasubcuenta.h"
 #include "tabla_asientos.h"
 #include "cuadimprimayor.h"
-//#include "editarasiento.h"
-#include "principal.h"
+#include "editarasiento.h"
 #include "interfechas.h"
 
 consmayor::consmayor(bool concomadecimal, bool condecimales) : QDialog() {
-   ui.setupUi(this);
+  ui.setupUi(this);
   comadecimal=concomadecimal;
   decimales=condecimales;
+
+  ui.fechas->setFlat(true);
+  ui.fechas->setTitle("");
+
   
  QStringList columnas;
  columnas << tr("CUENTA") << tr("FECHA") << tr("ASTO.") << tr("CONCEPTO");
@@ -46,6 +48,9 @@ consmayor::consmayor(bool concomadecimal, bool condecimales) : QDialog() {
  ui.mayortable->hideColumn(0); // el intervalo de cuentas está desactivado por defecto
 
  ui.mayortable->setEditTriggers ( QAbstractItemView::NoEditTriggers );
+ ui.mayortable->setAlternatingRowColors(true);
+ //ui.mayortable->setSelectionMode(QAbstractItemView::ContiguousSelection);
+ ui.mayortable->setSelectionBehavior(QAbstractItemView::SelectRows);
 
  ui.mayortable->setHorizontalHeaderLabels(columnas);
 
@@ -87,7 +92,7 @@ ui.mayortable->setColumnWidth(11,80);
  //connect(ui.origencheckBox,SIGNAL(stateChanged(int)), SLOT(origenpercambiado()));
  //connect(ui.fincheckBox,SIGNAL(stateChanged(int)), SLOT(finalpercambiado()));
 
- connect(ui.intervalogroupBox,SIGNAL(toggled(bool)),this,SLOT(intervalogroupcambiado()));
+ connect(ui.intervalocheckBox,SIGNAL(toggled(bool)),this,SLOT(intervalogroupcambiado()));
  connect(ui.intervaloComboBox,SIGNAL(activated(int)),this,SLOT(intervaloCambiado( int )));
  
  connect(ui.copiarpushButton,SIGNAL(clicked()),SLOT(copiar()));
@@ -117,7 +122,7 @@ void consmayor::cargadatos()
    //bool interfechas = true;
    QString condicion;
    QDate fIni,fFin;
-   if (ui.intervalogroupBox->isChecked()) intervalo=true;
+   if (ui.intervalocheckBox->isChecked()) intervalo=true;
    //if (!ui.fechas->isChecked()) interfechas=false;
    if (!intervalo)
       {
@@ -171,6 +176,7 @@ void consmayor::cargadatos()
         }
 	}
    ui.mayortable->setRowCount(num);
+   ui.progressBar->setMaximum(num);
 
    QSqlQuery query = selectDiario( fIni, fFin, condicion );
    int fila=0;
@@ -178,7 +184,7 @@ void consmayor::cargadatos()
     while ( query.next() ) {
         QTableWidgetItem *newItemcta = new QTableWidgetItem(query.value(0).toString());
         ui.mayortable->setItem(fila,0,newItemcta);
-        QTableWidgetItem *newItem = new QTableWidgetItem(query.value(1).toDate().toString(Qt::SystemLocaleShortDate));
+        QTableWidgetItem *newItem = new QTableWidgetItem(query.value(1).toDate().toString("dd-MM-yyyy"));
         newItem->setToolTip(query.value(1).toDate().toString(Qt::ISODate));
         ui.mayortable->setItem(fila,1,newItem);
         if (numeracionrelativa())
@@ -228,10 +234,11 @@ void consmayor::cargadatos()
         ui.mayortable->setItem(fila,7,newItemj); // documento
         QTableWidgetItem *newItem2 = new QTableWidgetItem(query.value(7).toString());
         ui.mayortable->setItem(fila,8,newItem2); // diario
-        QTableWidgetItem *newItem3 = new QTableWidgetItem(query.value(8).toDate().toString(Qt::SystemLocaleShortDate));
+        QTableWidgetItem *newItem3 = new QTableWidgetItem(query.value(8).toDate().toString("dd-MM-yyyy"));
         newItem3->setToolTip(query.value(8).toDate().toString(Qt::ISODate));
         ui.mayortable->setItem(fila,9,newItem3); // ci
         fila++;
+        ui.progressBar->setValue(fila);
     }
   // calculamos acumulado de saldo inicial
     // primero observamos si el ejercicio anterior está cerrado
@@ -240,7 +247,8 @@ void consmayor::cargadatos()
     double sumahaber=0;
     
     QString ejercicio=ui.fechas->ejercicio();
-    if (ejercicio != noejercicio()){
+
+    /*if (ejercicio != noejercicio()){
 	    QDate fechainiejercicio=inicioejercicio(ejercicio);
 	    QDate fechaejercicioanterior=fechainiejercicio.addDays(-1);
 	    QString ejercicioanterior=ejerciciodelafecha(fechaejercicioanterior);
@@ -257,7 +265,8 @@ void consmayor::cargadatos()
 	        sumadebe=query.value(0).toDouble();
 	        sumahaber=query.value(1).toDouble();
 	      }
-    }
+    }*/
+
     fila=0;
     while (fila<ui.mayortable->rowCount())
        {
@@ -287,10 +296,9 @@ void consmayor::cargadatos()
 	        d2.setDate(year,month,day);
 	        if (!d2.isValid())
 	        	d2 = d1;
-	        QTableWidgetItem *newItemd = new QTableWidgetItem(formateanumero(deudaCuentaenDiario(
-	        													ui.mayortable->item(fila,0)->text(),
-	        													d1)
-	        													,comadecimal,decimales));
+                QTableWidgetItem *newItemd = new QTableWidgetItem(formateanumero(
+                        deudaCuentaenDiario(ui.mayortable->item(fila,0)->text(),d1),comadecimal,decimales));
+
 	        newItemd->setTextAlignment (Qt::AlignRight | Qt::AlignVCenter);
 	        ui.mayortable->setItem(fila,10,newItemd); // deuda
 	        QTableWidgetItem *newItempl;
@@ -321,7 +329,7 @@ void consmayor::cargadatos()
 void consmayor::refrescar()
 {
    ctaexpandepunto();
-   if (ui.intervalogroupBox->isChecked()) 
+   if (ui.intervalocheckBox->isChecked())
       {
        cargadatos();
        return;
@@ -406,7 +414,7 @@ void consmayor::subcuentasiguiente()
 void consmayor::imprimir()
 {
   //QMessageBox::warning(this,tr("Consultas de Mayor"),"Imprimir");
-  if (ui.intervalogroupBox->isChecked())
+  if (ui.intervalocheckBox->isChecked())
      {
        latexintervalo();
        int valor=imprimelatex(tr("mayor_int"));
@@ -453,10 +461,12 @@ void consmayor::editarpulsado()
     QString asiento;
 
     if (ui.mayortable->currentItem()==0) return;
-    int dia=ui.mayortable->item(ui.mayortable->currentRow(),1)->text().left(2).toInt();
-    int mes=ui.mayortable->item(ui.mayortable->currentRow(),1)->text().mid(3,2).toInt();
-    int anyo=ui.mayortable->item(ui.mayortable->currentRow(),1)->text().right(4).toInt();
-    QDate fecha(anyo,mes,dia);
+    //int dia=ui.mayortable->item(ui.mayortable->currentRow(),1)->text().left(2).toInt();
+    //int mes=ui.mayortable->item(ui.mayortable->currentRow(),1)->text().mid(3,2).toInt();
+    //int anyo=ui.mayortable->item(ui.mayortable->currentRow(),1)->text().right(2).toInt();
+    //QDate fecha(anyo+2000,mes,dia);
+    QDate fecha = QDate::fromString(ui.mayortable->item(ui.mayortable->currentRow(),1)->text(),"dd-MM-yyyy");
+    qDebug() << "Fecha:" << fecha.toString("dd-MM-yyyy");
     if (numeracionrelativa())
     {
 		 qlonglong numrel=ui.mayortable->item(ui.mayortable->currentRow(),2)->text().toLongLong();
@@ -465,7 +475,7 @@ void consmayor::editarpulsado()
     }else
          asiento=ui.mayortable->item(ui.mayortable->currentRow(),2)->text();
     
-    QString ejercicio=ui.fechas->ejercicio();
+    QString ejercicio=ejerciciodelafecha(fecha);
        
     //fecha=fechaMaxAsiento(asiento,ejercicio);
 
@@ -487,36 +497,41 @@ void consmayor::editarpulsado()
          return;
        }
 
-    Mrconta *mr = new Mrconta();
-    mr->funcedasiento(asiento,ejercicio);
-    delete mr;
+    funcEdAsiento(asiento,ejercicio);
 
 }
 
 void consmayor::intervalogroupcambiado()
 {
-  if (ui.intervalogroupBox->isChecked())
+  if (ui.intervalocheckBox->isChecked())
      {
       ui.nombrelabel->clear();
       ui.subcuentalineEdit->setEnabled(false);
-      ui.subcuentalineEdit->clear();
+      //ui.subcuentalineEdit->clear();
       ui.buscapushButton->setEnabled(false);
       ui.previapushButton->setEnabled(false);
       ui.siguientepushButton->setEnabled(false);
+      ui.iniciallineEdit->setEnabled(true);
+      ui.finallineEdit->setEnabled(true);
+      ui.intervaloComboBox->setEnabled(true);
       QString cadena="Consultas de Mayor";
       setWindowTitle(cadena);
       ui.mayortable->showColumn(0);
      }
    else
        {
-        ui.nombrelabel->clear();
+        ui.nombrelabel->setText(descripcioncuenta(ui.subcuentalineEdit->text()));
         ui.subcuentalineEdit->setEnabled(true);
         ui.buscapushButton->setEnabled(true);
         ui.previapushButton->setEnabled(true);
         ui.siguientepushButton->setEnabled(true);
         ui.iniciallineEdit->clear();
         ui.finallineEdit->clear();
-        QString cadena="Consultas de Mayor";
+        ui.iniciallineEdit->setEnabled(false);
+        ui.finallineEdit->setEnabled(false);
+        ui.intervaloComboBox->setEnabled(false);
+        QString cadena="Consultas de Mayor: ";
+        cadena+=ui.nombrelabel->text();
         setWindowTitle(cadena);
         ui.mayortable->hideColumn(0);
        }
@@ -676,13 +691,13 @@ void consmayor::copiar()
    global+="\n";
    global+=tr("INICIAL:");
    global+="\t";
-   global+=ui.fechas->fecha(interFechas::inicial).toString("dd/MM/yyyy");
+   global+=ui.fechas->fecha(interFechas::inicial).toString("dd-MM-yyyy");
    global+="\n";
    global+=tr("FINAL:");
    global+="\t";
-   global+=ui.fechas->fecha(interFechas::final).toString("dd/MM/yyyy");
+   global+=ui.fechas->fecha(interFechas::final).toString("dd-MM-yyyy");
    global+="\n\n";
-   if (ui.intervalogroupBox->isChecked())
+   if (ui.intervalocheckBox->isChecked())
       {
        global+=tr("CUENTA") +"\t";
       }
@@ -696,7 +711,7 @@ void consmayor::copiar()
     int linactu=0;
     while (linactu<ui.mayortable->rowCount())
           {
-           if (ui.intervalogroupBox->isChecked())
+           if (ui.intervalocheckBox->isChecked())
               {
                 global+=ui.mayortable->item(linactu,0)->text();
                 global+="\t";

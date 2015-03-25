@@ -55,7 +55,7 @@
 #include "edit_conc_doc.h"
 #include "libros.h"
 #include "libroiva.h"
-#include "grafico.h"
+//#include "grafico.h"
 #include "consmayor.h"
 #include "editapaseconci.h"
 #include "lacaixa.h"
@@ -68,6 +68,7 @@
 #include "importasemanas.h"
 #include "diarios.h"
 #include "asignadiario.h"
+#include "editarasiento.h"
 
 #define VERSION "0.7"
 #define APPNAME "Libro KUENTAS"
@@ -1258,7 +1259,7 @@ void Mrconta::nuevoasiento()
                "¿ Desea cargar los datos de la semana < %1 > ?").arg( asiento ),
             tr("&Ignorar"), tr("&Cargar"),
             QString::null, 0, 1 )){
-            	funcedasiento(asiento,eje);
+                funcEdAsiento(asiento,eje);
             	refrescardiario();
             	//return;
             	
@@ -1311,7 +1312,7 @@ void Mrconta::editaasiento()
          return;
        }
 
-      funcedasiento(elasiento,ejercicio);
+      funcEdAsiento(elasiento,ejercicio);
       refrescardiario();
 }
 
@@ -1358,105 +1359,8 @@ void Mrconta::editaNumAsiento()
          return;
    }
 
-   funcedasiento(elasiento,elejercicio);
+   funcEdAsiento(elasiento,elejercicio);
    refrescardiario();
-}
-
-void Mrconta::funcedasiento(QString elasiento, QString eje)
-{
-       tabla_asientos *t = new tabla_asientos(estilonumerico,!sindecimales);
-       t->activaparaedicion();
-       QString consulta="SELECT cuenta,concepto,debe,haber,documento,asiento,fecha,pase,ci,diario ";
-       consulta+="FROM diario where asiento='";
-       consulta+=elasiento;
-       consulta+="' and fecha>='";
-	  consulta+=inicioejercicio(eje).toString("yyyy.MM.dd");
-	  consulta+="' and fecha<='";
-	  consulta+=finejercicio(eje).toString("yyyy.MM.dd");
-	  consulta+="'";
-       //bool esaib=false;
-       //bool eseib=false;
-       //if (asientoenaib(elasiento)) { t->preparaaib(); esaib=true; }
-       //if (asientoeneib(elasiento)) { t->preparaeib(); eseib=true; }
-       consulta+=" order by fecha,pase;";
-       int fila=0;
-       QString cadasiento;
-       QString cadpase;
-       QDate fechaasiento;
-       QString caddebe;
-       QString cadhaber;
-       QString consulta2;
-       QString qdiario;
-       bool pasado=false;
-       QSqlQuery query2;
-       QSqlQuery query = ejecutarSQL( consulta );
-            if ( query.isActive() ) {
-                while ( query.next() ) {
-                    if (!pasado)
-                       {
-                        qdiario=query.value(9).toString();
-                        if (qdiario.length()==0) qdiario=diario_no_asignado();
-                        t->pasadiario(qdiario);
-                        pasado=true;
-                       }
-		    //if (esaib && (escuentadeivasoportado(query.value(0).toString()) 
-			//|| escuentadeivarepercutido(query.value(0).toString()))) continue;
-		    if (query.value(2).toDouble()>-0.0001 && query.value(2).toDouble()<0.0001)
-		        caddebe=""; else caddebe=query.value(2).toString();
-		    if (query.value(3).toDouble()>-0.0001 && query.value(3).toDouble()<0.0001)
-		        cadhaber=""; else cadhaber=query.value(3).toString();
-		    
-		    fechaasiento=query.value(6).toDate();
-		    cadpase=query.value(7).toString();
-		    
-		    t->pasadatos1(fila, query.value(0).toString() , query.value(1).toString(),
-                          caddebe, cadhaber, query.value(4).toString(),
-                          fechaasiento, cadpase, query.value(8).toString());
-		    
-		    cadasiento=query.value(5).toString();
-		    t->pasanumasiento(cadasiento);
-		    //t->pasafechaasiento(fechaasiento);
-		    //if (eseib) { fila++; continue; }
-	        QSqlDatabase bd;
-	        bd=QSqlDatabase::database ();
-	        QString acontrolador= bd.driverName();
-            consulta2="SELECT cta_base_iva, base_iva, clave_iva, tipo_iva, ";
-            consulta2+="tipo_re, cuota_iva, cuenta_fra, soportado ";
-	              /*if (acontrolador=="QMYSQL3" || acontrolador=="QMYSQL")
-		      {
-                                    consulta2+="tipo_re, cuota_iva, cuenta_fra, DAY(fecha_fra), ";
-                                    consulta2+="MONTH(fecha_fra), YEAR(fecha_fra),soportado ";
-		      }
-		       else
-		         {
-                            consulta2+="tipo_re, cuota_iva, cuenta_fra, date_part('day',fecha_fra), ";
-                            consulta2+="date_part('month',fecha_fra), date_part('year',fecha_fra),soportado ";
-		          }*/
-            consulta2+="from libroiva where pase=";
-	        consulta2+=cadpase; consulta2+=";";
-		    query2 = ejecutarSQL(consulta2);
-		    if (query2.isActive()) 
-			if (query2.next()) {
-			    QString cadsoportado;
-			    if (query2.value(10).toBool()==true )
-				cadsoportado="1"; else cadsoportado="0";
-			    t->pasadatos2(fila,query2.value(0).toString(),
-						     query2.value(1).toString(),
-						     query2.value(2).toString(),
-						     query2.value(3).toString(),
-						     query2.value(4).toString(),
-						     query2.value(5).toString(),
-						     query2.value(6).toString(),
-						     cadpase);
-			}
-			
-		    fila++;
-		}
-	    }
-        t->pasaFechasAsiento(fechaMinAsiento(elasiento,eje),fechaMaxAsiento(elasiento,eje));
-        t->chequeatotales();
-        t->exec();
-        t->~tabla_asientos();
 }
 
 void Mrconta::borraasiento()
@@ -2067,13 +1971,13 @@ void Mrconta::grafOper()
 	//Acabar en coordenadas (maxSem,0)
 	//valores1 << maxSem+1;
 	//valores2 << 0.0;
-	grafico *gr = new grafico(tr("Ejercicio ")+elejercicio,tr("Semanas"),tr("Euros"),
-					estilonumerico,!sindecimales);
+        //grafico *gr = new grafico(tr("Ejercicio ")+elejercicio,tr("Semanas"),tr("Euros"),
+        //					estilonumerico,!sindecimales);
 	pastel *p=new pastel();
 	
 	//QColor null;
 	
-	gr->addCurva(Qt::darkBlue,tr("Gastos"),valores1,valores2);
+        //gr->addCurva(Qt::darkBlue,tr("Gastos"),valores1,valores2);
 	p->addPorcion(Qt::darkBlue,tr("Gastos"),total);
 	valores2.clear();
 	total = 0.0;
@@ -2097,10 +2001,10 @@ void Mrconta::grafOper()
 			valores2 << 0.0;
 	}
 	//valores2 << 0.0;//Acabar en zero
-	gr->addCurva(Qt::darkRed,tr("Ingresos"),valores1,valores2);
+        //gr->addCurva(Qt::darkRed,tr("Ingresos"),valores1,valores2);
 	p->addPorcion(Qt::darkRed,tr("Ingresos"),total);
 	QTabWidget *tab = new QTabWidget();
-	tab->addTab(gr,tr("Temporal"));
+        //tab->addTab(gr,tr("Temporal"));
 	tab->addTab(p,tr("Total"));
 	QGridLayout *l = new QGridLayout();
 	l->addWidget(tab);
@@ -2112,7 +2016,7 @@ void Mrconta::grafOper()
 	d->setWindowIcon(ui.actionOperaciones->icon());
 	d->resize(650,450);
 	d->exec();
-	gr->~grafico();
+        //gr->~grafico();
 	delete(p);
 	delete(tab);
 	//setCentralWidget(gr);
@@ -2212,7 +2116,7 @@ void Mrconta::actualizade07()
            QMessageBox::information( this, tr("Apertura de base de datos"),
 		     tr("Se van a actualizar las tablas para la versión 0.8"));
            
-           ejecutarSQL("update configuracion set version='0.8';");
+           //ejecutarSQL("update configuracion set version='0.8';");
 
            /*ejecutarSQL("alter table libroiva add column prorrata numeric(5,2) default 1;");
 
@@ -2224,11 +2128,11 @@ void Mrconta::actualizade07()
                        "PRIMARY KEY (codigo) );");*/
           if (cmysql)
             {
-             ejecutarSQL("alter table diario change ci ci date default NULL;");
+             //ejecutarSQL("alter table diario change ci ci date default NULL;");
             }
             else
                 {
-                 ejecutarSQL("alter table diario alter column ci type date default NULL;");
+                 //ejecutarSQL("alter table diario alter column ci type date default NULL;");
                 }
 
            //ejecutarSQL("alter table amortcontable add primary key (ejercicio);");

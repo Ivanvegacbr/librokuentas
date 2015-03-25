@@ -45,7 +45,8 @@ inicio::inicio() : QDialog() {
         "El controlador QPSQL de las librerías QT para la conexión con "
         "POSTGRESQL, o bien el controlador QMYSQL para MySQL\n\n"
         "El paquete Latex, que será el encargado, entre otras cosas, de generar la "
-        "salida impresa de la aplicación\n\n"));
+        "salida impresa de la aplicación. En Ubuntu y derivados los paquetes <texlive-base> "
+        "y <texlive-extra-utils>\n\n"));
 
 }
 

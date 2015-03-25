@@ -40,6 +40,11 @@ void pidenombre::asignaetiqueta(QString nombre)
     ui.textLabel->setText(nombre);
 }
 
+void pidenombre::setContenido(QString nombre)
+{
+    ui.lineEdit->setText(nombre);
+}
+
 QString pidenombre::contenido(void)
 {
     return ui.lineEdit->text();

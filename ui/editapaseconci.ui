@@ -1,140 +1,148 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>editapaseconci</class>
- <widget class="QDialog" name="editapaseconci" >
-  <property name="geometry" >
+ <widget class="QDialog" name="editapaseconci">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>314</width>
-    <height>187</height>
+    <width>309</width>
+    <height>215</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Editar pase cuenta</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout" >
-   <item row="0" column="0" >
-    <widget class="QLabel" name="label_2" >
-     <property name="font" >
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="font">
       <font>
        <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
-     <property name="text" >
+     <property name="text">
       <string>CONCEPTO:</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="1" >
-    <widget class="QLineEdit" name="descripcionlineEdit" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Maximum" hsizetype="Expanding" >
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="descripcionlineEdit">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="readOnly" >
+     <property name="readOnly">
       <bool>true</bool>
      </property>
     </widget>
    </item>
-   <item row="1" column="0" >
-    <widget class="QLabel" name="label" >
-     <property name="font" >
+   <item row="1" column="0">
+    <widget class="QLabel" name="label">
+     <property name="font">
       <font>
        <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
-     <property name="text" >
+     <property name="text">
       <string>FECHA:</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="1" >
-    <widget class="QDateEdit" name="fechadateEdit" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Maximum" hsizetype="Maximum" >
+   <item row="1" column="1">
+    <widget class="QDateEdit" name="fechadateEdit">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="calendarPopup" >
+     <property name="calendarPopup">
       <bool>true</bool>
      </property>
-     <property name="currentSectionIndex" >
+     <property name="currentSectionIndex">
       <number>0</number>
      </property>
     </widget>
    </item>
-   <item row="2" column="0" >
-    <widget class="QLabel" name="label_3" >
-     <property name="font" >
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="font">
       <font>
        <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
-     <property name="text" >
+     <property name="text">
       <string>DEBE:</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="1" >
-    <widget class="QLineEdit" name="debelineEdit" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Maximum" hsizetype="Maximum" >
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="debelineEdit">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
     </widget>
    </item>
-   <item row="3" column="1" >
-    <widget class="QCheckBox" name="ivaCheck" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="text" >
-      <string>IVA incluido</string>
-     </property>
-    </widget>
+   <item row="3" column="1">
+    <widget class="ivaComboBox" name="ivaSelect" native="true"/>
    </item>
-   <item row="4" column="0" >
-    <widget class="QLabel" name="label_4" >
-     <property name="font" >
+   <item row="4" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="font">
       <font>
        <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
-     <property name="text" >
+     <property name="text">
       <string>HABER:</string>
      </property>
     </widget>
    </item>
-   <item row="4" column="1" >
-    <widget class="QLineEdit" name="haberlineEdit" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Maximum" hsizetype="Maximum" >
+   <item row="4" column="1">
+    <widget class="QLineEdit" name="haberlineEdit">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
     </widget>
    </item>
-   <item row="5" column="1" >
-    <layout class="QHBoxLayout" name="horizontalLayout" >
+   <item row="5" column="1">
+    <widget class="QLabel" name="ivaLabel">
+     <property name="text">
+      <string>0.00</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QLabel" name="reLabel">
+     <property name="text">
+      <string>0.00</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="1">
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <spacer name="horizontalSpacer" >
-       <property name="orientation" >
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
@@ -143,36 +151,83 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="aceptarpushButton" >
-       <property name="text" >
+      <widget class="QPushButton" name="aceptarpushButton">
+       <property name="text">
         <string>&amp;Aceptar</string>
        </property>
-       <property name="icon" >
-        <iconset resource="libroK.qrc" >
+       <property name="icon">
+        <iconset resource="libroK.qrc">
          <normaloff>:/images/librok-42.png</normaloff>:/images/librok-42.png</iconset>
        </property>
-       <property name="default" >
+       <property name="default">
         <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="cancelarpushButton" >
-       <property name="text" >
+      <widget class="QPushButton" name="cancelarpushButton">
+       <property name="text">
         <string>&amp;Cancelar</string>
        </property>
-       <property name="icon" >
-        <iconset resource="libroK.qrc" >
+       <property name="icon">
+        <iconset resource="libroK.qrc">
          <normaloff>:/images/librok-7.png</normaloff>:/images/librok-7.png</iconset>
        </property>
       </widget>
      </item>
     </layout>
    </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>IVA:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="label_8">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>RESULTADO:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="label_9">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>RE:</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ivaComboBox</class>
+   <extends>QWidget</extends>
+   <header>src/ivacombobox.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
-  <include location="libroK.qrc" />
+  <include location="libroK.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -181,11 +236,11 @@
    <receiver>editapaseconci</receiver>
    <slot>reject()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>343</x>
      <y>193</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>384</x>
      <y>129</y>
     </hint>

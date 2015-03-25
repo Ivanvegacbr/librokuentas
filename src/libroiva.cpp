@@ -68,7 +68,7 @@ void libroiva::generalatexsoportado()
     stream << "\\usepackage[utf8x]{inputenc}" << "\n";
     stream << "\\usepackage[spanish]{babel}" << "\n";
     stream << "\\usepackage{longtable}" << "\n";
-    stream << "\\addtolength{\\hoffset}{-2.8cm}" << "\n";
+    stream << "\\addtolength{\\hoffset}{-3.4cm}" << "\n";
     stream << "\\addtolength{\\textwidth}{5.6cm}" << "\n";
     stream << "\\addtolength{\\voffset}{-1.5cm}" << "\n";
     stream << "\\addtolength{\\textheight}{3cm}" << "\n";
@@ -91,7 +91,7 @@ void libroiva::generalatexsoportado()
    if (aib && soportado) cadena=tr("IVA SOPORTADO POR A.I.B.");
    if (recibidas_autofactura) cadena=tr("LIBRO DE AUTOFACTURAS REALIZADAS - FACTURAS RECIBIDAS");
    // --------------------------------------------------------------------------------------
-   stream << cadena;
+   stream << cadena << " - " << ui.ejerciciocomboBox->currentText();
    stream <<  "}} \\\\";
    stream << "\\hline" << "\n";
     // -------------------------------------------------------------------------------------
@@ -136,6 +136,9 @@ void libroiva::generalatexsoportado()
     cadena+="' and soportado";
     if (aib) cadena+=" and aib"; else cadena+=" and not aib";
     if (recibidas_autofactura) cadena+=" and autofactura"; else cadena+=" and not autofactura";
+    //parcheamos el problema con facturas de clientes
+    if (!emitidas_rectificativa) cadena+=" and not left(cuenta_fra,1)='4'";
+
     QSqlQuery query = ejecutarSQL(cadena);
     int registros=0;
     if ( query.isActive() ) {
@@ -154,24 +157,34 @@ void libroiva::generalatexsoportado()
     cadena+="'";
     if (aib) cadena+=" and aib"; else cadena+=" and not aib";
     if (recibidas_autofactura) cadena+=" and autofactura"; else cadena+=" and not autofactura";
+    if (!emitidas_rectificativa) cadena+=" and not left(l.cuenta_fra,1)='4'";
     cadena+=" and p.codigo=l.cuenta_fra and soportado"
 	       " order by d.fecha,d.asiento";
     query = ejecutarSQL(cadena);
     ui.progressBar->setMaximum(registros);
     int numorden=0;
     int numprog=1;
-    QString cadnum,guardadoc,guardaprov;
+    QString cadnum,guardadoc,guardaprov,condis;
     double base=0;
     double cuota=0;
+    double total=0;
     if ( query.isActive() ) {
           while ( query.next() )
-              {
+          {
 	        ui.progressBar->setValue(numprog);
-                if (guardadoc!=query.value(0).toString() || query.value(0).toString().length()==0 
+            if (guardadoc!=query.value(0).toString() || query.value(0).toString().length()==0
                     || numprog==1 || guardaprov!=query.value(2).toString()) numorden++; 
-                guardadoc=query.value(0).toString();
-                guardaprov=query.value(2).toString();
-	        stream << "{\\tiny " << cadnum.setNum(numorden) << "} & {\\tiny "; 
+            guardadoc=query.value(0).toString();
+            guardaprov=query.value(2).toString();
+
+            if (ui.excluir->isChecked() && guardaprov.left(3)=="600")
+            {
+                total = totalProveedor(guardaprov,inicioejercicio(ui.ejerciciocomboBox->currentText()),finejercicio(ui.ejerciciocomboBox->currentText()));
+                //qDebug() << total;
+                if (total < ui.valorMaximo->value()) continue;
+            }
+
+            stream << "{\\tiny " << cadnum.setNum(numorden) << "} & {\\tiny ";
 	        stream << filtracad(query.value(0).toString()) << "} & {\\tiny "; // fra.
 	        stream << query.value(1).toDate().toString("dd.MM.yyyy") << "} & {\\tiny "; // fecha
 	        stream <<  query.value(2).toString() << "} & {\\tiny "; // cuenta
@@ -189,8 +202,13 @@ void libroiva::generalatexsoportado()
                  else stream <<  query.value(4).toString() << "} & {\\tiny "; // asiento
 	        stream <<  formateanumerosep(query.value(5).toDouble(),comadecimal,decimales)
                        << "} & {\\tiny "; // base iva
-	        stream <<  formateanumerosep(query.value(6).toDouble(),comadecimal,decimales)
-                       << "} & {\\tiny "; // tipo
+            double tmo = query.value(6).toDouble();
+            if (tmo == 0.0)
+                stream <<  iva_mixto();
+            else
+                stream <<  formateanumerosep(query.value(6).toDouble(),comadecimal,decimales);
+
+            stream << "} & {\\tiny "; // tipo
 	        stream <<  formateanumerosep(query.value(7).toDouble(),comadecimal,decimales)
                        << "} & {\\tiny "; // cuota
                 stream <<  formateanumerosep(query.value(8).toDouble(),comadecimal,decimales) << "} \\\\ \n  " 
@@ -241,7 +259,7 @@ void libroiva::generalatexrepercutido()
     stream << "\\usepackage[utf8x]{inputenc}" << "\n";
     stream << "\\usepackage[spanish]{babel}" << "\n";
     stream << "\\usepackage{longtable}" << "\n";
-    stream << "\\addtolength{\\hoffset}{-2.8cm}" << "\n";
+    stream << "\\addtolength{\\hoffset}{-3.4cm}" << "\n";
     stream << "\\addtolength{\\textwidth}{5.6cm}" << "\n";
     stream << "\\addtolength{\\voffset}{-1.5cm}" << "\n";
     stream << "\\addtolength{\\textheight}{3cm}" << "\n";
@@ -489,6 +507,8 @@ QString libroiva::nombrefichero()
      else cadena=tr("facturas_emitidas");
   if (aib) cadena+=tr("_aib");
   if (eib) cadena+=tr("_eib");
+  cadena+="_";
+  cadena+=ui.ejerciciocomboBox->currentText();
   return cadena;
 }
 
@@ -681,5 +701,29 @@ void libroiva::generalatexsoportadoprorrata()
     fichero.close();
 
     ui.progressBar->reset();
+
+}
+
+double libroiva::totalProveedor(QString cuenta, QDate FIni, QDate FFin)
+{
+    QString pet = "select sum(base_iva+(base_iva*tipo_iva/100)+(base_iva*tipo_re/100)) from libroiva where cuenta_fra='";
+    pet += cuenta;
+    pet += "' and fecha_fra>='";
+    pet += FIni.toString("yyyy/MM/dd");
+    pet += "' and fecha_fra<='";
+    pet += FFin.toString("yyyy/MM/dd");
+    pet += "'";
+    //qDebug() << "Consulta total iva: " << pet;
+    QSqlQuery ped = ejecutarSQL(pet);
+    if ( ped.isActive() )
+       {
+         if (ped.size()>0)
+            {
+              ped.first();
+
+              return ped.value(0).toDouble();
+            }
+         }
+    return 0;
 
 }

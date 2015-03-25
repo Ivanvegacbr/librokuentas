@@ -79,6 +79,7 @@ class diario: public QWidget {
        private slots:
            void infocuentapase(QModelIndex primaryKeyIndex);
            void ordenarColumna(QModelIndex headerIndex);
+           void editaAsiento();
 
 };
 

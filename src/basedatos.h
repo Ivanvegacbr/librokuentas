@@ -98,7 +98,7 @@ bool int_asientos_ej_cerrado(QString asientoinicial,QString asientofinal);
 void pasasaldo(QString cuenta,QString importe,bool cargo);
 bool cuentaenlibroiva(QString cuenta);
 bool paseapertura(QString pase);
-bool paseenlibroivaeib(QString pase);
+bool paseLibroiva(QString pase);
 void actualizasaldos();
 QString versionbd();
 bool codsubdivis(QString qcodigo);

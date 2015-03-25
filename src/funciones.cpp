@@ -1381,7 +1381,7 @@ int consultalatex2(QString qfichero)
     QObject *parent=NULL;
 
      QStringList arguments;
-     arguments << adapta(cadarg);
+     arguments << "-interaction=nonstopmode"<< adapta(cadarg);
 
      QProcess *myProcess = new QProcess(parent);
 
@@ -1395,7 +1395,7 @@ int consultalatex2(QString qfichero)
          myProcess->~QProcess();
          return 1;
        }
-    if (!myProcess->waitForFinished (60000))
+    if (!myProcess->waitForFinished (30000))
        {
          myProcess->~QProcess();
          return 1;
@@ -1404,6 +1404,7 @@ int consultalatex2(QString qfichero)
      myProcess->start(cadexec,arguments);
 
     // system(cadexec);
+
     if (!myProcess->waitForStarted ())
        {
          myProcess->~QProcess();
@@ -1451,7 +1452,7 @@ int consultalatex2fichabs(QString qfichero)
     QObject *parent=NULL;
 
      QStringList arguments;
-     arguments << adapta(cadarg);
+     arguments << "-interaction=nonstopmode" << adapta(cadarg);
 
      QString cadexec="latex";
      QProcess *myProcess = new QProcess(parent);
@@ -1516,18 +1517,19 @@ int generapdffichabs(QString qfichero)
     QString fichero=qfichero;
     fichero.truncate(qfichero.length()-4);
     QString cadarg=fichero;
+    cadarg+=".tex";
 
     QObject *parent=NULL;
 
      QStringList arguments;
      arguments << adapta(cadarg);
-
-     QString cadexec="latex";
+qDebug() << "PDFLATEX for convert file";
+     QString cadexec="pdflatex";
      QProcess *myProcess = new QProcess(parent);
 
      myProcess-> setWorkingDirectory(adapta(dirtrabajo()));
 
-     myProcess->start(cadexec,arguments);
+    // myProcess->start(cadexec,arguments);
 
     // system(cadexec);
      myProcess->start(cadexec,arguments);
@@ -1560,7 +1562,7 @@ int generapdffichabs(QString qfichero)
        }
 
 
-    arguments.clear();
+    /*arguments.clear();
     cadexec="dvipdf";
     if (eswindows()) cadexec="dvipdfm";
 
@@ -1581,7 +1583,7 @@ int generapdffichabs(QString qfichero)
        {
          myProcess->~QProcess();
          return 2;
-       }
+       }*/
 
   myProcess->~QProcess();
   return 0;

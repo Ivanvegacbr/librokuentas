@@ -23,19 +23,20 @@
 #include "funciones.h"
 #include "basedatos.h"
 #include "buscasubcuenta.h"
-
+#include "pidenombre.h"
  
 cuadimprimayor::cuadimprimayor(bool concomadecimal, bool condecimales) : QDialog() {
   ui.setupUi(this);
   comadecimal=concomadecimal;
   decimales=condecimales;
-  QDate fechaactual;
+  //QDate fechaactual;
   QString cadfechaactual;
   cadfechaactual=fechaactual.currentDate().toString("yyyy.MM.dd");
   c = new consmayor(comadecimal,decimales);
   ui.inicialdateEdit->setDate( selectAperturaejerciciosaperturacierre( cadfechaactual, cadfechaactual ) );
   ui.finaldateEdit->setDate( selectCierreejerciciosaperturacierre( cadfechaactual, cadfechaactual ) );
 
+  connect(ui.genfactura,SIGNAL(clicked()),SLOT(botonGenFactura()));
  connect(ui.subcuentalineEdit,SIGNAL(returnPressed()),SLOT(finedicsubcuenta()));
  connect(ui.subcuentapushButton,SIGNAL(clicked()),SLOT(botonsubcuentapulsado()));
  connect(ui.imprimepushButton,SIGNAL(clicked()),SLOT(botonimprimepulsado()));
@@ -121,6 +122,55 @@ void cuadimprimayor::botonimprimepulsado()
    if (valor==3)
        QMessageBox::warning( this, tr("IMPRIMIR MAYOR"),
                              tr("PROBLEMAS al llamar a ")+programa_imprimir());
+}
+void cuadimprimayor::botonGenFactura()
+{
+
+  fechasok();
+  QString fact = generalatexfactura(ui.subcuentalineEdit->text(),
+                   ui.finallineEdit->text(),
+                   ui.inicialdateEdit->date(),ui.finaldateEdit->date());
+
+  QString fich(tr("factura"));
+  fich+=nombreempresa().replace(" ","_").prepend("_");
+  fich+="_";
+  fich+=fact;
+  int valor=consultalatex2(fich);
+   if (valor==1)
+       QMessageBox::warning( this, tr("VISTA PREVIA FACTURA"),tr("PROBLEMAS al llamar a Latex"));
+   if (valor==2)
+       QMessageBox::warning( this, tr("VISTA PREVIA FACTURA"),
+                             tr("PROBLEMAS al llamar a ")+visordvi());
+   if (valor==0){
+       QMessageBox::information( this, tr("VISTA PREVIA FACTURA"),tr("Se generará el documento PDF también."));
+       QString cadexec="dvipdf";
+       if (eswindows()) cadexec="dvipdfm";
+       QStringList arguments;
+       QObject *parent=this;
+       QProcess *miProceso = new QProcess(parent);
+
+       miProceso-> setWorkingDirectory(adapta(dirtrabajo()));
+
+       QString cadarg=adapta(fich);
+       cadarg+=".dvi";
+       arguments << cadarg;
+       // arguments << "&";
+
+       miProceso->start(cadexec,arguments);
+
+       if (!miProceso->waitForStarted ())
+          {
+            miProceso->~QProcess();
+          }
+
+       if (!miProceso->waitForFinished ())
+          {
+            miProceso->~QProcess();
+          }
+
+        miProceso->~QProcess();
+
+    }
 }
 
 
@@ -403,6 +453,256 @@ void cuadimprimayor::generalatexmayor( QString qsubcuentaini, QString qsubcuenta
     if (filtrartexaxtivado()) filtratex(qfichero);
 }
 
+QString cuadimprimayor::generalatexfactura( QString qsubcuentaini, QString qsubcuentafinal, QDate fechainicial, QDate fechafinal )
+{
+
+    // -----------------------------------------------------------------------------------
+   pidenombre *f = new pidenombre();
+   f->asignanombreventana(tr("Factura"));
+   f->asignaetiqueta(tr("Número factura:"));
+   f->exec();
+   QString numfactura=f->contenido();
+   f->~pidenombre();
+
+    if (QString::compare(qsubcuentaini,qsubcuentafinal)>0) return numfactura;
+   QString qfichero=dirtrabajo();
+   qfichero.append(QDir::separator());
+   qfichero=qfichero+tr("factura");
+   qfichero+=nombreempresa().replace(" ","_").prepend("_");
+   qfichero+="_";
+   qfichero+=numfactura;
+   qfichero+=".tex";
+   // QMessageBox::warning( this, tr("Estados Contables"),qfichero);
+   QString pasa;
+   if (eswindows()) pasa=QFile::encodeName(qfichero);
+       else pasa=qfichero;
+   QFile fichero(pasa);
+    if (! fichero.open( QIODevice::WriteOnly ) ) return numfactura;
+    QTextStream stream( &fichero );
+    stream.setCodec("UTF-8");
+    stream << "\\documentclass[a4paper]{article}" << "\n";
+    stream << "\\usepackage[T1]{fontenc}" << "\n";
+    stream << "\\usepackage[utf8x]{inputenc}" << "\n";
+    stream << "\\usepackage[spanish]{babel}" << "\n";
+    stream << "\\usepackage{amsmath}" << "\n";
+    stream << "\\usepackage{color}" << "\n";
+    stream << "\\usepackage{supertabular}" << "\n";
+    stream << "\\usepackage{graphicx}" << "\n";
+    stream << "\\usepackage{amssymb,amsfonts,textcomp}" << "\n";
+    stream << "\\usepackage{array}" << "\n";
+    stream << "\\usepackage{hhline}" << "\n";
+    stream << "\\usepackage{hyperref}" << "\n";
+    stream << "\\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue}" << "\n";
+     stream << "\\makeatletter" << "\n";
+     stream << "\\newcommand\\arraybslash{\\let\\\\\\@arraycr}" << "\n";
+     stream << "\\makeatother" << "\n";
+    stream << "% Page layout (geometry)" << "\n";
+     stream << "\\setlength\\voffset{-1in}" << "\n";
+     stream << "\\setlength\\hoffset{-1in}" << "\n";
+     stream << "\\setlength\\topmargin{2cm}" << "\n";
+     stream << "\\setlength\\oddsidemargin{2cm}" << "\n";
+     stream << "\\setlength\\textheight{27.279cm}" << "\n";
+     stream << "\\setlength\\textwidth{16.999cm}" << "\n";
+     stream << "\\setlength\\footskip{0.0cm}" << "\n";
+     stream << "\\setlength\\headheight{0cm}" << "\n";
+     stream << "\\setlength\\headsep{0cm}" << "\n";
+     stream << "% Footnote rule" << "\n";
+     stream << "\\setlength{\\skip\\footins}{0.119cm}" << "\n";
+     stream << "\\renewcommand\\footnoterule{\\vspace*{-0.018cm}\\setlength\\leftskip{0pt}\\setlength\\rightskip{0pt plus 1fil}\\noindent\\textcolor{black}{\\rule{0.25\\columnwidth}{0.018cm}}\\vspace*{0.101cm}}" << "\n";
+     stream << "% Pages styles" << "\n";
+     stream << "\\makeatletter" << "\n";
+     stream << "\\newcommand\\ps@Standard{" << "\n";
+       stream << "\\renewcommand\\@oddhead{}" << "\n";
+       stream << "\\renewcommand\\@evenhead{}" << "\n";
+       stream << "\\renewcommand\\@oddfoot{}" << "\n";
+       stream << "\\renewcommand\\@evenfoot{}" << "\n";
+       stream << "\\renewcommand\\thepage{\\arabic{page}}" << "\n";
+     stream << "}" << "\n";
+     stream << "\\makeatother" << "\n";
+     stream << "\\pagestyle{Standard}" << "\n";
+     stream << "\\setlength\\tabcolsep{1mm}" << "\n";
+     stream << "\\renewcommand\\arraystretch{1.3}" << "\n";
+     stream << "\\title{factura_libroK}" << "\n";
+     stream << "\\author{ivanvegacbr}" << "\n";
+     stream << "\\date{" << fechaactual.currentDate().toString("yyyy-MM-dd") << "}\n";
+
+    stream << "\\begin{document}" << "\n";
+    stream << "% CUERPO" << "\n";
+
+    QString subctaactual=qsubcuentaini;
+    int lineas=0;
+    QString cadena;
+    QSqlQuery query;
+    cadena="select empresa, nif, domicilio, poblacion, cpostal, provincia, email from configuracion;";
+    query=ejecutarSQL(cadena);
+    if ( query.isActive() ) query.next();
+    QStringList direccion= query.value(2).toString().split("|");
+
+    while (subctaactual<=qsubcuentafinal)
+      {
+       while (1)
+          {
+           /*cambiado a partir de aquí*/
+           // Imprimimos cabecera del listado con nombre de empresa
+           // imprimimos codigo de subcuenta, fecha inicial, fecha final
+           // imprimimos fecha actual
+
+           stream << "\\begin{center}" << "\n";
+           stream << "\\tablehead{}" << "\n";
+           stream << "\\begin{supertabular}{m{8.5cm}m{8.5cm}}" << "\n";
+           stream << "{\\sffamily " << filtracad(nombreempresa()) << "}" << "\n\n";
+           stream << "{\\sffamily NIF: " << filtracad(query.value(1).toString()) << "}" << "\n\n";
+           stream << "{\\sffamily " << filtracad(direccion.at(1)) << "}" << "\n\n";
+           stream << "{\\sffamily " << "Telf. 933021880" << "}" << "\n\n";
+           stream << "{\\sffamily " << filtracad(direccion.at(0)) << "}" << "\n\n";
+           stream << "{\\sffamily " << filtracad(query.value(4).toString()) << ", ";
+           stream << filtracad(query.value(3).toString()) << "}" << "\n\n";
+           stream << "{\\sffamily Email: " << filtracad(query.value(6).toString()) << "}";
+           stream << "&\n";
+           stream << "\\includegraphics[width=7.4cm,height=4.2cm]{logo_nuevo.eps}\\\\" << "\n";
+           stream << "\\end{supertabular}" << "\n";
+           stream << "\\end{center}" << "\n";
+           stream << "\n";
+           //stream << "\\bigskip" << "\n";
+           stream << "\\begin{center}" << "\n";
+           stream << "\\tablehead{}" << "\n";
+           stream << "\\begin{supertabular}{m{8.5cm}m{8.5cm}}" << "\n";
+           stream << "{\\sffamily\\itshape Cliente:}" << "\n";
+           QString cliente,comercial,nif,cif,direccion2,pobl,codpostal,prov,pais,telef,fax,mail,obs,cc,cuot;
+           int si = existendatosaccesorios(subctaactual,&cliente,&comercial,&nif,
+                                           &cif,&direccion2,&pobl,&codpostal,
+                                           &prov,&pais,&telef,&fax,&mail,
+                                           &obs,&cc,&cuot);
+           stream << "{\\sffamily " << filtracad(cliente) << "}" << "\n";
+           stream << "\n";
+
+           stream << "{\\sffamily " << nif << "}" << "\n";
+           stream << "\n";
+
+           stream << "{\\sffamily " << filtracad(direccion2) << "}" << "\n";
+           stream << "\n";
+           stream << "{\\sffamily " << codpostal << ", " << filtracad(pobl) << "}\n";
+           stream << "\n";
+
+           stream << "{\\sffamily Email: " << filtracad(mail) << "}&" << "\n";
+
+           stream << "\\centering {\\sffamily\\bfseries FACTURA}\\par" << "\n";
+           stream << "\n";
+
+           stream << "\\centering {\\sffamily\\bfseries ";
+           stream << numfactura << "}\\par" << "\n";
+           stream << "\n";
+
+           stream << "\\centering\\arraybslash \\sffamily\\bfseries ";
+           stream << fechaactual.currentDate().toString("dd/MM/yy");
+           stream << "\\\\" << "\n";
+           stream << "\\end{supertabular}" << "\n";
+           stream << "\\end{center}" << "\n";
+
+           //stream << "\\bigskip" << "\n";
+           stream << "\\begin{center}" << "\n";
+           stream << "\\tablehead{}" << "\n";
+           stream << "\\begin{supertabular}{m{8.5cm} c l r|r}" << "\n";
+           stream << "\\sffamily\\bfseries\\color{black} Concepto &" << "\n";
+           stream << "\\sffamily\\bfseries\\color{black} Cantidad &" << "\n";
+           stream << "~" << "\n";
+           stream << "&" << "\n";
+           stream << "{\\sffamily\\bfseries\\color{black} Precio}" << "\n";
+           stream << "\n";
+           stream << "\\sffamily\\bfseries\\color{black} unidad/kg &" << "\n";
+           stream << "\\sffamily\\bfseries\\color{black} Subtotal\\\\\\hline" << "\n";
+
+           double bas,iva8,iva4,total;
+           cadena="select d.fecha,l.base_iva,l.tipo_iva,l.cuota_iva,l.base_iva+l.cuota_iva "
+                   "from diario d, libroiva l "
+                   "where d.pase=l.pase and l.cuenta_fra='";
+
+           cadena+=subctaactual;
+           cadena += "' and d.fecha>='";
+           cadena += fechainicial.toString("yyyy.MM.dd");
+           cadena += "' and d.fecha<='";
+           cadena += fechafinal.toString("yyyy.MM.dd");
+           cadena+="' order by d.fecha,d.asiento;";
+           query = ejecutarSQL(cadena);
+           while( (query.next()) || (lineas<26) ){
+               lineas++;
+               if(query.value(1).toDouble() > 0.0){
+                   stream << "\\sffamily\\bfseries\\color{black} ";
+                   stream << query.value(0).toDate().toString("dd/MM/yy");
+                   if ((query.value(2).toDouble()) > 4.00){
+                       iva8 = iva8+query.value(3).toDouble();
+                       stream << "  Jamon y embutido";
+                   }else{
+                       iva4 = iva4+query.value(3).toDouble();
+                       stream << "  Quesos";
+                   }
+
+                   stream <<"&" << "\n";
+                   stream << "\\sffamily\\color{black} 1 &" << "\n";
+                   stream << "\\sffamily\\color{black} B. &" << "\n";
+                   stream << "\\raggedleft \\sffamily\\color{black} ";
+                   stream << formateanumerosep(query.value(1).toDouble(),comadecimal,decimales) << QChar(8364) << "&" << "\n";
+                   stream << "\\sffamily\\color{black} ";
+                   stream << formateanumerosep(query.value(1).toDouble(),comadecimal,decimales) << QChar(8364) << "\\\\" << "\n";
+                   bas = bas+query.value(1).toDouble();
+                   total = total+query.value(4).toDouble();
+
+               }else{
+                   stream << "~" << "\n";
+                   stream << "&" << "\n";
+                   stream << "~" << "\n";
+                   stream << "&" << "\n";
+                   stream << "~" << "\n";
+                   stream << "&" << "\n";
+                   stream << "~" << "\n";
+                   stream << "&" << "\n";
+                   stream << "\\\\" << "\n";
+               }
+
+           }
+           stream << "~" << "\n";
+            stream << "&" << "\n";
+           stream << "\\multicolumn{3}{m{6.068cm}|}{\\sffamily\\color{black} Base} &" << "\n";
+           stream << "\\raggedleft\\arraybslash \\sffamily ";
+           stream << formateanumerosep(bas,comadecimal,decimales) << " " << QChar(8364) << "\\\\" << "\n";
+           stream << "~" << "\n";
+           stream << "&" << "\n";
+           stream << "\\multicolumn{3}{m{6.068cm}|}{\\sffamily\\color{black} I.V.A. ( 8\\% )} &" << "\n";
+           stream << "\\raggedleft\\arraybslash \\sffamily ";
+           stream << formateanumerosep(iva8,comadecimal,decimales) << " " << QChar(8364) << "\\\\" << "\n";
+           stream << "~" << "\n";
+            stream << "&" << "\n";
+           stream << "\\multicolumn{3}{m{6.068cm}|}{\\sffamily\\color{black} I.V.A. ( 4\\% )} &" << "\n";
+           stream << "\\raggedleft\\arraybslash \\sffamily ";
+           stream << formateanumerosep(iva4,comadecimal,decimales) << " " << QChar(8364) << "\\\\\\hline" << "\n";
+           stream << "~" << "\n";
+            stream << "&" << "\n";
+           stream << "\\multicolumn{3}{m{6.068cm}|}{\\sffamily\\bfseries TOTAL} &" << "\n";
+           stream << "\\raggedleft\\arraybslash \\sffamily\\bfseries\\itshape ";
+           stream << formateanumerosep(total,comadecimal,decimales) << " " << QChar(8364) << "\\\\" << "\n";
+
+           stream << "\\end{supertabular}" << "\n";
+           stream << "\\end{center}" << "\n";
+
+           break;
+          }
+       if (subctaactual.length()==0) break;
+       subctaactual=subcuentaposterior(subctaactual);
+       lineas=0;
+       if (subctaactual.length()==0) break;
+       }
+
+    // imprimimos final del documento latex
+    stream << "% FIN_CUERPO" << "\n";
+    stream << "\\end{document}" << "\n";
+
+    fichero.close();
+
+    if (filtrartexaxtivado()) filtratex(qfichero);
+    return numfactura;
+}
+
+
 QDate cuadimprimayor::selectAperturaejerciciosaperturacierre(QString ini, QString fin) {
     QString cadena = "select apertura from ejercicios where apertura<='";
     cadena += ini;
@@ -421,6 +721,7 @@ QDate cuadimprimayor::selectAperturaejerciciosaperturacierre(QString ini, QStrin
 }
 
 // 
+
 QDate cuadimprimayor::selectCierreejerciciosaperturacierre(QString ini, QString fin) {
     QString cadena = "select cierre from ejercicios where apertura<='";
     cadena += ini;

@@ -53,6 +53,10 @@ bss::bss() : QDialog() {
 
     ui.table->setHorizontalHeaderLabels(columnas);
     
+    ui.table->setAlternatingRowColors(true);
+    ui.table->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui.table->setEditTriggers ( QAbstractItemView::NoEditTriggers );
+
     ui.diariostableWidget->verticalHeader()->hide();
     ui.diariostableWidget->horizontalHeader()->hide();
     ui.diariostableWidget->setColumnWidth(0,150);
@@ -95,7 +99,10 @@ bss::bss() : QDialog() {
     ui.periodosTableWidget->setColumnWidth(0,110);
     ui.periodosTableWidget->hideColumn(1);
     ui.periodosTableWidget->hideColumn(2);
-    
+    ui.datas->setCheckable(false);
+    ui.datas->setFlat(true);
+    ui.datas->setTitle("");
+
     //if (!conanalitica()) ui.analiticagroupBox->setEnabled(false);
 
     connect(ui.actualizapushButton,SIGNAL(clicked()),this,SLOT(actualizar()));
@@ -249,8 +256,8 @@ void bss::actualizar()
       }
    filtro+=")";
    // añadimos en filtro intervalo de cuentas
-   if (ui.cuentasgroupBox->isChecked())
-       {
+   //if (ui.cuentasgroupBox->isChecked())
+     //  {
           ui.desdelineEdit->setText(expandepunto(ui.desdelineEdit->text(),anchocuentas()));
 		  ui.hastalineEdit->setText(expandepunto(ui.hastalineEdit->text(),anchocuentas()));
           filtro+=" AND (codigo>='";
@@ -258,7 +265,7 @@ void bss::actualizar()
           filtro+="' and codigo<='";
           filtro+=ui.hastalineEdit->text();
           filtro+="')";
-       }
+       //}
    cadena+=filtro;
   cadena+=" ORDER by codigo";
   //qdebug() << tr("BSS") << cadena;
@@ -961,10 +968,10 @@ void bss::verGrafico()
 	if (s != 1) return;
 	ui.graficoButton->setEnabled(false);
 	if (ui.actualizapushButton->isEnabled()) actualizar();
-	int bola = ui.table->rowCount()*10;
+        int bola = ui.table->rowCount()*5;
 	if(bola < 350) bola = 350;
-	if(bola > 1024) bola = 1024;
-	pastel *p = new pastel(bola);
+        if(bola > 600) bola = 600;
+        pastel *p = new pastel(bola);
 	int pos=0;
 	double val=0.0;
 	QColor c;

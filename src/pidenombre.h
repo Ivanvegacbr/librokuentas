@@ -33,6 +33,7 @@ class pidenombre : public QDialog {
                 pidenombre();
 		void asignanombreventana(QString nombre);
                 void asignaetiqueta(QString nombre);
+                void setContenido(QString nombre);
                 QString contenido(void);
                 void password();
       private:
