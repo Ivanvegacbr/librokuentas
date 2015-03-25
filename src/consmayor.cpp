@@ -27,6 +27,7 @@
 #include "cuadimprimayor.h"
 #include "editarasiento.h"
 #include "interfechas.h"
+#include "libroiva.h"
 
 consmayor::consmayor(bool concomadecimal, bool condecimales) : QDialog() {
   ui.setupUi(this);
@@ -245,10 +246,11 @@ void consmayor::cargadatos()
     double saldoin=0;
     double sumadebe=0;
     double sumahaber=0;
-    
+    ui.progressBar->reset();
+
     QString ejercicio=ui.fechas->ejercicio();
 
-    /*if (ejercicio != noejercicio()){
+    if (ejercicio != noejercicio()){
 	    QDate fechainiejercicio=inicioejercicio(ejercicio);
 	    QDate fechaejercicioanterior=fechainiejercicio.addDays(-1);
 	    QString ejercicioanterior=ejerciciodelafecha(fechaejercicioanterior);
@@ -262,10 +264,10 @@ void consmayor::cargadatos()
 	    if ( (query.isActive()) && (query.first()) )
 	      {
 	        saldoin=query.value(0).toDouble()-query.value(1).toDouble();
-	        sumadebe=query.value(0).toDouble();
-	        sumahaber=query.value(1).toDouble();
+            //sumadebe=query.value(0).toDouble();
+            //sumahaber=query.value(1).toDouble();
 	      }
-    }*/
+    }
 
     fila=0;
     while (fila<ui.mayortable->rowCount())
@@ -309,6 +311,7 @@ void consmayor::cargadatos()
 	        ui.mayortable->setItem(fila,11,newItempl); // plazo
         }
         fila++;
+        ui.progressBar->setValue(fila);
        }
    ui.debelineEdit->setText(formateanumero(sumadebe,comadecimal,decimales));
    ui.haberlineEdit->setText(formateanumero(sumahaber,comadecimal,decimales));

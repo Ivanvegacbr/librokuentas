@@ -143,7 +143,20 @@ void cuadimprimayor::botonGenFactura()
                              tr("PROBLEMAS al llamar a ")+visordvi());
    if (valor==0){
        QMessageBox::information( this, tr("VISTA PREVIA FACTURA"),tr("Se generará el documento PDF también."));
-       QString cadexec="dvipdf";
+       QString temp;
+       temp = dirtrabajo();
+       temp+=QDir::separator();
+       temp+=fich;
+       temp+=".tex";
+
+       //qDebug() << temp;
+
+       valor=generapdffichabs(temp);
+       if (valor==1)
+           QMessageBox::warning( this, tr("GENERACIÓN FACTURA"),tr("PROBLEMAS al llamar a PDFLatex"));
+       if (valor==0)
+           QMessageBox::information( this, tr("GENERACIÓN FACTURA"),tr("El documento se generó correctamente."));
+       /*QString cadexec="dvipdf";
        if (eswindows()) cadexec="dvipdfm";
        QStringList arguments;
        QObject *parent=this;
@@ -168,7 +181,7 @@ void cuadimprimayor::botonGenFactura()
             miProceso->~QProcess();
           }
 
-        miProceso->~QProcess();
+        miProceso->~QProcess();*/
 
     }
 }
