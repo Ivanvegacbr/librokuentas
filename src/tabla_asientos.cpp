@@ -787,8 +787,30 @@ void tabla_asientos::incorporar()
         if(existePase(veces,fecha,QString("%1").arg(fecha.weekNumber())) && !editando)
 	    {
 	    	QMessageBox::warning( this, tr("Tabla de apuntes"),
-       		tr("ERROR: La entrada %1 de la tabla ya existe en el Diario.\nLa entrada NO se añadirá al diario.").arg(veces+1));
-        	return;
+            tr("ERROR: La entrada %1 de la tabla ya existe en el Diario.\nLa entrada se BORRARÁ del diario si no se borra el pase del libro antes de Incorporar.").arg(veces+1));
+            if (QMessageBox::question(
+                     this,
+                     tr("Tabla de apuntes"),
+                     tr("¿ Desea borrar el pase en conflicto ?"),
+                     tr("&Sí"), tr("&No"),
+                     QString::null, 0, 1 ) ==1 )
+                                   return;
+            else{
+                QString caddel;
+                caddel="delete from libroiva where pase=";
+                caddel+=ui.Tablaapuntes->item(veces,15)->text();
+                query = ejecutarSQL(caddel);
+                caddel="delete from diario where pase=";
+                caddel+=ui.Tablaapuntes->item(veces,15)->text();
+                query = ejecutarSQL(caddel);
+                if (!query.isActive() && query.size() == 0)
+                    QMessageBox::critical(this,tr("Tabla de apuntes"),tr("Ha habido un error al borrar el pase del diario. Es posible que el pase no exista en el libro de IVA o ya se haya borrado."));
+                else
+                    QMessageBox::information(this,tr("Tabla de apuntes"),tr("El pase %1 se ha borrado correctamente del diario.").arg(ui.Tablaapuntes->item(veces,15)->text()));
+
+            }
+
+            return;
     	}
     	
 	    veces++;
@@ -1300,7 +1322,7 @@ ui.lcds->pasaValores(debe1,sumadebe,sumahaber,decimales);
  
  if (cadasientoreal.length()>0){
 	 if ((sumadebe>0.0001 || sumadebe<-0.0001)
-	     && (sumahaber>0.0001 || sumahaber<-0.0001))
+         || (sumahaber>0.0001 || sumahaber<-0.0001))
 	 { ui.actionIncorporar->setEnabled(TRUE);
 	     // ui.BotonIncorporar->setFocus();
 	     return;

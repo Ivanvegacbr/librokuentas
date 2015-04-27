@@ -24,6 +24,7 @@
 #include "basedatos.h"
 #include "buscasubcuenta.h"
 #include "pidenombre.h"
+#include "introfecha.h"
  
 cuadimprimayor::cuadimprimayor(bool concomadecimal, bool condecimales) : QDialog() {
   ui.setupUi(this);
@@ -476,6 +477,11 @@ QString cuadimprimayor::generalatexfactura( QString qsubcuentaini, QString qsubc
    f->exec();
    QString numfactura=f->contenido();
    f->~pidenombre();
+   introfecha *i = new introfecha();
+   i->setWindowTitle(tr("Fecha factura"));
+   int resultado = i->exec();
+   QDate fechafact = i->fecha();
+   i->~introfecha();
 
     if (QString::compare(qsubcuentaini,qsubcuentafinal)>0) return numfactura;
    QString qfichero=dirtrabajo();
@@ -607,7 +613,7 @@ QString cuadimprimayor::generalatexfactura( QString qsubcuentaini, QString qsubc
            stream << "\n";
 
            stream << "\\centering\\arraybslash \\sffamily\\bfseries ";
-           stream << fechaactual.currentDate().toString("dd/MM/yy");
+           stream << fechafact.toString("dd/MM/yy");
            stream << "\\\\" << "\n";
            stream << "\\end{supertabular}" << "\n";
            stream << "\\end{center}" << "\n";

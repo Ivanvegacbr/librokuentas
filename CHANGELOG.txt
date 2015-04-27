@@ -1,8 +1,12 @@
 Versión 0.7.8
 - Rectificada la función de libro iva de facturas recibidas para que solo visualize las facturas de proveedores.
 - Añadida la opción en libro IVA para solo incluir cuentas anuales superiores a un valor fijado.
-- Reparada la función de importar pases de CAIXABANK desde un archivo de texto. Actualizado hasta primer trimestre 2015.
+- Reparada la función de importar pases de CAIXABANK desde un archivo de texto. Actualizado web primer trimestre 2015.
 - Rectificadas las funciones de generarPDFs para usar el ejecutable <pdflatex> mucho más compatible en sus resultados. En principal.cpp y en cuadimprimayor.cpp.
+- Añadida llamanda a función de pedir fecha para la generación de la factura en cuadimprimayor.cpp.
+- Corregido error de pérdida de pases en diario si estaba repetido en el diario y en espera cuando se editaba el asiento/semana en tabla_asientos.cpp, se añade también
+una función en ejecución para borrar el pase conflictivo del diario antes de añadir el asiento/semana.
+
 
 Version 0.7.7.1
 - Modificado importación automática de pases de la Caixa para su nueva web (Julio 2011)
