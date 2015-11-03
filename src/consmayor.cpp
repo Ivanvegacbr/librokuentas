@@ -790,9 +790,10 @@ QSqlQuery consmayor::selectSumasDiario (QDate fechainiejercicio, QDate final, QS
 		cadena += fechainiejercicio.toString("yyyy.MM.dd");
 	    cadena += "' and fecha<'";
 	    cadena += final.toString("yyyy.MM.dd");
-	    cadena += "' and ";
+        cadena += "' and ";
     }
     cadena += condicion;
+    //cadena +="'";
     return ejecutarSQL(cadena);
 }
 
@@ -801,8 +802,10 @@ QSqlQuery consmayor::selectSumasDiarioHasta (QDate final, QString condicion) {
     if (final.isValid()){
 	    cadena += "fecha<'";
 	    cadena += final.toString("yyyy.MM.dd");
-	    cadena += "' and ";
+        cadena += "' and ";
     }
     cadena += condicion;
+    //cadena += "'";
+    qDebug() << cadena;
     return ejecutarSQL(cadena);
 }

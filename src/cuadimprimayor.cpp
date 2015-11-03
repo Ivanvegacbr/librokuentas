@@ -347,13 +347,13 @@ void cuadimprimayor::generalatexmayor( QString qsubcuentaini, QString qsubcuenta
 	   double saldo=0;
 	   QString cadsaldo="";
 	   QString cadnum;
-           if ( (query.isActive()) && (query.first()) )
+          if ( (query.isActive()) && (query.first()) )
               {
-               saldoin=query.value(0).toDouble()-query.value(1).toDouble();
-               sumadebe=query.value(0).toDouble();
-               sumahaber=query.value(1).toDouble();
+               //saldoin=query.value(0).toDouble()-query.value(1).toDouble();
+               sumadebeextracto=query.value(0).toDouble();
+               sumahaberextracto=query.value(1).toDouble();
               }
-	 
+
          query = select5Diariofechascuentaorderfechapase(fechainicial, fechafinal, subctaactual);
 	     saldo=saldoin;
          QString concepto;
@@ -391,8 +391,8 @@ void cuadimprimayor::generalatexmayor( QString qsubcuentaini, QString qsubcuenta
 	      saldo+=query.value(3).toDouble()-query.value(4).toDouble();
 	      sumadebe+=query.value(3).toDouble();
 	      sumahaber+=query.value(4).toDouble();
-	      sumadebeextracto+=query.value(3).toDouble();
-	      sumahaberextracto+=query.value(4).toDouble();
+          //sumadebeextracto+=query.value(3).toDouble();
+          //sumahaberextracto+=query.value(4).toDouble();
 	      cadsaldo=formateanumerosep(saldo,comadecimal,decimales);
 	      stream << cadsaldo << " \\\\ \n ";
                       stream << "\\hline\n";
@@ -556,7 +556,7 @@ QString cuadimprimayor::generalatexfactura( QString qsubcuentaini, QString qsubc
     query=ejecutarSQL(cadena);
     if ( query.isActive() ) query.next();
     QStringList direccion= query.value(2).toString().split("|");
-
+    QString iva0st, iva1st;
     while (subctaactual<=qsubcuentafinal)
       {
        while (1)
@@ -631,8 +631,8 @@ QString cuadimprimayor::generalatexfactura( QString qsubcuentaini, QString qsubc
            stream << "\\sffamily\\bfseries\\color{black} unidad/kg &" << "\n";
            stream << "\\sffamily\\bfseries\\color{black} Subtotal\\\\\\hline" << "\n";
 
-           double bas,iva8,iva4,total;
-           cadena="select d.fecha,l.base_iva,l.tipo_iva,l.cuota_iva,l.base_iva+l.cuota_iva "
+           double bas,iva8,iva4,total,prunidad,unidades,subtotal;
+           cadena="select d.fecha,l.base_iva,l.tipo_iva,l.cuota_iva,l.base_iva+l.cuota_iva,d.pase,d.concepto "
                    "from diario d, libroiva l "
                    "where d.pase=l.pase and l.cuenta_fra='";
 
@@ -643,26 +643,47 @@ QString cuadimprimayor::generalatexfactura( QString qsubcuentaini, QString qsubc
            cadena += fechafinal.toString("yyyy.MM.dd");
            cadena+="' order by d.fecha,d.asiento;";
            query = ejecutarSQL(cadena);
+           QString concepto, detalle, tripor;
+           bool sip;
            while( (query.next()) || (lineas<26) ){
                lineas++;
+               concepto = query.value(6).toString();
+               unidades = 1.0;
+               tripor = "B.";
                if(query.value(1).toDouble() > 0.0){
                    stream << "\\sffamily\\bfseries\\color{black} ";
                    stream << query.value(0).toDate().toString("dd/MM/yy");
-                   if ((query.value(2).toDouble()) > 4.00){
+                   detalle = concepto.section("-",0,0).simplified();
+
+                   if ((query.value(2).toDouble()) > 5.00){
                        iva8 = iva8+query.value(3).toDouble();
-                       stream << "  Jamon y embutido";
+                       if (detalle.length()==0)   detalle = "Jamon y embutido";
+                       iva1st = query.value(2).toString();
                    }else{
                        iva4 = iva4+query.value(3).toDouble();
-                       stream << "  Quesos";
+                       if (detalle.length()==0)   detalle = "Quesos";
+                       iva0st = query.value(2).toString();
                    }
 
+                   stream << "    " << detalle;
+                   detalle = concepto.section("-",1,1).simplified();
+
+                   if(detalle.length()>0){
+                       unidades = detalle.section(" ",0,0).toDouble(&sip);
+                       tripor = detalle.section(" ",1,1).simplified();
+                   }
+                   if(!sip) unidades = 1.0;
+
+                   subtotal = query.value(1).toDouble();
+                   prunidad = subtotal / unidades;
+
                    stream <<"&" << "\n";
-                   stream << "\\sffamily\\color{black} 1 &" << "\n";
-                   stream << "\\sffamily\\color{black} B. &" << "\n";
+                   stream << "\\sffamily\\color{black} " << formateanumerosep(unidades,comadecimal,decimales) << " &" << "\n";
+                   stream << "\\sffamily\\color{black} " << tripor << " &" << "\n";
                    stream << "\\raggedleft \\sffamily\\color{black} ";
-                   stream << formateanumerosep(query.value(1).toDouble(),comadecimal,decimales) << QChar(8364) << "&" << "\n";
+                   stream << formateanumerosep(prunidad,comadecimal,decimales) << " " << QChar(8364) << "&" << "\n";
                    stream << "\\sffamily\\color{black} ";
-                   stream << formateanumerosep(query.value(1).toDouble(),comadecimal,decimales) << QChar(8364) << "\\\\" << "\n";
+                   stream << formateanumerosep(subtotal,comadecimal,decimales) << " " << QChar(8364) << "\\\\" << "\n";
                    bas = bas+query.value(1).toDouble();
                    total = total+query.value(4).toDouble();
 
@@ -678,6 +699,8 @@ QString cuadimprimayor::generalatexfactura( QString qsubcuentaini, QString qsubc
                    stream << "\\\\" << "\n";
                }
 
+               guardaNumFact(subctaactual,query.value(5).toString(),fechafact,numfactura);
+
            }
            stream << "~" << "\n";
             stream << "&" << "\n";
@@ -686,12 +709,14 @@ QString cuadimprimayor::generalatexfactura( QString qsubcuentaini, QString qsubc
            stream << formateanumerosep(bas,comadecimal,decimales) << " " << QChar(8364) << "\\\\" << "\n";
            stream << "~" << "\n";
            stream << "&" << "\n";
-           stream << "\\multicolumn{3}{m{6.068cm}|}{\\sffamily\\color{black} I.V.A. ( 8\\% )} &" << "\n";
+
+
+           stream << "\\multicolumn{3}{m{6.068cm}|}{\\sffamily\\color{black} I.V.A. ( " << iva1st << "\\% )} &" << "\n";
            stream << "\\raggedleft\\arraybslash \\sffamily ";
            stream << formateanumerosep(iva8,comadecimal,decimales) << " " << QChar(8364) << "\\\\" << "\n";
            stream << "~" << "\n";
             stream << "&" << "\n";
-           stream << "\\multicolumn{3}{m{6.068cm}|}{\\sffamily\\color{black} I.V.A. ( 4\\% )} &" << "\n";
+           stream << "\\multicolumn{3}{m{6.068cm}|}{\\sffamily\\color{black} I.V.A. ( " << iva0st << "\\% )} &" << "\n";
            stream << "\\raggedleft\\arraybslash \\sffamily ";
            stream << formateanumerosep(iva4,comadecimal,decimales) << " " << QChar(8364) << "\\\\\\hline" << "\n";
            stream << "~" << "\n";

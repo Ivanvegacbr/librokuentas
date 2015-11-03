@@ -70,6 +70,7 @@ QString cuentadeivasoportado();
 QString cuentadeivarepercutido();
 void borraAsientoEjercicio(QString asiento,QString ejercicio);
 void guardaFechaPago(QString cuenta, QString pase, QDate fecha , QString fact);
+void guardaNumFact(QString cuenta, QString pase, QDate fecha , QString fact);
 QString subcuentaanterior(QString qcodigo);
 QString subcuentaposterior(QString qcodigo);
 int ejerciciocerrando(QString ejercicio);

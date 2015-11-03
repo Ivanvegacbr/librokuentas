@@ -1051,6 +1051,24 @@ void guardaFechaPago(QString cuenta, QString pase, QDate fecha , QString fact)
 	ejecutarSQL(cadquery);
 }
 
+void guardaNumFact(QString cuenta, QString pase, QDate fecha , QString fact)
+{
+    QString cadquery;
+    cadquery="UPDATE diario SET documento='";
+    cadquery+=fact;
+    cadquery+="'";
+    cadquery+=" WHERE pase='";
+    cadquery+=pase;
+    cadquery+="'";
+    if (fecha.isValid()){
+        guardaFechaPago(cuenta,pase,fecha,fact);
+    }
+    cadquery+=" AND cuenta='";
+    cadquery+=cuenta;
+    cadquery+="';";
+    ejecutarSQL(cadquery);
+}
+
 QString subcuentaanterior(QString qcodigo)
 {
  QString cadquery;
